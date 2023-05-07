@@ -13,7 +13,7 @@
   <p>
   <button onclick="ShowBasis()">Get Basis</button>
   <button onclick="multinomial()">Get Equations</button>
-  <button onclick="">Dimension</button>
+  <button onclick="dimension()">Dimension</button>
   </p>
 
   <p id="basis"></p>
@@ -109,6 +109,10 @@ basis=basis.join('&nbsp;+ ')
   document.getElementById('Equation').innerHTML=`Homogenius Equation<br>${basis}=0`
 }
 
+var dimension=()=>{var degree= document.getElementById('degree').value
+  var variables=  document.getElementById('variable').value
+var basis=Basis(degree,variables).length
+  document.getElementById('Dimension').innerHTML=`The Dimension is ${basis}`}
 </script>
 </body>
 </html>
