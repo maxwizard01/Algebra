@@ -5,7 +5,7 @@
   <style type="text/css">
   *{text-align: center;}
   input{margin: 14px;
-        border: solid 3px black;
+        border: solid 4px black;
         height: 30px;}
     p{word-break: break-word;
      line-height: 20px;
@@ -107,7 +107,7 @@ function ShowBasis(){
   var degree= document.getElementById('degree').value
   var variables=  document.getElementById('variable').value
   basis=Basis(degree,variables).join(', &nbsp;')
-  document.getElementById('basis').innerHTML=`A Basis is<br> {${basis}}`
+  document.getElementById('Dimension').innerHTML=`A Basis is<br> {${basis}}`
 }
 
 function multinomial(){
@@ -115,7 +115,7 @@ function multinomial(){
   var variables=  document.getElementById('variable').value
 var basis=Basis(degree,variables).map((el,i)=>`a<sub>${i}</sub>${el}`)
 basis=basis.join('&nbsp;+ ')
-  document.getElementById('Equation').innerHTML=`Homogenius Equation<br>${basis}=0`
+  document.getElementById('Dimension').innerHTML=`Homogenius Equation<br>${basis}=0`
 }
 
 var dimension=()=>{var degree= document.getElementById('degree').value
