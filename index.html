@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    p{word-break: break-word;}
+  </style>
+</head>
+<body>
+
+  <p><label>Variable</label><input type="number" min=1 id="variable"></p>
+  <p><label>Degree</label><input type="number" min=1 id="degree"></p>
+  <p>
+  <button onclick="ShowBasis()">Get Basis</button>
+  <button onclick="multinomial()">Get Equations</button>
+  <button onclick="">Dimension</button>
+  </p>
+
+  <p id="basis"></p>
+  <p id="Equation"></p>
+  <p id="Dimension"></p>
+<script type="text/javascript">
+  function combinationsWithReplacement(arr, k) {
+  const result = [];
+  const current = [];
+  function backtrack(start, remaining) {
+    if (remaining === 0) {
+      result.push([...current]);
+      return;
+    }
+    for (let i = start; i < arr.length; i++) {
+      current.push(arr[i]);
+      backtrack(i, remaining - 1);
+      current.pop();
+    }
+  }
+  
+  backtrack(0, k);
+  return result;
+}
+
+// Example usage
+const arr = [1, 2, 3,4];
+const k = 2;
+
+function permute(arr) {
+  const result = [];
+  function backtrack(start) {
+    if (start === arr.length - 1) {
+      result.push([...arr]);
+      return;
+    }
+    
+    for (let i = start; i < arr.length; i++) {
+      [arr[start], arr[i]] = [arr[i], arr[start]];
+      backtrack(start + 1);
+      [arr[start], arr[i]] = [arr[i], arr[start]];
+    }
+  }
+  
+  backtrack(0);
+  return removeDuplicateArrays(result);
+  }
+
+function removeDuplicateArrays(arr) {
+  const uniqueArrays = arr.filter((innerArr, index) => {
+    return index === arr.findIndex((arr) => {
+      return JSON.stringify(arr) === JSON.stringify(innerArr);
+    });
+  });
+
+  return uniqueArrays;
+}
+
+function variablesWithPower(xi,power){
+    if(power==0){return ''}
+    else if(power==1){return `X<sub>${xi}</sub>`}
+    else {return `X<sub>${xi}</sub><sup>${power}</sup>`}
+ }
+
+function combine(n,r){
+      var iterable=[]
+      let start =0
+      while(start<n+1){iterable.push(start);start++}
+      let com=combinationsWithReplacement(iterable,r)
+      index1=[]
+      unique=com.filter((el)=>el.reduce((cur,prev)=>cur+=prev,0)==n);
+      var possibleWay=[]
+      unique.forEach((el)=>possibleWay=[...possibleWay,...permute(el)])
+      return possibleWay}
+
+function Basis(degree,variables){
+      powersArray=combine(degree,variables)
+      let term=powersArray.map((el)=>(el.map((power,i)=>variablesWithPower(i,power)).join('')))
+      return term}
+
+function ShowBasis(){
+  var degree= document.getElementById('degree').value
+  var variables=  document.getElementById('variable').value
+  basis=Basis(degree,variables).join(', &nbsp;')
+  document.getElementById('basis').innerHTML=`A Basis is<br> {${basis}}`
+}
+
+function multinomial(){
+  var degree= document.getElementById('degree').value
+  var variables=  document.getElementById('variable').value
+var basis=Basis(degree,variables).map((el,i)=>`a<sub>${i}</sub>${el}`)
+basis=basis.join('&nbsp;+ ')
+  document.getElementById('Equation').innerHTML=`Homogenius Equation<br>${basis}=0`
+}
+
+</script>
+</body>
+</html>
