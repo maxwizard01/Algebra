@@ -1,0 +1,203 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="anovaCal.css"> 
+    <title>Vector Space Calculator</title>
+    <style type="text/css">
+        input{height: 22px;}
+    </style>
+</head>
+
+<body>
+<div class="frame">
+        <h1 class="anova">Vector Space Calculator</h1>
+   <div class="container">
+    <div class="Nav">
+
+        <div class="dropdown">
+            <button class="dropbtn">Switch way  </button>
+            <div class="dropdown-content">
+                <span class="OneWay">One Way</span>
+                <span class="TwoWay">Two Way</span>
+            </div>
+          </div> 
+
+
+        <div class="dropdown">
+            <button class="dropbtn">Adjust column or row</button>
+            <div class="dropdown-content">
+
+                <div class="adjust-content">
+                    <button class="inner" onclick="addColumn1('dataRows1')">+</button>
+                    Column
+                    <button class="inner" onclick="addColumn1('dataRows1')">-</button>
+                </div>
+
+                <div class="adjust-content">
+                    <button class="inner" onclick="addRow1('dataRows1')">+</button>
+                   Row
+                    <button class="inner" onclick="addRow1('dataRows1')">-</button>
+                </div>
+
+                
+            </div>
+        </div>
+
+          
+    </div>
+        <div class="form">
+          <form action="">
+            <table id="oneWay">
+             <tr class="dataRows1">
+                <th class="head">
+                <p class="heading"><i>Order</i></p>
+                  <input type="number" class="input input1" autofocus id="variable">
+                    </th>
+                        <th class="head">
+                            <p class="heading"><i>Degree</i></p>
+                            <input type="number" class="input input1" autofocus id="degree">
+                        </th>
+                           
+                    </tr>
+                  
+                 </table>
+                
+                </form>
+
+                 <div class="btm-nav">              
+                            <button >Clear all</button>
+                             <button onclick="dimension()">Compute Dimension</button>
+                              <button onclick="multinomial()">Compute Basis</button>
+
+                        <button id="compute" onclick="" >Compute Result</button>
+                      </div>
+
+                 </div>
+              
+              
+            </form>
+               </div>
+   </div>
+</div>
+
+ 
+ 
+ <div class="solution">
+  <h3 class="SSWHeading"></h3>
+
+    <div id="Dimension" class="animate-bottom"></div>
+
+<div id="loader"></div>
+<div style="display:none;" id="myDiv" class="animate-bottom">
+    <div id="summary" class="animate-bottom" > </div>
+         
+    </div>
+    
+ </div>
+
+
+<script type="text/javascript" src="ftable.js"></script>
+<script src="anovaSSW.js"></script>
+<script src="anovaSSB.js" ></script>
+<script type="text/javascript">
+   function combinationsWithReplacement(arr, k) {
+  const result = [];
+  const current = [];
+  function backtrack(start, remaining) {
+    if (remaining === 0) {
+      result.push([...current]);
+      return;
+    }
+    for (let i = start; i < arr.length; i++) {
+      current.push(arr[i]);
+      backtrack(i, remaining - 1);
+      current.pop();
+    }
+  }
+  
+  backtrack(0, k);
+  return result;
+}
+
+// Example usage
+const arr = [1, 2, 3,4];
+const k = 2;
+
+function permute(arr) {
+  const result = [];
+  function backtrack(start) {
+    if (start === arr.length - 1) {
+      result.push([...arr]);
+      return;
+    }
+    
+    for (let i = start; i < arr.length; i++) {
+      [arr[start], arr[i]] = [arr[i], arr[start]];
+      backtrack(start + 1);
+      [arr[start], arr[i]] = [arr[i], arr[start]];
+    }
+  }
+  
+  backtrack(0);
+  return removeDuplicateArrays(result);
+  }
+
+function removeDuplicateArrays(arr) {
+  const uniqueArrays = arr.filter((innerArr, index) => {
+    return index === arr.findIndex((arr) => {
+      return JSON.stringify(arr) === JSON.stringify(innerArr);
+    });
+  });
+
+  return uniqueArrays;
+}
+
+function variablesWithPower(xi,power){
+    if(power==0){return ''}
+    else if(power==1){return `X<sub>${xi}</sub>`}
+    else {return `X<sub>${xi}</sub><sup>${power}</sup>`}
+ }
+
+function combine(n,r){
+      var iterable=[]
+      let start =0
+      while(start<n+1){iterable.push(start);start++}
+      let com=combinationsWithReplacement(iterable,r)
+      index1=[]
+      unique=com.filter((el)=>el.reduce((cur,prev)=>cur+=prev,0)==n);
+      var possibleWay=[]
+      unique.forEach((el)=>possibleWay=[...possibleWay,...permute(el)])
+      return possibleWay}
+
+function Basis(degree,variables){
+      powersArray=combine(degree,variables)
+      let term=powersArray.map((el)=>(el.map((power,i)=>variablesWithPower(i,power)).join('')))
+      return term}
+
+function ShowBasis(){
+  var degree= document.getElementById('degree').value
+  var variables=  document.getElementById('variable').value
+  basis=Basis(degree,variables).join(', &nbsp;')
+  document.getElementById('Dimension').innerHTML=`A Basis is<br> {${basis}}`
+}
+
+function multinomial(){
+  var degree= document.getElementById('degree').value
+  var variables=  document.getElementById('variable').value
+var basis=Basis(degree,variables).map((el,i)=>`a<sub>${i}</sub>${el}`)
+basis=basis.join('&nbsp;+ ')
+  document.getElementById('Dimension').innerHTML=`Homogenius Equation<br>${basis}=0`
+}
+
+var dimension=()=>{var degree= document.getElementById('degree').value
+  var variables=  document.getElementById('variable').value
+var basis=Basis(degree,variables).length
+  document.getElementById('Dimension').innerHTML=`The Dimension is ${basis}`}
+  
+</script>
+
+ <div></div>
+</body>
+</html>
