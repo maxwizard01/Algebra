@@ -50,7 +50,7 @@ def addCoefficient(arr):
     arrWithCoefficient=[]
     nuts=[i for i in range(len(arr))]
     for i in nuts:
-        coefficienWithVariable='a'+subs(i)+str(arr[i])
+        coefficienWithVariable='a'+sub(i)+str(arr[i])
         arrWithCoefficient.append(coefficienWithVariable)
     return arrWithCoefficient
 
@@ -60,7 +60,7 @@ class Homogeneous:
     self.variable = var
     self.Basis=self.Basis()
     self.Dimension=len(self.Basis)
-    self.Function='+'.join(map(str,self.Basis))+'=0'
+    self.Function='+'.join(map(str,addCoefficient( self.Basis)))+'=0'
   
   def __repr__(self):
       return self.function
@@ -136,15 +136,14 @@ class SymmetricTensors:
 ##TESTING THE MODUE
 class Polynomials:
   def __init__(self, deg, var):
+    import math
     self.degree = deg
     self.variable = var
     self.Basis=self.Basis()
+    self.Basis[0]=1
     self.Dimension=len(self.Basis)
-    self.Function='+'.join(map(str,self.Basis))
+    self.Function='+'.join(map(str,addCoefficient(self.Basis))).replace('a₀1','a₀')
   
-  def __repr__(self):
-      return self.function
-    
   def Basis(self):
       degree=self.degree
       variables=self.variable
@@ -153,10 +152,9 @@ class Polynomials:
       for powerItems in powersArray:
           term=[(variablesWithPower(i, powerItems[i])) for i in range(variables)]
           m.append(''.join(map(str,term)))
-      m[0]='1'
+      m[0]=1
       return m
-  
-    
+      
   def combine(self):
       n=self.degree
       r=self.variable 
@@ -168,66 +166,18 @@ class Polynomials:
               [index1.append(el) for el in permutation(list(i))]
       return index1
   
+#Testing the Codes for Symmetric Tensor
+#for i in range(2,8):
+ #   M=SymmetricTensors(3, i)
+  #  print(M.Dimension)
 
-class Symmetric:
-    def __init__(self, deg, var):
-        self.order = deg
-        self.vector = var
-        self.Tensor=self.Tensor()['0']
-        self.Basis=self.Tensor()['1']
-        self.Dimension=len(self.uniqueIndex())
-        
-        
-    
-    def permute(self,arr):
-        index=[]
-        perm=permutations(arr)
-        [index.append(tuple(i)) for i in tuple(perm) if tuple(i) not in index]
-        return index
-    
-    def uniqueIndex(self):
-        k=[i for i in range(self.vector)]
-        r=[i for i in combinations_with_replacement(k,self.order)]
-        return r  
-    
-    def Tensor(self):
-        vector=self.vector
-        order=self.order
-        import numpy as np
-        shape = (vector,)*order  # 2 layers, 3 rows, 4 columns
-        # Define the string to fill the array
-        fill_value = 'text'
-        # Create the n-dimensional array with the same string as entry
-        arr = np.full(shape,'text' )
-        k=[i for i in range(vector)]
-        r=combinations_with_replacement(k,order)
-        d=np.array([self.permute(j) for j in r],dtype=object)
-        basis=[]
-        nutIndex=0
-        for t in d:
-            basisElementPattern=np.full(shape,0 )
-            print(basisElementPattern)
-            for m in t:
-                item='a'+sub(nutIndex)
-                arr[m]=''.join(item)
-                basisElementPattern[m]=1
-            nutIndex+=1
-            basis.append(basisElementPattern)
+#Testing the Codes for Homogenous
+#for i in range(2,8):
+ #   M=Homogeneous(3, i)
+  #  print(M.Basis)
+  #  print(M.Dimension)
 
-        return {'0':arr,'1':basis}
-        #for index, value in np.ndenumerate(m):
-        #m[index] = value + 1
-    
-# import numpy as np
-# for m in range(3,7):
-#     for i in range(1,6-1):
-#         M=Homogeneous(m,i)
-#         print('Polynomial of Degree three in '+str(i)+' variables\\\\')
-#         print('$'+M.Function+'$')
-#         print('A Basis is\\\\')
-#         print('$\\begin{Bmatrix}',M.Basis,'\end{Bmatrix}$\\\\')
-#         print('Dimension=',M.Dimension,'\\\\\\\\')
-#         print('\\\\\\\\\\')
-
-M=Homogeneous(2, 4)
-print(M.Basis)
+#Testing the Codes for polynomials
+#for i in range(2,8):
+ #   M=Polynomials(3, i)
+  #  print(M.Dimension)
