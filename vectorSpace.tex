@@ -1,0 +1,1643 @@
+ \documentclass[45pt]{article}
+\usepackage{blindtext}
+\usepackage[english]{babel}
+\usepackage[letterpaper,total={6in,8in},top=2cm, bottom=2cm, left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{mathptmx}
+\usepackage[10pt]{moresize}
+% Useful packages
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{amsfonts}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage[utf8]{inputenc}
+
+\title{GROUP 1}
+\author{Project 1}
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        {\fontsize{70}{70}\selectfont MAT 212}
+        
+        \vspace{1cm}
+        \Huge
+        \textbf{Linear Algebra}
+        
+        \vspace{0.5cm}
+        \LARGE
+        Vector Space
+        
+        \vspace{0.5cm}
+        {\fontsize{50}{50}\selectfont Group 1}
+        \vspace{0.6cm}        
+            
+        A project providing solution to  different problems on \\vector Space.
+        \vspace{0.8cm}
+            
+        \includegraphics[width=0.4\textwidth]{UI logo.png}
+
+        \vspace{1.0cm}
+        
+        \Large{
+         Mathematics (BSc. and B.Ed)\\
+        University of Ibadan\\
+        Nigeria.\\
+        21/04/2023}
+            
+    \end{center}
+\end{titlepage}
+\begin{center}
+\LARGE
+\begin{tabular} { |p {1 cm}| p {5 cm} | p {2 cm} | p {5 cm} | p{2.2cm}|}
+
+    \hline
+    \multicolumn{5} { | c | }{\LARGE{Contributors}}\\
+    \hline
+    Sn & Names & Matric & Skill &Signature\\
+    \hline
+1& Oladejo abdullahi Titlayo & 221382 & maths and webdev Tutor&\\
+\hline
+ 2& Ladoja Abimifoluwa Jemimah & 222667 & copy writing&\\
+ \hline
+3 & Oladapo Testimony Emmanuel & 222678& NFA&\\
+  \hline
+ 4 & Akinsola, Qudus Oladimeji & 221375 & Graphics Design&\\
+\hline
+ 5&OLUWADARA ADEOLUWA & 222691 & Product Management&\\
+  \hline
+  4&BLESSING ADEBAYO & 222634& GRAPHIC DESIGN&\\
+  \hline
+  7&Joshua Ebenezer Dayo & 222665& NFA&\\
+  \hline
+  8&Olanrewaju Bunmi Emmanuel &222681& Laptop Repair Specialist / content Creator&\\
+  \hline
+  9 & Falola Micheal Oluwatobi & 223769 &  web Design&\\
+ \hline
+ 10&Oladipupo Joy Oluwatomisin & 230179 & entrepreneur&\\
+  \hline
+11& Olatunde Victor Olubiyi & 222686 &  NFA&\\
+   
+    \hline
+ \end{tabular}
+ \end{center}
+ \vspace{2.0cmq}
+
+
+ 
+\section*{\Huge{Project 1}}
+\Large{\pmb{Questions}}
+\begin{enumerate}
+  \item Prove that 
+
+  
+  $ Y \pmb{=} \begin{Bmatrix}
+    \begin{pmatrix} 
+    & a  \\
+    & b & \\
+    & c & \\
+    & d & \\
+    \end{pmatrix} \in \mathbb{R}^4 : ~
+    a-b+3d\pmb{=}0
+    \end{Bmatrix}$
+  
+is a subspace of $\mathbb{R}^4\\\\$
+  
+  \item Prove that 
+$X \pmb{=} \begin{Bmatrix}
+    A \in M_n(\mathbb{R}): ~ A=A^T
+    \end{Bmatrix}$ is a subspace of $ M_n(\mathbb{R})$
+\item Prove that
+$ \mathcal{C} \subset M_n(\mathbb{R}) ~ of ~ skewed~ symetric$ \\
+$\mathcal{C} \pmb{=} \begin{Bmatrix}
+    B \in M_n(\mathbb{R}): ~ B=-B^T
+	\end{Bmatrix}$
+is a subspace of $ M_n(\mathbb{R})$
+ \item Show that the set  $\mathcal{B}\subset M_n(\mathbb{F})$ of upper triangular matrices is a subspace of $M_n(\mathbb{F})$ i.e $\mathcal{B}=\{ D \in M_n(\mathbb{R}): a_{ij}=0$ if $ i>j \}$
+
+\end{enumerate}
+$ $\\
+
+\Large{\pmb{Solutions}}
+\begin{enumerate}
+    \item Since ~ 0-0+3*0=0, then Y has zero element i.e \\ \\
+$ there ~ exist \begin{pmatrix}
+    & 0  \\
+    & 0 & \\
+    & 0 & \\
+    & 0 & \\
+    \end{pmatrix}
+    \in Y
+      $ \\\\
+\pmb{Hence Y is not empty.} \\ \\ 
+
+choose $x, y \in Y$ then \\\\
+$x = \begin{pmatrix}
+    & x_1  \\
+    & x_2 & \\
+    & x_3 & \\
+    & x_4 & \\
+    \end{pmatrix} ~ and ~ y=  \begin{pmatrix}
+    & y_1  \\
+    & y_2 & \\
+    & y_3 & \\
+    & y_4 & \\
+    \end{pmatrix} \\\\
+    where ~ x_1-x_2+3x_4=0 ~ and ~ y_1-y_2+3y_4=0
+      $ \\\\
+
+choose $\alpha \in \mathbb{F}$ where $\mathbb{F}$ is a Field then, \\\\
+x+$\alpha y= \begin{pmatrix}
+    & x_1  \\
+    & x_2 & \\
+    & x_3 & \\
+    & x_4 & \\
+    \end{pmatrix} + \alpha \begin{pmatrix}
+    & y_1  \\
+    & y_2 & \\
+    & y_3 & \\
+    & y_4 & \\
+    \end{pmatrix} =
+    \begin{pmatrix}
+    & x_1  \\
+    & x_2 & \\
+    & x_3 & \\
+    & x_4 & \\
+    \end{pmatrix} +
+    \begin{pmatrix}
+    & \alpha y_1  \\
+    & \alpha y_2 & \\
+    & \alpha y_3 & \\
+    & \alpha y_4 & \\
+    \end{pmatrix}\\\\$
+    
+    $ x+ \alpha y = 
+    \begin{pmatrix}
+    & x_1 + \alpha y_1  \\
+    & x_2 + \alpha y_2& \\
+    & x_3 + \alpha y_3& \\
+    & x_4 + \alpha y_4& \\
+    \end{pmatrix} $ \\\\\\\\
+Now we need to check whether $(x+ \alpha y )$ is an element in Y or not.  To do that we will check for the condition necessary for element in Y.\\
+
+$(x_1+\alpha y_1) - (x_2+\alpha y_2) +3(x_4+\alpha y_4)\\\\$ 
+$x_1+\alpha y_1 - x_2-\alpha y_2 +3x_4+3\alpha y_4\\\\$
+\pmb{Rearrange} \\\\
+$x_1-x_2+3x_4+\alpha y_1-\alpha y_2+3\alpha y_4\\$
+$x_1-x_2+3x_4+\alpha (y_1-y_2+3 y_4) = 0+3(0)=0\\\\$
+This satisfied the condition necessary for element in Y.\\
+So, $(x + \alpha y )\in Y$
+Therefore, Y is a subspace of $\mathbb{R}^4\\$
+
+\item Since all zero matrix of $M_n(\mathbb{R})$  is symmetric, then Y has zero element i.e \\ \\
+$ there ~ exist \begin{pmatrix}
+    & 0 & 0 & 0 &.&.&.& 0 \\
+    & 0 & 0 & 0 &.&.&.& 0\\
+    & 0 & 0 & 0 &.&.&.& 0\\
+    & . & . & . &.&.&.& 0\\
+    & . & . & . &.&.&.& 0\\
+    & . & . & . &.&.&.& 0\\
+    & 0 & 0 & 0 &.&.&.& 0\\
+    \end{pmatrix} 
+    \in X
+      $ \\\\
+\pmb{Hence X is not empty.} \\\\ 
+
+choose $A, B \in X $, since A and B are symmetric matrix     `then \\\\
+$ a_{i,j}=a_{j,i} ~ and ~ b_{i,j}=b_{j,i} ~ (where ~ 1 \leq i \leq n ~and ~1 \leq j \leq n )\\$
+$a_{ij} ~ and ~ b_{i,j}$~ denote~ entry~ in~ row-i ~column-j ~in ~A~ and ~B~ respectively
+
+let say,
+$A= \begin{pmatrix}
+    & a_{1,1} & a_{1,2} & a_{1,3} &.&.&.& a_{1,n}  \\
+    & a_{2,1} & a_{2,2} & a_{2,3} &.&.&.& a_{2,n}  \\
+    & a_{3,1} & a_{3,2} & a_{3,3} &.&.&.& a_{3,n}  \\
+    & . & . & . &.&.&.&.\\
+    & . & . & . &.&.&.&.\\
+    & . & . & . &.&.&.&.\\
+    & a_{n,1} & a_{n,2} & a_{n,3} &.&.&.& a_{n,n}  \\
+    \end{pmatrix}$, $
+    B=\begin{pmatrix}
+        & b_{1,1} & b_{1,2} & b_{1,3} &.&.&.& b_{1,n}  \\
+        & b_{2,1} & b_{2,2} & b_{2,3} &.&.&.& b_{2,n}  \\
+        & b_{3,1} & b_{3,2} & b_{3,3} &.&.&.& b_{3,n}  \\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & b_{n,1} & b_{n,2} & b_{n,3} &.&.&.& b_{n,n} 
+     \end{pmatrix}
+    $\\\\
+
+
+Now, let us simplify $A+ \alpha B$ (where $\alpha \in \mathbb{F}$ and $\mathbb{F}$ is a Field of Real number)\\\\
+$A+ \alpha B =\begin{pmatrix}
+    & a_{1,1} & a_{1,2} & a_{1,3} &.&.&.& a_{1,n}  \\
+    & a_{2,1} & a_{2,2} & a_{2,3} &.&.&.& a_{2,n}  \\
+    & a_{3,1} & a_{3,2} & a_{3,3} &.&.&.& a_{3,n}  \\
+    & . & . & . &.&.&.&.\\
+    & . & . & . &.&.&.&.\\
+    & . & . & . &.&.&.&.\\
+    & a_{n,1} & a_{n,2} & a_{n,3} &.&.&.& a_{n,n}
+    \end{pmatrix}$ +
+    $\alpha \begin{pmatrix}
+        & b_{1,1} & b_{1,2} & b_{1,3} &.&.&.& b_{1,n}  \\
+        & b_{2,1} & b_{2,2} & b_{2,3} &.&.&.& b_{2,n}  \\
+        & b_{3,1} & b_{3,2} & b_{3,3} &.&.&.& b_{3,n}  \\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & b_{n,1} & b_{n,2} & b_{n,3} &.&.&.& b_{n,n}  \\
+     \end{pmatrix}
+    $\\\\
+
+    $  A+ \alpha B =\begin{pmatrix}
+    & a_{1,1} & a_{1,2} & a_{1,3} &.&.&.& a_{1,n}  \\
+    & a_{2,1} & a_{2,2} & a_{2,3} &.&.&.& a_{2,n}  \\
+    & a_{3,1} & a_{3,2} & a_{3,3} &.&.&.& a_{3,n}  \\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & a_{n,1} & a_{n,2} & a_{n,3} &.&.&.& a_{n,n}  \\
+        \end{pmatrix} + 
+        \begin{pmatrix}
+        & \alpha b_{1,1} & \alpha b_{1,2} & \alpha b_{1,3} &.&.&.& \alpha b_{1,n}  \\
+        & \alpha b_{2,1} & \alpha b_{2,2} & \alpha b_{2,3} &.&.&.& \alpha b_{2,n}  \\
+        & \alpha b_{3,1} & \alpha b_{3,2} & \alpha b_{3,3} &.&.&.& \alpha b_{3,n}  \\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & \alpha b_{n,1} & \alpha b_{n,2} & \alpha b_{n,3} &.&.&.& \alpha b_{n,n}  \\
+        \end{pmatrix}$\\\\
+
+$A+ \alpha B =
+    \begin{pmatrix}
+        
+        & a_{1,1} +\alpha b_{1,1} & a_{1,2} + \alpha b_{1,2} & a_{1,3} + \alpha b_{1,3} &.&.&.& a_{1,n} +\alpha b_{1,n}  \\
+        & a_{2,1}  + \alphab_{2,1} & a_{2,2} + \alpha b_{2,2} & a_{2,3} + \alpha b_{2,3} &.&.&.& a_{2,n} +\alpha b_{2,n}  \\
+        & a_{3,1} + \alpha b_{3,1} & a_{3,2} + \alpha b_{3,2} & a_{3,3} + \alpha b_{3,3}  &.&.&.& a_{3,n} +\alpha b_{3,n}  \\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & . & . & . &.&.&.&.\\
+        & a_{n,1}+\alpha b_{n,1} & a_{n,2} + \alpha b_{n,2} & a_{n,3}+\alpha b_{n,3} &.&.&.& a_{n,n}+\alpha b_{n,n}  \\
+    \end{pmatrix}\\\\$
+
+Let C be a matrix such that 
+$C= A+ \alpha B \\$ then we see that 
+$c_{i,j}=a_{i,j}+\alpha b_{i,j} \\$
+($ c_{i,j},a_{i,j}~ and ~b_{i,j} $ is an entry in row i column j of matrix C, A and B respectively)
+
+Now let's check if C is symmetric or not\\
+$c_{i,j}=a_{i,j}+\alpha b_{i,j}\\ $
+By symmetric property of A and B\\ $b_{i,j}=b_{j,i}$ and $a_{i,j}=a_{j,i}$\\
+So, $c_{i,j}=a_{i,j}+\alpha b_{i,j} =a_{j,i}+\alpha b_{j,i}\\$ 
+But $c_{j,i} =a_{j,i}+\alpha b_{j,i}\\$
+This implies that $c_{i,j}=c_{j,i}\\$
+showing that $C=C^T ~i.e~ A+ \alpha B$ is a symmetric matrix \\
+Therefore $A+ \alpha B  \in X\\$
+\pmb{Hence X is a subspace of $M_{n}$}
+
+
+\item Since all zero matrix of $M_n(\mathbb{R}) $ are symmetrically skewed, then $\mathcal{C}$  has zero element\\
+\pmb{Hence $\mathcal{C}$ is not empty.} \\ 
+
+choose $A, B \in \mathcal{C} $, since A and B are symmetrically skewed matrix then 
+$ a_{i,j}=-a_{j,i} ~ and ~ b_{i,j}=-b_{j,i} ~ (where ~ 1 \leq i \leq n ~and ~1 \leq j \leq n )\\$
+$a_{ij}$ and $b_{i,j}$~ denote~ entry~ in~ row-i ~column-j ~in ~A~ and ~B~ respectively\\
+
+Just as you have seen the addition of matrix in Question 2\\
+Let C be a matrix such that 
+$C= A+ \alpha B $ then we see that \\
+$c_{i,j}=a_{i,j}+\alpha b_{i,j} $
+($ c_{i,j},a_{i,j}~ and ~b_{i,j} $,is an entry in row i column j of matrix C, A and B respectively)\\
+
+\pmb{Now let's check if C is skew-symmetric or not}\\
+$c_{i,j}=a_{i,j}+\alpha b_{i,j} $\\
+from the property of A and B, we know that \\
+$b_{i,j}=-b_{j,i}$ and $a_{i,j}=-a_{j,i}$\\
+So, $c_{i,j}=a_{i,j}+\alpha b_{i,j} =-a_{j,i}+\alpha *-b_{j,i}$\\
+$c_{i,j}=-a_{j,i}-\alpha *b_{j,i}=-(a_{j,i}+\alpha b_{j,i})$ \\
+But $c_{j,i} =a_{j,i}+\alpha b_{j,i}$\\
+So, $c_{i,j}=-c_{j,i}$\\
+showing that $C=-C^T ~i.e $ $ (A+ \alpha B)$ is a skew-symmetric  matrix \\
+Therefore $(A+ \alpha B)  \in \mathcal{C}$\\
+\pmb{Hence $\mathcal{C}$ is a subspace of $M_n(\mathbb{R})$}
+
+
+\item There exist Zero matrix of $M_n(\mathbb{F})$ that is upper triangular matrix therefore $\mathcal{B}$ is not empty\\\\
+choose $A, B \in \mathcal{B} $, since A and B are upper triangular matrix then 
+
+$ a_{i,j}=0 ~ and ~ b_{i,j}=0~ \forall_{i>j} ~ (where ~ 1 \leq i \leq n ~and ~1 \leq j \leq n )\\$
+$a_{ij} ~ and ~ b_{i,j}$~ denote~ entry~ in~ row-i ~column-j ~in ~A~ and ~B~ respectively\\
+Let C be a matrix  such that \\
+$C= A+ \alpha B $ then we see that \\
+$c_{i,j}=a_{i,j}+\alpha b_{i,j} $\\
+($ c_{i,j},a_{i,j}~ and ~b_{i,j} $ is an entry in row-i column-j of matrix C, A and B respectively)\\
+
+Now let's check if C is a upper triangular matrix or not\\
+$c_{i,j}=a_{i,j}+\alpha b_{i,j} $\\
+from the property of A and B,\\ we know that $b_{i,j}=0$ and $a_{i,j}=0 ~(when~ever ~i>j)$\\
+So, $c_{i,j}=0+\alpha *0 ~(whenever~ i > j)$\\
+$c_{i,j}=0+0 ~(whenever ~i>j)$ \\
+$c_{i,j}=0 ~(whenever ~ i>j)$ \\\\
+This shows that matrix C is an upper triangular matrix\\
+Therefore, $ C \in \mathcal{C} $ i.e $(A+\alpha B) \in \mathcal{C}\\\\$
+\pmb{Hence $\mathcal{C}$ is a subspace of $M_n(\mathbb{F})$}
+\end{enumerate}
+\vspace{2,0cm}
+\section*{\Huge{Project 2}}
+\Large{Questions}\\
+Give the geometric interpretation of three linearly dependent vectors.\\
+
+\Large{Solution}\\
+
+vectors $v_1,v_2$ and $v_3$ are linearly dependent means that one of them is in a plane generated by the other two vectors.
+
+\includegraphics[width=1.0 \textwidth]{copaner.png}
+\vspace{3.6cm}
+
+\section*{\Huge{Project 3}}
+\Large{Question}\\
+Explore Pascal triangle, Give the meaning/interpretation of the number in the 4th ,5th and 6th diagonal in terms of dimension of vector space.\\
+
+\includegraphics[width=1.0 \textwidth]{pas.png}
+\vspace{4.0cm}
+
+\Large{Solution}\\
+Firstly, Note that the space of all symmetric tensors of order k defined on V which often denoted by $S^k(V)$ or $Sym^k(V)$. It is itself a vector space, and if V has dimension N then the dimension of $Sym^k(V)$ is the binomial coefficient.
+
+$dim~ {Sym}^{k}(V)={N+k-1 \choose k}.$\\
+
+Now studying the 4th diagonal of a pascal triangle w get tetrahedral numbers. 
+1, 4, 10, 20 35 ,56 ...\\
+the sequence follows the formula \\
+$\frac{(n+2)(n+1)n}{3!} = {n+2 \choose 3} = {n+3-1 \choose 3}$\\
+The formula above look similar to the general formula for dimension of the space of all symmetric tensors of order k defined on N-dimensional vector V.
+so, comparing the formula.
+n is the dimension of V and k=3.\\
+\textbf{Hence, the 4th diagonal of a pascal triangle generate 
+the dimension of the space of all symmetric tensors of order 3 defined on n-dimensional vector V} e.g a space of  symmetric tensor of order 3 defined on $\mathbb{R}^n$\\
+
+Studying the 5th diagonal of a pascal triangle we get pentatopes numbers. 
+1,5, 10, 20 35 ,56 ...\\
+the sequence follows the formula \\
+$\frac{(n+3)(n+2)(n+1)}{4!} = {n+3 \choose 4} = {n+4-1 \choose 4}$\\
+comparing the formula also.
+n is the dimension of v and k=4.\\
+\textbf{Hence, the 5th diagonal of a pascal triangle generate the dimension of the space of symmetric tensors of order 4 defined on n-dimensional vector V}  e.g a space of  symmetric tensor of order 4 defined on $\mathbb{R}^n\\
+
+It follows that each diagonal of pascal triangle is is the dimension of dimension of a tensor of certain order. 
+Hence we can generalize that kth diagonal of pascal triangle generate the dimension of tensor of order (k-1) defined on n-dimensional vector.
+\vspace{6.0cm}
+
+\section*{\Huge{Project 4}}
+\Large{Question}\\
+Let $T={O \in M_n(\mathbb{R}) :Tr(O)=0 }$ be a vector space of Trace-less nxn matrices. compute a basis and dimension of T.\\
+    
+\Large{Solutions}\\
+A Basis of Traceless matrices is below\\
+let $A_{i,n}=\{e_{i,1},~ e_{i,2},~e_{i,3}...~e_{i,n}\}$\\
+$$then~ the ~Basis~of ~traceless ~matrix ~ is ~ ( \bigcup_{i=1}^{n} A_i) \setminus \{e_{n,n}\}   $$
+ $e_{i,j}= \begin{bmatrix}
+            0 &  0 &.&.&.& .& .& 0 &0\\
+ 0 &  0 &.&.&.& .& .& 0 &0\\
+ .&.&.&.&.&.&.&.&.\\
+ .&.&.&.&.&1&.&.&.\\
+ .&.&.&.&.&.&.&.&.\\
+ .&.&.&.&.&.&.&.&.\\
+ 0 & 0  &.&.&.& .& .&0& 0\\
+ 0 & 0  &.&.&.& .& .&0& k\\
+            \end{bmatrix}$ \\\\
+where the \pmb{1} is at $i^{th}$ row, $j^{th}$ column \\
+k=-1 whenever $j=i $ and k=0  whenever $i \neq j$\\
+Since $\bigcup_{i=1}^{n} A_i $ has n*n element then 
+the Dimension of the space of  n by n traceless matrix  is 
+\textbf{$n^2-1$}
+\vspace{7cm}
+
+\section*{\Huge{Project 5}}
+\Large{Questions}
+\begin{enumerate}
+  \item Prove that the set 
+$ \\
+\begin{Bmatrix}
+  \begin{pmatrix}
+    &1&\\&1&\\ &1&\\&1&\\
+  \end{pmatrix},
+
+  \begin{pmatrix}
+    &1&\\&1&\\ &-1&\\&1&\\
+  \end{pmatrix},
+  \begin{pmatrix}
+    &1&\\&-1&\\ &1&\\&-1&\\
+  \end{pmatrix},
+  \begin{pmatrix}
+    &1&\\&1&\\ &0&\\&1&\\
+  \end{pmatrix}
+\end{Bmatrix}\\\\$
+is a linear independent set of vectors in $\mathbb{R}^4$
+
+\item Prove that 
+$\begin{pmatrix} &1&\\&2&\\ &1&\\&1&\\ \end{pmatrix}$
+can be expressed as linear combinations \\
+
+\item Let $\{V_1, V_2, V_3, V_4\}$ be a linear independent family of vectors in $\mathbb{R}^4$ prove that 
+$\{V_1+V_2,~ V_2+V_3,~ V_3+V_4,~ V_4+V_1\}$ is not linearly independent but $\{V_1 + V_2, V_2, V_3, V_4\}$ is linearly independent.\\$ $
+
+\item Let f,g,h belong to the space of infinitely continuously differentiable real value function $C^{\infty} (\mathbb{R})$
+ such that $f(x) = e^x,~ g(x)= e^{2x} ~and ~h(x)=e^{3x}$ show that f,g,h are linearly independent.
+\end{enumerate}
+$ $ \\
+\Large{\pmb{Solutions}}
+\renewcommand{\labelenumii}{\arabic{enumii}}
+\begin{enumerate}
+  \item To prove that 
+$\begin{Bmatrix}
+    \begin{pmatrix}
+      &1&\\&1&\\ &1&\\&1&\\
+    \end{pmatrix},
+  
+    \begin{pmatrix}
+      &1&\\&1&\\ &-1&\\&1&\\
+    \end{pmatrix},
+    \begin{pmatrix}
+      &1&\\&-1&\\ &1&\\&-1&\\
+    \end{pmatrix},
+    \begin{pmatrix}
+      &1&\\&1&\\ &0&\\&1&\\
+    \end{pmatrix}
+  \end{Bmatrix}$ is a set of linearly dependent vectors we need to 
+  show that there exist real numbers $\alpha _1,~ \alpha_2,~ \alpha_3~ and~ \alpha_4$, not all of them are zero, such that \\
+
+  $\alpha_1 \begin{pmatrix}
+    &1&\\&1&\\ &1&\\&1&\\
+  \end{pmatrix} +
+  \alpha_2\begin{pmatrix}
+    &1&\\&1&\\ &-1&\\&1&\\
+  \end{pmatrix}+
+  \alpha_3 \begin{pmatrix}
+    &1&\\&-1&\\ &1&\\&-1&\\
+  \end{pmatrix}+
+  \alpha_4 \begin{pmatrix}
+    &1&\\&1&\\ &0&\\&1&\\
+  \end{pmatrix} = \begin{pmatrix}
+    &0&\\&0&\\ &0&\\&0&\\
+  \end{pmatrix} $
+ \\\\
+\par \Large{\pmb{Proof:}}\\\\
+$\alpha_1 \begin{pmatrix}
+  &1&\\&1&\\ &1&\\&1&\\
+\end{pmatrix} +
+\alpha_2\begin{pmatrix}
+  &1&\\&1&\\ &-1&\\&1&\\
+\end{pmatrix}+
+\alpha_3 \begin{pmatrix}
+  &1&\\&-1&\\ &1&\\&-1&\\
+\end{pmatrix}+
+\alpha_4 \begin{pmatrix}
+  &1&\\&1&\\ &0&\\&1&\\
+\end{pmatrix} = \begin{pmatrix}
+  &0&\\&0&\\ &0&\\&0&\\
+\end{pmatrix}$\\\\
+
+$ \begin{pmatrix}
+  &\alpha_1&\\&\alpha_1&\\ &\alpha_1&\\&\alpha_1&\\
+\end{pmatrix} +
+\begin{pmatrix}
+  &\alpha_2&\\&\alpha_2&\\ &-\alpha_2&\\&\alpha_2&
+\end{pmatrix}+
+\begin{pmatrix}
+  &\alpha_3&\\&-\alpha_3\\ &\alpha_3&\\&-\alpha_3&\\
+\end{pmatrix}+
+\begin{pmatrix}
+  &\alpha_4&\\&\alpha_4&\\ &0&\\&\alpha_4&\\
+\end{pmatrix} =\begin{pmatrix}
+  &0&\\&0&\\ &0&\\&0&\\
+\end{pmatrix}$\\\\
+
+$ \begin{pmatrix}
+    &\alpha_1+\alpha_2+\alpha_3 +\alpha_4\\
+    &\alpha_1+\alpha_2-\alpha_3 +\alpha_4\\
+    &\alpha_1-\alpha_2+\alpha_3\\
+    &\alpha_1+\alpha_2-\alpha_3 +\alpha_4\\
+  \end{pmatrix} =\begin{pmatrix}
+    &0&\\&0&\\ &0&\\&0&\\
+  \end{pmatrix}$\\
+      $\alpha_1+\alpha_2+\alpha_3 +\alpha_4 =0$\\
+      $\alpha_1+\alpha_2-\alpha_3 +\alpha_4=0$\\
+      $\alpha_1-\alpha_2+\alpha_3=0$\\
+      $\alpha_1+\alpha_2-\alpha_3 +\alpha_4=0$\\
+  
+ \pmb{ Let us solve the equation.}\\
+      $\alpha_1+\alpha_2+\alpha_3 +\alpha_4 =0...eq(1)$\\
+      $\alpha_1+\alpha_2-\alpha_3 +\alpha_4=0...eq(2)$\\
+      $\alpha_1-\alpha_2+\alpha_3=0...eq(3)$\\
+      $\alpha_1+\alpha_2-\alpha_3 +\alpha_4=0...eq(4)$\\
+
+\pmb{From eq(iii), $\alpha_2=\alpha_1+\alpha_3$...eq(5)}\\
+ substitute $\alpha_2=\alpha_1+\alpha_3$ in to equation (1),(2) and (4).
+    
+$ \begin{matrix}
+       \alpha_1+\alpha_1+\alpha_3+\alpha_3 +\alpha_4 =0\\
+      \alpha_1+\alpha_1+\alpha_3-\alpha_3 +\alpha_4=0\\
+      \alpha_1+\alpha_1+\alpha_3-\alpha_3 +\alpha_4=0
+\end{matrix} $\\\\
+
+$\begin{matrix}
+     2\alpha_1+2\alpha_3 +\alpha_4 =0 ...eq(6)\\
+     2\alpha_1+\alpha_4=0...eq(7)\\
+     2\alpha_1+\alpha_4=0...eq(8)
+\end{matrix}$
+  \\\\
+\pmb{subtract eq(7) from eq(6)}\\
+$2\alpha_3 = 0 \implies \alpha_3=0$\\
+Note: eq(7) and eq(8) are the same this shows that there will be infinitely many solutions.\\ 
+So, choose $\alpha_1=1$, then\\
+$2(1)+\alpha_4=0 \implies \alpha_4=-2$\\
+
+But Recall that $\alpha_2=\alpha_1+\alpha3$\\
+so, $\alpha_2= 1+0 = 1,$ \\
+Therefore, $\alpha_1=1, \alpha_2=1, \alpha_3=0~ and ~\alpha_4=-2$\\
+Since We find some real numbers ($\alpha_1, \alpha_2, \alpha_3~and ~\alpha_4$) that not all of them equal to Zero therefore the given set of vectors are \pmb{linearly dependent}.\\
+
+
+\item we need to check if there exist some real numbers $\alpha_1,\alpha_2,\alpha_3$ and $\alpha_4$\\\\
+$\alpha_1 \begin{pmatrix}
+  &1&\\&1&\\ &1&\\&1&\\
+\end{pmatrix} +
+\alpha_2\begin{pmatrix}
+  &1&\\&1&\\ &-1&\\&1&\\
+\end{pmatrix}+
+\alpha_3 \begin{pmatrix}
+  &1&\\&-1&\\ &1&\\&-1&\\
+\end{pmatrix}+
+\alpha_4 \begin{pmatrix}
+  &1&\\&1&\\ &0&\\&1&\\
+\end{pmatrix} = \begin{pmatrix}
+  &1&\\&2&\\ &1&\\&1&\\
+\end{pmatrix}$\\\\
+
+$\begin{pmatrix}
+  &\alpha_1&\\&\alpha_1&\\ &\alpha_1&\\&\alpha_1&\\
+\end{pmatrix} +
+\begin{pmatrix}
+  &\alpha_2&\\&\alpha_2&\\ &-\alpha_2&\\&\alpha_2&
+\end{pmatrix}+
+\begin{pmatrix}
+  &\alpha_3&\\&-\alpha_3\\ &\alpha_3&\\&-\alpha_3&\\
+\end{pmatrix}+
+\begin{pmatrix}
+  &\alpha_4&\\&\alpha_4&\\ &0&\\&\alpha_4&\\
+\end{pmatrix} =\begin{pmatrix}
+  &1&\\&2&\\ &1&\\&1&\\
+\end{pmatrix}$\\\\
+
+
+$ \begin{pmatrix}
+    &\alpha_1+\alpha_2+\alpha_3 +\alpha_4\\
+    &\alpha_1+\alpha_2-\alpha_3 +\alpha_4\\
+    &\alpha_1-\alpha_2+\alpha_3\\
+    &\alpha_1+\alpha_2-\alpha_3 +\alpha_4\\
+  \end{pmatrix} =\begin{pmatrix}
+    &1&\\&2&\\ &1&\\&1&\\
+  \end{pmatrix}$\\\\\\
+      $\alpha_1+\alpha_2+\alpha_3 +\alpha_4 =1$\\
+      $\alpha_1+\alpha_2-\alpha_3 +\alpha_4=2$\\
+      $\alpha_1-\alpha_2+\alpha_3=1$\\
+      $\alpha_1+\alpha_2-\alpha_3 +\alpha_4=1$\\\\
+  \pmb{ Note:} equation(ii) and (iv) have same expression on the left side and different value at the right side. this is a contradiction. therefore  there is no solution\\\\
+Hence, $\begin{pmatrix}
+  &1&\\&2&\\ &1&\\&1&\\
+\end{pmatrix}$ can not be written as linear combination of given set of vectors.
+
+\item If set of vector {$V_1,V_2,V_3,V_4$} are linearly independent then \\
+ $\alpha_1 V_1+\alpha_2 V_2+\alpha_3 V_3+ \alpha_4 V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}
+$ only if $\alpha_1 = \alpha_2 =\alpha_3= \alpha_4=0$\\\\
+Now let us consider set of vector ${V_1+V_2,V_2,V_3,V_4}$
+we need to show that,\\
+
+$\beta_1 (V_1+V_2)+\beta_2 V_2+\beta_3 V_3+ \beta_4 V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}
+$ \\
+ 
+ only if $\beta_1 = \beta_2 =\beta_3= \beta_4=0$\\\\
+ 
+\pmb{Proof:}\\
+$\beta_1 (V_1+V_2)+\beta_2 V_2+\beta_3 V_3+ \beta_4 V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}
+$ \\
+
+$\beta_1 V_1+ \beta_1 V_2+\beta_2 V_2+\beta_3 V_3+ \beta_4 V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}
+$ 
+
+$\beta_1 V_1+ (\beta_1 +\beta_2) V_2+\beta_3 V_3+ \beta_4 V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0\\
+\end{pmatrix}$
+
+let $\beta_5=\beta_1+\beta_2$ then,\\
+
+$\beta_1 V_1+ \beta_5  V_2+\beta_3 V_3+ \beta_4 V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0\\
+\end{pmatrix}$\\
+Since we know that $V_1,V_2,V_3,V_4$ are linearly independent then \\ $\beta_1=\beta_5=\beta_3=\beta_4=0$\\
+Recall that $\beta_5=\beta_1+\beta_2$\\
+so, $\beta_1+\beta_2=0$\\ 
+since $\beta_1=0$ then, $0+\beta_2$=0\\  
+therefore, $\beta_2=0$\\
+Hence, $\beta_1=\beta_2=\beta_3=\beta_4=0$\\ 
+Since , $\beta_1=\beta_2=\beta_3=\beta_4=0$\\ 
+then the set of vector  {$V_1+V_2,V_2,V_3,V_4$} are linearly independent then \\
+
+\item we need to show that there exist some real numbers such that not all are zero that satisfied below equation\\
+$\beta_1 (V_1+V_2)+\beta_2 (V_2+V_3)+\beta_3 (V_3+V_4)+ \beta_4 (V_4+V_1)$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}
+$ \\\\
+
+\pmb{Proof:}\\
+$\beta_1 (V_1+V_2)+\beta_2 (V_2+V_3)+\beta_3 (V_3+V_4)+ \beta_4 (V_4+V_1)$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}$\\
+$\beta_1 V_1+\beta_1 V_2+\beta_2 V_2+ \beta_2 V_3+\beta_3 V_3+\beta_3 V_4+ \beta_4 V_4+ \beta_4 V_1$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}$\\
+
+$\beta_1 V_1+\beta_4 V_1+\beta_2 V_2+ \beta_1 V_2+\beta_3 V_3+\beta_2 V_3+ \beta_4 V_4+ \beta_3 V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}$\\
+
+$(\beta_1+\beta_4)V_1+(\beta_1+\beta_2)V_2+(\beta_2+\beta_3)V_3 +(\beta_3+\beta_4)V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}$\\
+
+let $\beta_5=\beta_1+\beta_4,~\beta_6=\beta_1+\beta_2\\
+\beta_7=\beta_2+\beta_3~ and ~\beta_8=\beta_3+\beta_4$, then,\\
+
+$\beta_5 V_1+ \beta_6  V_2+\beta_7 V_3+ \beta_8 V_4$ =
+$\begin{pmatrix}
+0\\0\\0\\0\\
+\end{pmatrix}$\\
+Since we know that $V_1,V_2,V_3,V_4$ are linearly independent then \\ $\beta_5=\beta_6=\beta_7=\beta_8=0$\\
+Recall that,
+$ \beta_5=\beta_1+\beta_4,~\beta_{6}=\beta_1+\beta_2\\
+\beta_7=\beta_2+\beta_3~ and ~\beta_8=\beta_3+\beta_4$\\\\
+so, 
+$\beta_1+\beta_4=0 ~ ~ ~ ~ ~eq(i) \\
+\beta_1+\beta_2=0 ~ ~ ~ ~ ~ ~ ~ ~eq(ii)\\
+\beta_2+\beta_3=0  ~ ~ ~ ~ ~ ~ ~ eq(iii)\\
+\beta_3+\beta_4=0  ~ ~ ~ ~ ~ ~ ~eq(iv)$
+
+Subtract eq(ii) from eq(i) and eq(iii) from eq(iv)\\
+then $\beta_4 - \beta_2=0\\
+\beta_4-\beta_2=0$\\
+Both equation gotten is the same. So, choose 
+$\beta_2 = 1$\\
+then, $\beta_4-1=0 \implies \beta_4=1$\\
+ From eq(iii)$\beta_2+\beta_3=0 \implies \beta_1=-1$
+ Therefore, $\beta_1=-1, \beta_2=1, \beta_3=-1 ~and ~\beta_4=1$\\ 
+ 
+ Hence, the vector $(V_1+V_2),(V_2+V_3),(V_3+V_4)$ and $(V_4+V_1)$ are \pmb{linearly dependent}.
+
+ \item $f(x) = e^x, g(x)=e^{2x}$ and $h(x)=e^{3x}$ \\\\
+we need to show that $\alpha_1=\alpha_2=\alpha_3=0$ is the only solution to \\equation:
+$\alpha_1e^x+\alpha_2e^{2x}+\alpha_3e^{3x}=0$\\
+
+\vspace{2cm}
+
+\textbf{Proof:}\\
+Take the derivative twice to get new two more equations\\
+$\alpha_1e^x+\alpha_2e^{2x}+\alpha_3e^{3x}=0$\\
+$\alpha_1e^x+2\alpha_2e^{2x}+3\alpha_3e^{3x}=0$\\
+$\alpha_1e^x+4\alpha_2e^{2x}+9\alpha_3e^{3x}=0$\\
+let A=$\alpha_1e^x,B=\alpha_1e^{2x}$ and $C=\alpha_1e^{3x}+$\\
+then,
+$A+B+C=0$\\
+$A+2B+3C=0$\\
+$A+4B+9C=0$\\\\
+$A+B+C=0$\\
+$A+2B+3C=0$\\
+$A+4B+9C=0$\\\\
+Solving for A,B,C using reduced echelon\\
+$\begin{pmatrix}
+1& 1 & 1\\
+1& 2 & 3\\
+1& 4 & 9\\
+\end{pmatrix}
+\begin{pmatrix}
+A\\B\\C
+\end{pmatrix} =
+\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}$
+\implies 
+$\begin{pmatrix}
+1& 1 & 1|0\\
+1& 2 & 3|0\\
+1& 4 & 9|0\\
+\end{pmatrix}$\\\\
+\begin{matrix}
+$R_2-R_1$ and $R_3-R_1$ & $R_3-3R_2$\\
+\begin{pmatrix}
+1& 1 & 1|0\\
+0& 1 & 2|0\\
+0& 3 & 8|0\\
+\end{pmatrix} &
+
+$\begin{pmatrix}
+1& 1 & 1 &|0 \\
+0& 1 & 2 &|0\\
+0& 0 & 2 &|0\\
+\end{pmatrix}$
+\end{matrix}  \\
+2C=0 $\implies c=0$\\
+b+2c=0 $B+2C=0 \implies B=0$\\
+A+B+C=0 $\implies A=0$\\\\
+Recall that, $A=\alpha_1e^x, B=\alpha_2e^{2x}$ and $C=\alpha_3e^{3x}$\\
+$\alpha_1e^x=0 \implies \alpha_1=0 ~or ~e^{x}=0\\
+ \alpha_1e^2x=0 \implies \alpha_2=0~ or ~e^{2x}=0$\\
+$\alpha_1e^3x=0 \implies \alpha_3=0~ or ~e^{3x}=0$\\
+Since we know that exponential function is always greater than 0. Therefore, $\alpha_1=0, ~\alpha_2=0 ~and~ \alpha_3=0 $
+Hence, f,g and h are linearly independent.
+\end{enumerate}
+
+\vspace{3.0cm}
+
+
+\section*{\Huge{Project 6}}
+\Large{Question}\\
+Let $S=\{v_1,v_2,v_3,v_4,v_5\}$ be a set of vectors in a vector space $\mathbb(R)$. Find a basis for L(S)\\
+$v_1=\begin{pmatrix}
+    1\\0\\1
+\end{pmatrix},
+v_2=\begin{pmatrix}
+    0\\1\\1
+\end{pmatrix},
+v_3=\begin{pmatrix}
+    1\\1\\2
+\end{pmatrix},
+v_4=\begin{pmatrix}
+    1\\2\\1
+\end{pmatrix}$ and 
+$v_5=\begin{pmatrix}
+    -1\\1\\-2
+\end{pmatrix}$
+
+\vspace{0.4cm}
+
+\Large{Solution}\\
+
+\vspace{0.3cm}
+
+$v_1=\begin{pmatrix}
+    1\\0\\1
+\end{pmatrix},
+v_2=\begin{pmatrix}
+    0\\1\\1
+\end{pmatrix},
+v_3=\begin{pmatrix}
+    1\\1\\2
+\end{pmatrix},
+v_4=\begin{pmatrix}
+    1\\2\\1
+\end{pmatrix}$ and 
+$v_5=\begin{pmatrix}
+    -1\\1\\-2
+\end{pmatrix}
+$ \\
+
+$v_1,v_2,v_3,v_4$ and $v_5$ are linearly dependent. \\
+
+Proof: \\
+ we need to show that there exist some real numbers $\alpha_1,\alpha_2,\alpha_3,\alpha_4$ and $\alpha_5$ not all are zero such that, 
+ $\alpha_1 V_1+\alpha_2 V_2+\alpha_3 V_3+ \alpha_4 V_4+\alpha_5 V_5=0$ i.e, \\
+ $\alpha_1 \begin{pmatrix}
+    1\\0\\1
+\end{pmatrix}
++\alpha_2 \begin{pmatrix}
+    0\\1\\1
+\end{pmatrix}
++\alpha_3 \begin{pmatrix}
+    1\\1\\2
+\end{pmatrix}
++ \alpha_4 \begin{pmatrix}
+    1\\2\\1
+\end{pmatrix}
++\alpha_5 \begin{pmatrix}
+    -1\\1\\-2
+\end{pmatrix}=\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}$ 
+ 
+ choose, $\alpha_1=-2,\alpha_2=-1,\alpha_3=0,\alpha_4=1$ and $\alpha_5=-1$\\
+ 
+-2\begin{pmatrix}
+    1\\0\\1
+\end{pmatrix} -1\begin{pmatrix}
+    0\\1\\1
+\end{pmatrix}
++ 0\begin{pmatrix}
+    1\\1\\2
+\end{pmatrix}
+1 \begin{pmatrix}
+    1\\2\\1
+\end{pmatrix}
+-1\begin{pmatrix}
+    -1\\1\\-2
+\end{pmatrix}=\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}
+$\\\\
+
+Make $v_5$ the subject of the formula\\
+
+$\begin{pmatrix}
+    -1\\1\\-2
+\end{pmatrix}=
+\begin{equation}
+    -2\begin{pmatrix}
+    1\\0\\1
+\end{pmatrix} -\begin{pmatrix}
+    0\\1\\1
+\end{pmatrix}
++ \begin{pmatrix}
+    1\\2\\1
+\end{pmatrix}\\\\
+
+this shows that $v_5$ can be expressed as linear combination of $v_1,v_2,$ and $v_4$
+
+\textbf{Hence delete $v_5$.}\\
+
+we have $v_1,v_2,v_3$ and $v_4$ which  are still linearly dependent
+
+\vspace{2.7cm}
+
+\textbf{Proof}:\\
+we need to show that there exist some real number $\alpha_1,\alpha_2,\alpha_3,$ and $\alpha_4$ not all are zero such that, 
+$\alpha_1 v_1+\alpha_2 v_2+\alpha_3 v_3+ \alpha_4 v_4=0$ 
+that is, \\
+
+$\alpha_1 \begin{pmatrix}
+   1\\0\\1
+\end{pmatrix}
++\alpha_2 \begin{pmatrix}
+   0\\1\\1
+\end{pmatrix}
++\alpha_3 \begin{pmatrix}
+   1\\1\\2
+\end{pmatrix}
++ \alpha_4 \begin{pmatrix}
+   1\\2\\1
+\end{pmatrix}
+=\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}$\\\\
+choose, $\alpha_1=1,\alpha_2=1,\alpha_3=-1$ and $\alpha_4=0$\\
+\begin{pmatrix}
+   1\\0\\1
+\end{pmatrix} + \begin{pmatrix}
+   0\\1\\1
+\end{pmatrix}
+- \begin{pmatrix}
+   1\\1\\2
+\end{pmatrix}
++0 \begin{pmatrix}
+   1\\2\\1
+\end{pmatrix}=\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}$\\\\
+
+since $v_1+v_2-v_3=\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}$ then $v_3=v_1+v_2$
+Since $v_3$ can be written as linear combination of $v_1$ and $v_2$ therefore, \textbf{delete $v_3$.}
+
+Now we are left with three vectors. $v_1,v_2$ and $v_4$\\
+which are linearly independent. \textbf{set of vectors
+$v_1,v_2$ and $v_4$ is a basis.for L(S)}
+
+\Huge{}
+\section{Project 1}
+\begin{enumerate}
+\Large{}
+\item 
+consider two bases of $\mathbb{R}^3$
+$\mathcal{B}_1$=
+$\begin{Bmatrix}
+    \begin{pmatrix}
+        1\\1\\1
+    \end{pmatrix}&
+    
+\begin{pmatrix}
+        1\\1\\0
+\end{pmatrix}&
+\begin{pmatrix}
+        1\\0\\0
+\end{pmatrix}
+\end{Bmatrix}$ and 
+
+$\mathcal{B}_2=
+\begin{Bmatrix}
+    \begin{pmatrix}
+        1\\1\\-1
+    \end{pmatrix}&
+    
+\begin{pmatrix}
+        1\\-1\\0
+\end{pmatrix}&
+\begin{pmatrix}
+        2\\0\\0
+\end{pmatrix}
+\end{Bmatrix}$\\
+\begin{itemize}
+\item find the transformation from $\mathcal{B}_1$ to $\mathcal{B}_2$ and from $\mathcal{B}_2$ to $\mathcal{B}_1$
+\item find the coordinate 
+$\begin{pmatrix}
+1\\2\\3
+\end{pmatrix}_{\mathcal{B}_1}$ in term of ${\mathcal{B}_2}$
+\item  what can you say about the two transition matrix
+\end{itemize}
+\end{enumerate}
+\Large{\pmb{Solution}}\\\\
+\begin{itemize}
+    \item  Let $M^{\mathcal{B}_2}_{\mathcal{B}_1}= $ be the transition matrix from $\mathcal{B}_1$ to $\mathcal{B}_2$ then\\
+$M^{\mathcal{B}_2}_{\mathcal{B}_1}= $
+$\begin{bmatrix}
+    \begin{bmatrix}
+    V_1
+    \end{bmatrix}_{\mathcal{B}_2},
+     \begin{bmatrix}
+    V_2
+    \end{bmatrix}_{\mathcal{B}_2},
+     \begin{bmatrix}
+    V_3
+    \end{bmatrix}_{\mathcal{B}_2}
+\end{bmatrix}$
+
+$\begin{bmatrix}
+    V_1
+\end{bmatrix}_{\mathcal{B}_2} \implies$
+$\begin{pmatrix}
+    1\\1\\1
+\end{pmatrix}$= 
+a$\begin{pmatrix}
+    1\\1\\-1
+\end{pmatrix}$ +b$\begin{pmatrix}
+    1\\-1\\0
+\end{pmatrix}$+c$\begin{pmatrix}
+    2\\0\\0
+\end{pmatrix}$
+
+$\implies$
+$\begin{pmatrix}
+    1\\1\\1
+\end{pmatrix}$= 
+$\begin{pmatrix}
+    a+b+2c\\a-b\\-a
+\end{pmatrix}$ \\\\
+
+$\implies$
+$\begin{matrix}
+a+b+2c=1\\
+a-b=1\\
+-a=1
+\end{matrix}$\\\\
+
+$\implies$
+$\begin{matrix}
+-a=1 \implies a=-1\\
+a-b=1 \implies -1-b=1, b=-2\\
+a+b+2c=1 \implies -1-2+2c=1\\ c=\frac{4}{2}=2\\
+a=-1, b=-2, c=2
+\end{matrix}$\\
+
+\pmb{Hence the coordinate is }\\
+$\begin{pmatrix}
+    -1\\-2\\2
+\end{pmatrix}$\\
+so, 
+$\begin{bmatrix}
+    V_1
+\end{bmatrix}$$_{\mathcal{B}_2}=$
+$\begin{pmatrix}
+    -1\\-2\\2
+\end{pmatrix}$
+
+$\begin{bmatrix}
+    V_2
+\end{bmatrix}_{\mathcal{B}_2} \implies$
+$\begin{pmatrix}
+    1\\1\\0
+\end{pmatrix}$= 
+a$\begin{pmatrix}
+    1\\1\\-1
+\end{pmatrix}$ +b$\begin{pmatrix}
+    1\\-1\\0
+\end{pmatrix}$+c$\begin{pmatrix}
+    2\\0\\0
+\end{pmatrix}$
+
+$\implies$
+$\begin{pmatrix}
+    1\\1\\0
+\end{pmatrix}$= 
+$\begin{pmatrix}
+    a+b+2c\\a-b\\-a
+\end{pmatrix}$ \\\\
+
+$\implies$
+$\begin{matrix}
+a+b+2c=1\\
+a-b=1\\
+-a=0
+\end{matrix}$\\\\
+
+$\implies$
+$\begin{matrix}
+-a=0 \implies a=0\\
+a-b=1 \implies 0-b=1, b=-1\\
+a+b+2c=1 \implies 0-1+2c=1\\
+2c=2,c=1\\
+a=0, b=-1, c=1
+\end{matrix}$\\\\
+\pmb{Hence the coordinate is}\\
+$\begin{pmatrix}
+    0\\-1\\1
+\end{pmatrix}$\\
+
+so, $\begin{bmatrix}
+    V_3
+\end{bmatrix}_{\mathcal{B}_2}$=$\begin{pmatrix}
+    1\\0\\0
+\end{pmatrix}$
+
+$\begin{bmatrix}
+    V_3
+\end{bmatrix}_{\mathcal{B}_2} \implies$
+$\begin{pmatrix}
+    1\\0\\0
+\end{pmatrix}$= 
+a$\begin{pmatrix}
+    1\\1\\-1
+\end{pmatrix}$ +b$\begin{pmatrix}
+    1\\-1\\0
+\end{pmatrix}$+c$\begin{pmatrix}
+    2\\0\\0
+\end{pmatrix}$
+$\implies$
+$\begin{pmatrix}
+    1\\0\\0
+\end{pmatrix}$= 
+$\begin{pmatrix}
+    a+b+2c\\a-b\\-a
+\end{pmatrix}$ \\\\
+
+$\implies$
+$\begin{matrix}
+a+b+2c=1\\
+a-b=0\\
+-a=0
+\end{matrix}$\\\\
+
+$\implies$
+$\begin{matrix}
+-a=0 \implies a=0\\
+a-b=0 \implies 0-b=0, b=0\\
+a+b+2c=1 \implies 0-0+2c=1\\
+2c=1,c=\frac{1}{2}\\
+a=0, b=0, c=\frac{1}{2}
+\end{matrix}$\\
+
+\pmb{Hence the coordinate is }\\
+$\begin{pmatrix}
+    0\\0\\ \frac{1}{2}
+\end{pmatrix}$\\
+
+so, $\begin{bmatrix}
+    V_2
+\end{bmatrix}_{\mathcal{B}_2}$=$\begin{pmatrix}
+    0\\0\\ \frac{1}{2}
+\end{pmatrix}$\\
+
+So the transition matrix from $\mathcal{B}_1$ to $\mathcal{B}_2$ is \\\\
+$M^{\mathcal{B}_2}_{\mathcal{B}_1}= $
+$\begin{bmatrix}
+    -1&0& 0\\
+    -2&-1& 0\\
+     2&1&\frac{1}{2}\\
+\end{bmatrix}$\\\\
+\item Let $M^{\mathcal{B}_1}_{\mathcal{B}_2}= $ be the transition matrix from $\mathcal{B}_2$ to $\mathcal{B}_1$ then\\
+$M^{\mathcal{B}_1}_{\mathcal{B}_2}= $
+$\begin{bmatrix}
+    \begin{bmatrix}
+    V_1
+    \end{bmatrix}_{\mathcal{B}_1},
+     \begin{bmatrix}
+    V_2
+    \end{bmatrix}_{\mathcal{B}_1},
+     \begin{bmatrix}
+    V_3
+    \end{bmatrix}_{\mathcal{B}_1}
+\end{bmatrix}$
+
+
+
+
+$\begin{bmatrix}
+    V_1
+\end{bmatrix}_{\mathcal{B}_1} \implies$
+$\begin{pmatrix}
+    1\\1\\-1
+\end{pmatrix}$= 
+a$\begin{pmatrix}
+    1\\1\\1
+\end{pmatrix}$ +b$\begin{pmatrix}
+    1\\1\\0
+\end{pmatrix}$+c$\begin{pmatrix}
+    1\\0\\0
+\end{pmatrix}$
+
+$\implies$
+$\begin{pmatrix}
+    1\\1\\-1
+\end{pmatrix}$= 
+$\begin{pmatrix}
+    a+b+c\\a+b\\a
+\end{pmatrix}$ \\\\
+
+$\implies$
+$\begin{matrix}
+a+b+c=1\\
+a+b=1\\
+a=-1
+\end{matrix}$\\\\
+
+$\implies$
+$\begin{matrix}
+a=-1\\
+a+b=1 \implies -1+b=1, b=2\\
+a+b+c=1 \implies -1+2+c=1, c=0\\
+so, a=-1, b=2, c=0
+\end{matrix}$
+
+\pmb{Hence the coordinate is }\\
+$\begin{pmatrix}
+    -1\\2\\0
+\end{pmatrix}$\\
+so, 
+$\begin{bmatrix}
+    V_1
+\end{bmatrix}$$_{\mathcal{B}_1}=$
+$\begin{pmatrix}
+    -1\\2\\0
+\end{pmatrix}$
+
+
+$\begin{bmatrix}
+    V_2
+\end{bmatrix}_{\mathcal{B}_1} \implies$
+$\begin{pmatrix}
+    1\\-1\\0
+\end{pmatrix}$= 
+a$\begin{pmatrix}
+    1\\1\\1
+\end{pmatrix}$ +b$\begin{pmatrix}
+    1\\1\\0
+\end{pmatrix}$+c$\begin{pmatrix}
+    1\\0\\0
+\end{pmatrix}$
+
+$\implies$
+$\begin{pmatrix}
+    1\\-1\\0
+\end{pmatrix}$= 
+$\begin{pmatrix}
+    a+b+c\\a+b\\a
+\end{pmatrix}$ \\\\
+
+$\implies$
+$\begin{matrix}
+a+b+c=1\\
+a+b=-1\\
+a=0
+\end{matrix}$
+
+$\implies$
+$\begin{matrix}
+a=0\\
+a+b=-1 \implies 0+b=-1, b=-1\\
+a+b+c=1 \implies 0-1+c=1, c=2\\
+so, a=0, b=-1, c=2
+\end{matrix}$
+
+\pmb{Hence the coordinate is}\\
+$\begin{pmatrix}
+    0\\1\\0
+\end{pmatrix}$\\
+so, 
+$\begin{bmatrix}
+    V_2
+\end{bmatrix}$$_{\mathcal{B}_1}=$
+$\begin{pmatrix}
+    0\\-1\\2
+\end{pmatrix}$\\\\
+
+
+
+
+$\begin{bmatrix}
+    V_3
+\end{bmatrix}_{\mathcal{B}_1} \implies$
+$\begin{pmatrix}
+    1\\-1\\0
+\end{pmatrix}$= 
+a$\begin{pmatrix}
+    1\\1\\1
+\end{pmatrix}$+b$\begin{pmatrix}
+    1\\1\\0
+\end{pmatrix}$+c$\begin{pmatrix}
+    1\\0\\0
+\end{pmatrix}$
+
+$\implies$
+$\begin{pmatrix}
+    2\\0\\0
+\end{pmatrix}$= 
+$\begin{pmatrix}
+    a+b+c\\a+b\\a
+\end{pmatrix}$ \\\\
+
+$\implies$
+$\begin{matrix}
+a+b+c=2\\
+a+b=0\\
+a=0
+\end{matrix}$\\\\
+
+$\implies$
+$\begin{matrix}
+a=0\\
+a+b=0 \implies 0+b=0, b=0\\
+a+b+c=2 \implies 0+0+c=2, c=2\\
+so, a=0, b=0, c=2
+\end{matrix}$\\
+\pmb{Hence the coordinate is }\\
+$\begin{pmatrix}
+    0\\0\\2
+\end{pmatrix}$\\
+so, 
+$\begin{bmatrix}
+    V_3
+\end{bmatrix}$$_{\mathcal{B}_1}=$
+$\begin{pmatrix}
+    0\\0\\2
+\end{pmatrix}$
+So the transition matrix from $\mathcal{B}_1$ to $\mathcal{B}_2$ is \\
+$M^{\mathcal{B}_1}_{\mathcal{B}_2}= $
+$\begin{bmatrix}
+    -1&0& 0\\
+    2&-1& 0\\
+    0&1&2\\
+\end{bmatrix}$\\\\
+
+\item  Let $\begin{pmatrix}
+    1\\2\\3
+\end{pmatrix}_{\mathcal{B}_1}$ =$\begin{pmatrix}
+    a\\b\\c
+\end{pmatrix}_{\mathcal{B}_2}$ \\\\ $\begin{pmatrix}
+    a\\b\\c
+\end{pmatrix}_{\mathcal{B}_2}$  =
+$\begin{bmatrix}
+    -1&0& 0\\
+    -2&-1& 0\\
+     2&1&\frac{1}{2}
+\end{bmatrix}$\pmb{.}$\begin{pmatrix}
+    1\\2\\3
+\end{pmatrix}$=
+$\begin{pmatrix}
+    -1\\-4\\5.5
+\end{pmatrix}$\\
+$\begin{pmatrix}
+    1\\2\\3
+\end{pmatrix}_{\mathcal{B}_1}$ =$\begin{pmatrix}
+    -1\\-4\\5.5
+\end{pmatrix}_{\mathcal{B}_2}$
+\vspace{4cm}
+\item \pmb{Discoveries}\\
+Observing the two transition matrices we discovered that Both matrices are lower triangular matrices.\\
+
+Also Observe that 
+$\begin{bmatrix}
+    -1&0& 0\\
+    2&-1& 0\\
+    0&1&2\\
+\end{bmatrix}$\pmb{.}$\begin{bmatrix}
+    -1&0& 0\\
+    -2&-1& 0\\
+     2&1&\frac{1}{2}\\
+\end{bmatrix}$=$\begin{bmatrix}
+    1&0&0\\
+    0&1&0\\
+    0&0&1\\
+\end{bmatrix}$\\\\
+This shows that the two matrices are inverse of each other.
+\end{itemize}
+\section{Project3}
+
+\begin{itemize}
+    \item \Large{}
+if L is a Linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^4$ 
+\Large{}
+$L\begin{pmatrix}
+  \begin{pmatrix} 1\\1 \end{pmatrix}
+\end{pmatrix} =
+ \begin{pmatrix}
+  -1\\ 1\\2\\3 
+\end{pmatrix}$ and 
+L$\begin{pmatrix}\begin{pmatrix} 1\\-1 \end{pmatrix}
+\end{pmatrix}$=$\begin{pmatrix}
+  2\\ 0\\2\\3 
+\end{pmatrix}$ define L . \\Hence compute $L\begin{pmatrix}
+  \begin{pmatrix} 5\\3 \end{pmatrix}
+\end{pmatrix}$\\\\
+\pmb{\Large{Solutions}}\\\\
+Observe that 
+$\begin{pmatrix} 1\\1 \end{pmatrix} and 
+\begin{pmatrix} 1\\-1 \end{pmatrix}$ are linearly independent, since the vectors are in $\mathbb{R}^2$ 
+then $\begin{pmatrix} 1\\1 \end{pmatrix}$ and 
+$\begin{pmatrix} 1\\-1 \end{pmatrix}$ spanned  $\mathbb{R}^2$ \\\\
+\pmb{Hence they form a basis for the vector space defined above.}\\
+For us to define the mapping we need to find the transformation of $\begin{pmatrix} a\\b \end{pmatrix} \forall_{a,b} \in \mathbb{R}^2$\\\\
+Firstly, Let us find the coordinate of $\begin{pmatrix} a\\b \end{pmatrix}$ with respect to
+$\begin{Bmatrix}
+  \begin{pmatrix} 1\\1 \end{pmatrix} &
+\begin{pmatrix} 1\\-1 \end{pmatrix} 
+\end{Bmatrix}$
+
+Let $\alpha ~~ and ~\beta$ be the coordinate then,\\
+$\alpha \begin{pmatrix} 1\\1 \end{pmatrix}$ +
+$\beta \begin{pmatrix} 1\\-1 \end{pmatrix} =\begin{pmatrix} a\\b \end{pmatrix}$
+$\begin{pmatrix} \alpha+\beta\\ \alpha - \beta \end{pmatrix}=\begin{pmatrix} a\\b \end{pmatrix}$\\
+$ \alpha+\beta =a~...eqI$\\
+$ \alpha - \beta =b...eqII$\\
+add eqI and eqII then we will have \\
+$2 \alpha =a+b \implies \alpha =\frac{a+b}{2}$\\\\
+From eqI, $ \alpha+\beta =a~...eqI$\\
+so, $\frac{a+b}{2} +\beta =a$\\
+$\beta =a-\frac{a+b}{2} \implies \beta = \frac{2a-a-b}{2}$
+$\beta =\frac{a-b}{2}$\\
+So, 
+
+$\begin{pmatrix} a\\b \end{pmatrix} =\frac{a+b}{2} \begin{pmatrix} 1\\1 \end{pmatrix} + $
+$\frac{a-b}{2} \begin{pmatrix} 1\\-1 \end{pmatrix}$\\\\
+Since L is a mapping then,\\\\
+$L\begin{pmatrix} \begin{pmatrix} a\\b \end{pmatrix} \end{pmatrix} =$
+$L\begin{pmatrix} \frac{a+b}{2} \begin{pmatrix} 1\\1 \end{pmatrix} \end{pmatrix}$
++ 
+$L\begin{pmatrix} \frac{a-b}{2} \begin{pmatrix} 1\\-1 \end{pmatrix} \end{pmatrix}$\\\\
+$\implies \frac{a+b}{2} L\begin{pmatrix} \begin{pmatrix} 1\\1 \end{pmatrix} \end{pmatrix}$
++ 
+$\frac{a-b}{2}L\begin{pmatrix}  \begin{pmatrix} 1\\-1 \end{pmatrix} \end{pmatrix}$ \\\\
+But the transformation of $\begin{pmatrix} 1\\1 \end{pmatrix} ~and ~ \begin{pmatrix} 1\\-1 \end{pmatrix}$ are given\\
+Therefore,\\
+$L\begin{pmatrix} \begin{pmatrix} a\\b \end{pmatrix} \end{pmatrix} =$
+$ \frac{a+b}{2} \begin{pmatrix} -1\\ 1\\2\\3 \end{pmatrix}$
++ 
+$\frac{a-b}{2} \begin{pmatrix} 2\\0\\2\\3 \end{pmatrix}$\\\\
+$\implies L\begin{pmatrix} \begin{pmatrix} a\\b \end{pmatrix} \end{pmatrix} =$
+$ \begin{pmatrix} \frac{-a-b}{2} \\ \frac{a+b}{2} \\a+b\\ \frac{3a+3b}{2}  \end{pmatrix}$
++ 
+$ \begin{pmatrix}\frac{2a-2b}{2}\\0\\a-b\\\frac{3a-3b}{2} \end{pmatrix}$\\\\\\
+$\implies L\begin{pmatrix} \begin{pmatrix} a\\b \end{pmatrix} \end{pmatrix} =$
+$ \begin{pmatrix} \frac{-a-b+2a-2b}{2} \\ \frac{a+b}{2} \\a+b+a-b\\ \frac{3a+3b+3a-3b}{2}  \end{pmatrix}$
+= 
+$ \begin{pmatrix} \frac{a-3b}{2}\\\frac{a+b}{2}\\2a\\\frac{a}{2} \end{pmatrix}$\\\\
+
+$\implies L\begin{pmatrix} \begin{pmatrix} a\\b \end{pmatrix} \end{pmatrix} = \begin{pmatrix} \frac{a-3b}{2}\\\frac{a+b}{2}\\2a\\3a \end{pmatrix}$
+\\\\\\\\
+Hence the linear transformation can be defined as follow\\\\
+$ L\begin{pmatrix} \begin{pmatrix} a\\b \end{pmatrix} \end{pmatrix} = \begin{pmatrix} \frac{a-3b}{2}\\\frac{a+b}{2}\\2a\\3a \end{pmatrix}$\\\\
+\item 
+ L$\begin{pmatrix} \begin{pmatrix} 3\\ 5\end{pmatrix} \end{pmatrix} = \begin{pmatrix} \frac{3-3*5}{2}\\\frac{3+5}{2}\\2*3\\3*3 \end{pmatrix}$=
+ $\begin{pmatrix} -6\\ 4\\ 6\\ 9 \end{pmatrix}$
+
+\end{itemize}
+
+
+\section{Project 3}
+Let V be an n-dimensional vector space and $\mathcal{B}_1=\{v_1,v_2...v_n\}, \mathcal{B}_2=\{w_1,w_2,...w_n\}$ 
+be ordered basis for v. For any v $\in V$ there exist a transition matrix between the coordinate of the vector of v with respect to $B_1$ and coordinate vector of v with respect to $B_2$ that is.
+$\begin{bmatrix}v\end{bmatrix}_{\mathcal{B}_1}=M^{\mathcal{B}_2}_{B_1} \begin{bmatrix}v\end{bmatrix}_{B_2}$ \\
+where is the transition matrix from $\mathcal{B}_2$ to $\mathcal{B}_1$.\\
+let L: $R^n \xrightarrow{} R^n$ be defined by 
+$L(v)=M^{\mathcal{B}_2}_{B_1} \begin{pmatrix}v\end{pmatrix}$ \\
+show that L is a linear transformation\\\\
+\pmb{Solution}\\\\
+choose arbitrary u,v $\in V$ and $\alpha \in \mathbb{R}$ then,\\
+$L(v+\alpha u)=M^{\mathcal{B}_2}_{B_1} \begin{pmatrix}v+\alpha u\end{pmatrix} =M^{\mathcal{B}_2}_{B_1} \begin{pmatrix} v\end{pmatrix} +M^{\mathcal{B}_2}_{B_1} \begin{pmatrix}\alpha u\end{pmatrix}  $ \\
+$\implies M^{\mathcal{B}_2}_{B_1} \begin{pmatrix} v\end{pmatrix} +\alpha M^{\mathcal{B}_2}_{B_1} \begin{pmatrix}u\end{pmatrix}$(since scalar multiplication with matrix is commutative)\\
+$\implies L(v)+ \alpha L(u)$ (By definition of  L)\\
+So, 
+$L(v+\alpha u)=L(v)+\alpha L(u)$\\
+\pmb{Hence L is a Linear transformation.}
+
+\section{Project 4}
+$L\begin{pmatrix}
+  \begin{bmatrix}
+    a_1\\a_2\\a_3\\_4
+  \end{bmatrix}
+\end{pmatrix}=
+\begin{bmatrix}
+a_1+a_2\\a_3+a_4\\a_1+a_3  
+\end{bmatrix}$\\\\
+find the Basis of ImgL\\\\
+\pmb{Solution}\\
+Looking at the transformation we can say that \\
+$
+  L\begin{pmatrix}
+   \begin{bmatrix}
+     a_1\\a_2\\a_3\\_4
+   \end{bmatrix}
+ \end{pmatrix}=
+ a_1
+ \begin{bmatrix}
+  1\\0\\1
+ \end{bmatrix}+
+ a_2
+ \begin{bmatrix}
+  1\\0\\0
+ \end{bmatrix}+a_3
+ \begin{bmatrix}
+  0\\1\\1
+ \end{bmatrix}+a_4
+ \begin{bmatrix}
+  0\\1\\0
+ \end{bmatrix}
+$\\
+This shows that 
+$
+  \begin{Bmatrix}
+  \begin{bmatrix}
+   1\\0\\1
+  \end{bmatrix},
+  \begin{bmatrix}
+   1\\0\\0
+  \end{bmatrix},
+  \begin{bmatrix}
+   0\\1\\1
+  \end{bmatrix},
+  \begin{bmatrix}
+   0\\1\\0
+  \end{bmatrix}
+  \end{Bmatrix}$
+span Img.\\\\
+\pmb{Now Let us check for the dependency.}\\
+Let $\alpha_1, \alpha_2,\alpha_3~ and~ \alpha_4$ be a real number such that,\\
+$ a_1
+ \begin{bmatrix}
+  1\\0\\1
+ \end{bmatrix}+
+ a_2
+ \begin{bmatrix}
+  1\\0\\0
+ \end{bmatrix}+a_3
+ \begin{bmatrix}
+  0\\1\\1
+ \end{bmatrix}+a_4
+ \begin{bmatrix}
+  0\\1\\0
+ \end{bmatrix}
+ $=$\begin{bmatrix}
+  0\\0\\0
+ \end{bmatrix}$\\
+ 
+choose $\alpha_1=-1,\alpha_2=1,\alpha_3=1$ and $\alpha_4=-1$\\
+
+$  -
+  \begin{bmatrix}
+   1\\0\\1
+  \end{bmatrix}+
+  \begin{bmatrix}
+   1\\0\\0
+  \end{bmatrix}+
+  \begin{bmatrix}
+   0\\1\\1
+  \end{bmatrix}-
+  \begin{bmatrix}
+   0\\1\\0
+  \end{bmatrix}=
+  \begin{bmatrix}
+    0\\0\\0
+   \end{bmatrix}$\\\\
+   This shows that the four vectors are linearly independent.
+   then, \\
+
+   \pmb{To get the Basis}\\
+   let us set all the four matrix in to a matrix then reduce to echelon form.
+  $\begin{matrix} 
+   \begin{bmatrix}
+    1&0&1\\
+    1&0&0\\
+    0&1&0\\
+    0&1&1
+   \end{bmatrix} \xrightarrow[then~Swap~R_2~and~R_3]{Swap~R_1~and~R_2}
+   \begin{bmatrix}
+    1&0&0\\
+    0&1&0\\
+    1&0&1\\
+    0&1&1
+   \end{bmatrix} 
+   \end{matrix}$\\\\
+$\begin{matrix} 
+    \begin{bmatrix}
+    1&0&0\\
+    0&1&0\\
+    1&0&1\\
+    0&1&1
+   \end{bmatrix}
+   \xrightarrow[R_3-R_1]{R_4-R_2}
+   \begin{bmatrix}
+    1&0&0\\
+    0&1&0\\
+    0&0&1\\
+    0&0&1
+   \end{bmatrix} 
+    \xrightarrow{R_4-R_2}
+   \begin{bmatrix}
+    1&0&0\\
+    0&1&0\\
+    0&0&1\\
+    0&0&0
+   \end{bmatrix} 
+   \end{matrix}$\\
+   there are three preceding one, this shows that the first three vectors constitute to a Basis.\\
+   Therefore,
+   $
+  \begin{Bmatrix}
+  \begin{bmatrix}
+   1\\0\\1
+  \end{bmatrix},
+  \begin{bmatrix}
+   1\\0\\0
+  \end{bmatrix},
+  \begin{bmatrix}
+   0\\1\\1
+  \end{bmatrix}
+  \end{Bmatrix}$
+  is a basis of ImgL
+
+  
+\section{Project 5}
+Let L: $\mathbb{R}_{\leq 3}[x] \xrightarrow{} \mathbb{R}$
+\begin{changemargin}{-140pt}{0pt}
+$$L(ax^3+bx^2+cx+d)=\int^2_1(ax^3+bx^2+cx+d)dx$$
+\end{changemargin}
+\begin{itemize}
+    \item Compute Ker L
+    \item Find dim(ker L) 
+\end{itemize}
+
+\Large{}
+\pmb{Solution}
+\begin{itemize}
+    \item Let K=Ker L then  By definition\\
+K = \{$A(x): \forall_{A(x)} \in \mathbb{R}_{\leq 3}[x]~and~ \int^2_1A(x)dx=0$\}\\
+Now Let solve for all elements in K.
+\begin{changemargin}{-240pt}{0pt}
+$$\int^2_1(ax^3+bx^2+cx+d)dx=0$$
+\end{changemargin}
+$[\frac{ax^4}{4}+\frac{bx^3}{3}+\frac{cx^2}{2}+dx]^2_1=0$\\
+$(4a+\frac{8b}{3}+2c+2d)-(\frac{a}{4}+\frac{b}{3}+\frac{c}{2}+d)=0$\\
+$4a+\frac{8b}{3}+2c+2d-\frac{a}{4}-\frac{b}{3}-\frac{c}{2}-d=0$\\
+$\frac{15a}{4}+\frac{7b}{3}+\frac{3c}{2}+d=0$\\
+$d=-(\frac{15a}{4}+\frac{7b}{3}+\frac{3c}{2})$\\
+So,A(x)= $ax^3+bx^2+cx-(\frac{15a}{4}+\frac{7b}{3}+\frac{3c}{2})$\\
+\pmb{Rearrange}\\
+So,A(x)= $ax^3-\frac{15a}{2}+bx^2-\frac{7b}{3}+cx-\frac{3c}{2}$\\
+A(x)= $a(x^3-\frac{15}{2})+b(x^2-\frac{7}{3})+c(x-\frac{3}{2})$\\
+Hence,\\ K=$\{A_{(x)}:A_{(x)}=a(x^3-\frac{15}{2})+b(x^2-\frac{7}{3})+c(x-\frac{3}{2})~~\forall_{a,b,c} \in \mathbb{R}\}$
+\item \pmb{For Dimension of KerL }\\
+Observe that,$\{(x^3-\frac{15}{2}),(x^2-\frac{7}{3}),(x-\frac{3}{2})\}$ spanned KerL .
+Also since they all have different greatest power of x then they are independent. Therefore, they form a basis for kerL .
+\pmb{Hence the dim(kerL) is 3.}
+
+\end{itemize}
+\end{document}
+
