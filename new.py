@@ -60,7 +60,7 @@ class Homogeneous:
     self.variable = var
     self.Basis=self.Basis()
     self.Dimension=len(self.Basis)
-    self.Function='+'.join(map(str,addCoefficient( self.Basis)))+'=0'
+    self.Function='+'.join(map(str,addCoefficient( self.Basis)))
   
   def __repr__(self):
       return self.function
@@ -133,7 +133,6 @@ class SymmetricTensors:
         #m[index] = value + 1
 
 
-##TESTING THE MODUE
 class Polynomials:
   def __init__(self, deg, var):
     import math
