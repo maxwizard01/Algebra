@@ -1,43 +1,33 @@
-from itertools import permutations,product 
-# Get all permutations
+from itertools import permutations,product # Get all permutations
 import numpy as np
-
 def permutation(arr):
     index=[]
     perm=permutations(arr)
     [index.append(list(i)) for i in list(perm) if list(i) not in index]
     return index
-
-
-# function to convert to subscript
+# function to convert to subscript and superscript
 def sub(x):
     base=['\u2080','\u2081','\u2082','\u2083','\u2084','\u2085','\u2086','\u2087','\u2088','\u2089']
     subscritptFigure=''.join(map(str,[base[int(i)] for i in list(str(x))]))
-    return subscritptFigure
-         
+    return subscritptFigure        
 def sup(x):
   power= ['\u2070','\u2071','\u00b2','\u00b3',
          '\u2074','\u2075','\u2076','\u2077',
          '\u2078','\u2079']
-  superscritp=''.join(map(str,[power[int(i)] for i in list(str(x))]))
-    
-  return superscritp
-     
-
+  superscript=''.join(map(str,[power[int(i)] for i in list(str(x))]))
+  return superscript
 def subs(x):
     return '_{'+str(x)+'}'
 def sups(x):
     return '^{'+str(x)+'}'
 
-    
 def combinations_with_replacement(iterable, r):
     pool = tuple(iterable)
     n = len(pool)
     for indices in product(range(n), repeat=r):
         if sorted(indices) == list(indices):
             yield tuple(pool[i] for i in indices)
-
-
+            
 def variablesWithPower(xi,power):
     if power==0:
         return ''
