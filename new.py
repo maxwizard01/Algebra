@@ -48,10 +48,14 @@ class Homogeneous:
   def __init__(self, deg, var):
     self.degree = deg
     self.variable = var
+    self.Degree = deg
+    self.Variable = var
     self.Basis=self.Basis()
+    self.basis=self.Basis
     self.Dimension=len(self.Basis)
+    self.dimension=self.Dimension
     self.Function='+'.join(map(str,addCoefficient( self.Basis)))
-  
+    self.function=self.Function
   def __repr__(self):
       return self.function
     
@@ -85,7 +89,7 @@ class SymmetricTensors:
         self.vector = var
         self.Tensor=self.Tensor()
         self.Dimension=len(self.uniqueIndex())
-        
+        self.dimension=self.Dimension
     
     def permute(self,arr):
         index=[]
@@ -128,11 +132,15 @@ class Polynomials:
     import math
     self.degree = deg
     self.variable = var
+    self.Degree = deg
+    self.Variable = var
     self.Basis=self.Basis()
     self.Basis[0]=1
+    self.basis= self.Basis
     self.Dimension=len(self.Basis)
     self.Function='+'.join(map(str,addCoefficient(self.Basis))).replace('a₀1','a₀')
-  
+    self.function=self.Function
+    self.dimension=self.Dimension
   def Basis(self):
       degree=self.degree
       variables=self.variable
@@ -156,17 +164,17 @@ class Polynomials:
       return index1
   
 #Testing the Codes for Symmetric Tensor
-#for i in range(2,8):
- #   M=SymmetricTensors(3, i)
-  #  print(M.Dimension)
+# for i in range(2,6):
+#     M=SymmetricTensors(3, i)
+#     print(M.Tensor)
 
 #Testing the Codes for Homogenous
-#for i in range(2,8):
- #   M=Homogeneous(3, i)
-  #  print(M.Basis)
-  #  print(M.Dimension)
+# for i in range(2,8):
+#     M=Homogeneous(3, i)
+#     print(M.Basis)
+#     print(M.Dimension)
 
 #Testing the Codes for polynomials
-#for i in range(2,8):
- #   M=Polynomials(3, i)
-  #  print(M.Dimension)
+# for i in range(2,8):
+#     M=Polynomials(3, i)
+#     print(M.function)
