@@ -1,0 +1,680 @@
+\documentclass{beamer}
+\usepackage{ctex}
+\usepackage{blindtext}
+
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle=linear Algebra,
+    pdfpagemode=FullScreen
+ }
+    
+\urlstyle{same}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Madrid}
+\usepackage{tikz}
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+% other packages
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{booktabs} 
+\usepackage{calligra}
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{listings}
+\usepackage{stackengine}
+\usepackage{WUT}
+\usepackage[utf8]{inputenc}
+\title[\color{white} LIEAR ALGEBRA] %optional
+{MAT 212}
+
+\subtitle{LINEAR ALGEBRA}
+\author[MAT 212 ] % (optional, for multiple authors)
+{Unveiling the Vector Space}
+
+\institute[University Of Ibadan]{University Of Ibadan}
+
+\date[VLC 2021] % (optional)
+{May 21, 2023}
+\logo{\includegraphics[height=1cm]{UI logo.png}}
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\Large{Table of Contents}
+\begin{enumerate}
+    \item Introduction\\\\\\
+    \item Space Of Multi-variable Polynomial of degree n or less\\\\
+    \item Space of Homogeneous polynomial of degree two in k variables.\\\\
+    \item Space of Cubic Matrices or Symmetric Tensor\\\\
+    \item Conclusion
+    \item Programming
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introduction to Pascals triangle}
+    \begin{block}
+    \section{Introduction to Pascals triangle}
+    Pascal's triangle is a fascinating mathematical construct named after the French mathematician Blaise Pascal. It is a triangular array of numbers that holds immense significance in combinatorial mathematics.
+    
+    Each number in the triangle is obtained by adding the two numbers directly above it, forming a symmetrical pattern.\\
+    
+\centering
+\includegraphics[width=0.69\textwidth]{pascal4.png}
+\end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introduction to Pascals triangle}
+    \begin{block}{Introduction to Pascals triangle}
+    Pascal's triangle reveals various intriguing properties, such as the binomial coefficients and the Fibonacci sequence. It finds applications in probability theory, algebra, and number theory. This triangular arrangement of numbers provides a visual representation of the mathematical relationships between them, offering a powerful tool for solving problems and exploring the intricacies of mathematical patterns.
+
+Pascal's triangle holds some hidden patterns and relationships within its structure. Here are a few intriguing discoveries:
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Powers of 2: }
+\begin{block}{Powers of 2: }
+\pmb{Powers of 2:} The sum of the numbers in each row of Pascal's triangle is always a power of 2. For example, in the 5th row (1, 4, 6, 4, 1), the sum is 16, which is equal to 2^4.
+
+\centering
+\includegraphics[width=0.69\textwidth]{pascal.png}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Linear Recurrence Relations }
+\begin{block}{Fibonacci}
+ Pascal's triangle provides a visual representation of linear recurrence relations, which are equations that define a sequence based on previous terms. The triangle reveals pattern of Fibonacci sequence.
+ \centering
+\includegraphics[width=0.69\textwidth]{pascal3.png}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Space of Multi-variable Polynomials of degree n or less in two variables}
+\begin{block}{\pmb{ Polynomials of degree n or less in two variables}}
+Here we are going to consider polynomial in two variables while vary the degree. then we will study the Basis and dimension and see how it relates to pascal triangle.
+\begin{itemize}
+\item Polynomial of Degree one or less in two variables\\
+A Basis is $\begin{Bmatrix}1,~ x_1,~ x_0
+\end{Bmatrix}$\\
+Dimension=3\\
+\item Polynomial of Degree two or less in two variables 
+A Basis is $\begin{Bmatrix}1,~ x_1,~ x_0,~ x_1^2,~ x_0^2,~ x_0x_1
+\end{Bmatrix}$\\
+Dimension=6\\
+\item Polynomial of Degree three or less in two variables \\
+A Basis is $\begin{Bmatrix}1,~ x_1,~ x_0,~ x_1^2,~ x_0^2,~ x_1^3,~ x_0^3,~ x_0x_1,~ x_0x_1^2,~ x_0^2x_1
+\end{Bmatrix}$\\
+Dimension=10\\
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Space of Multi-variable Polynomials of degree n or less in two variables}
+\begin{block}{\pmb{Contd.}}
+
+\begin{itemize} 
+\item Polynomial of Degree four or less in two variables 
+$A~~Basis ~is \begin{Bmatrix}1,~ x_1,~ x_0,~ x_1^2,~ x_0^2,~ x_1^3,~ x_0^3,~ x_1^4,~ x_0^4,\\~ x_0x_1,~ x_0x_1^2,~ x_0^2x_1,~ x_0x_1^3,~ x_0^3x_1,~ x_0^2x_1^2
+\end{Bmatrix}$\\
+Dimension=15\\
+\end{itemize}
+\pmb{Discovery}\\
+If we study the sequence the dimension of the vector space above we will see that it follows the sequence of the third diagonal of a pascal triangle.\\
+So, we can say that the third diagonal of a Pascal triangle generate the dimension of Space of Multi-variable Polynomials of degree n or less in two variables.
+
+Each dimension here can be generated using the formula $n+2 \choose 2$ where n is the degree
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Space of Multi-variable Polynomials of degree n or less in three variables}
+\begin{block}{\pmb{ Polynomials of degree n or less in three variables}}
+Just like the previous example we are going to consider polynomial in three variables while vary the degree. then we will study the Basis and dimension and see how it relates to pascal triangle.
+
+\begin{itemize}
+\item Polynomial of Degree one on three variables \\
+A Basis is $\begin{Bmatrix}1,~ x_2,~ x_1,~ x_0
+\end{Bmatrix}$\\
+Dimension=4\\
+\item Polynomial of Degree two or less in three variables \\
+A Basis is $\begin{Bmatrix}1,~ x_2,~ x_1,~ x_0,~ x_2^2,~ x_1^2,~ x_0^2,~ x_1x_2,~ x_0x_2,~ x_0x_1
+\end{Bmatrix}$\\
+Dimension=10\\
+\item Polynomial of Degree three or less in three variables \\
+\newcommand\fontsizex{\fontsize{10pt}{7pt}\selectfont}
+{\fontsizex
+$~A~Basis~is~\begin{Bmatrix}1,~ x_2,~ x_1,~ x_0,~ x_2^2,~ x_1^2,~ x_0^2,~ x_2^3,~ x_1^3,~ x_0^3,~ x_1x_2,~ x_0x_2,\\~ x_0x_1,~ x_1x_2^2,~ x_1^2x_2,~ x_0x_2^2,~ x_0x_1^2,~ x_0^2x_2,~ x_0^2x_1,~ x_0x_1x_2
+\end{Bmatrix}$}\\
+\\
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Space of Multi-variable Polynomials of degree n or less in three variables}
+\begin{block}{\pmb{Contd.}}
+Dimension=20
+\begin{itemize} 
+
+\item Polynomial of Degree four or less in three variables
+     $~A~Basis~is~\begin{Bmatrix}1,~ x_2,~ x_1,~ x_0,~ x_2^2,~ x_1^2,~ x_0^2,~ x_2^3,~ x_1^3,~ x_0^3,~ x_2^4,~ x_1^4,~ x_0^4,\\~ x_1x_2,~ x_0x_2,~ x_0x_1,~ x_1x_2^2~ x_1^2x_2,~ x_0x_2^2,~ x_0x_1^2,~ x_0^2x_2,\\ x_0^2x_1,~ x_1x_2^3,~ x_1^3x_2,~ x_0x_2^3~ x_0x_1^3,~ x_0^3x_2,~ x_0^3x_1,~ x_1^2x_2^2,\\~ x_0^2x_2^2,~ x_0^2x_1^2,~ x_0x_1x_2,~ x_0x_1x_2^2,~ x_0x_1^2x_2,~ x_0^2x_1x_2
+\end{Bmatrix}$
+Dimension=35\\
+\end{itemize}
+
+\pmb{Discovery}\\
+If we continue with this and Study the sequence the dimension of the vector space above,we will see that it can be generated using the formula $n+3 \choose 3$ where n is the degree this follows the pattern of fourth diagonal of a Pascal triangle.
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Space of Multi-variable Polynomials of degree n or less in Four variables}
+\begin{block}{\pmb{Polynomials of degree n or less in Four variables}}
+\begin{itemize}
+\item Polynomial of Degree one or less in four variables\\ 
+A Basis is $\begin{Bmatrix}1,~ x_3,~ x_2,~ x_1,~ x_0
+\end{Bmatrix}$\\
+Dimension=5\\
+\item Polynomial of Degree two or less in four variables \\
+A Basis is $\begin{Bmatrix}1,~ x_3,~ x_2,~ x_1,~ x_0,~ x_3^2,~ x_2^2,~ x_1^2,~ x_0^2,\\~ x_2x_3,~ x_1x_3,~ x_1x_2,~ x_0x_3,~ x_0x_2,~ x_0x_1
+\end{Bmatrix}$\\
+Dimension=15\\
+\item Polynomial of Degree three or less in four variables \\
+\newcommand\fontsizex{\fontsize{10pt}{7pt}\selectfont}
+{\fontsizex $~A~Basis~is~\begin{Bmatrix}1,~ x_3,~ x_2,~ x_1,~ x_0,~ x_3^2,~ x_2^2,~ x_1^2,~ x_0^2,~ x_3^3,~ x_2^3,~ x_1^3,~ x_0^3,\\~ x_2x_3,~ x_1x_3,~ x_1x_2,~ x_0x_3,~ x_0x_2,~ x_0x_1,~ x_2x_3^2,~ x_2^2x_3,\\x_1x_3^2,~ x_1x_2^2,~ x_1^2x_3,~ x_1^2x_2,~ x_0x_3^2,~ x_0x_2^2,~ x_0x_1^2,~ x_0^2x_3,\\~ x_0^2x_2,~ x_0^2x_1,~ x_1x_2x_3,~ x_0x_2x_3,~ x_0x_1x_3,~ x_0x_1x_2
+\end{Bmatrix}$}
+Dimension=35
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Space of Multi-variable Polynomials of degree n or less in Four variables}
+\begin{block}{Contd.}
+\begin{itemize} 
+\item Polynomial of Degree four or less in four variables \\
+$~A~Basis~is~\begin{Bmatrix}1,~ x_3,~ x_2,~ x_1,~ x_0,~ x_3^2,~ x_2^2,~ x_1^2,~ x_0^2,~ x_3^3,~ x_2^3,~ x_1^3,\\
+~ x_0^3,~ x_3^4,~ x_2^4,~ x_1^4,~ x_0^4,~ x_2x_3,
+~ x_1x_3,~ x_1x_2,~ x_0x_3,\\
+~ x_0x_2,~x_0x_1,~x_2x_3^2,~x_2^2x_3,~x_1x_3^2,~ x_1x_2^2,~ x_1^2x_3,~ x_1^2x_2,\\
+~ x_0x_3^2,~ x_0x_2^2,~ x_0x_1^2,~ x_0^2x_3,~ x_0^2x_2,~ x_0^2x_1,~ x_2x_3^3,\\
+~x_2^3x_3,~x_1x_3^3,~x_1x_2^3,~x_1^3x_3,~x_1^3x_2,~x_0x_3^3,~ x_0x_2^3,~ x_0x_1^3,\\ 
+x_0^3x_3,~x_0^3x_2,~x_0^3x_1,~x_2^2x_3^2,~x_1^2x_3^2,~ x_1^2x_2^2,~ x_0^2x_3^2,\\
+~ x_0^2x_2^2,~x_0^2x_1^2,~x_1x_2x_3,~x_0x_2x_3,
+~x_0x_1x_3,~x_0x_1x_2,\\
+x_1x_2x_3^2,~x_1x_2^2x_3,~x_1^2x_2x_3,~x_0x_2x_3^2,x_0x_2^2x_3,~x_0x_1x_3^2,\\
+x_0x_1x_2^2,~x_0x_1^2x_3,x_0x_1^2x_2,~x_0^2x_2x_3,~ x_0^2x_1x_3,~ x_0^2x_1x_2,\\~ x_0x_1x_2x_3
+\end{Bmatrix}$\\\\
+Dimension=70
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Space of Multi-variable Polynomials of degree n or less in Four variables}
+\begin{block}{\pmb{Discovery}}
+If we study the sequence the dimension of the vector space above we will see that it follows the sequence of the third diagonal of a pascal triangle.\\
+So, we can say that the third diagonal of a Pascal triangle generate the dimension of Space of Multi-variable Polynomials of degree n or less in two variables.
+
+Each dimension here can be generated using the formula $n+4 \choose 4$ where n is the degree\\
+\end{block}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Space of Homogeneous polynomial of degree n in k variables}
+\begin{block}{\Large{Space of Homogeneous polynomial of degree n in k variables}}
+A homogeneous polynomial is a polynomial whose nonzero terms all have the same degree.
+Space of Homogeneous polynomial of degree n in k variables is denoted by $S_{\leq n}[x_k]$\\
+\pmb{Examples of space of Homogeneous polynomial are:}\\
+\begin{itemize}
+    \item Space of Homogeneous polynomial of degree two in k variable
+     \item Space of Homogeneous polynomial of degree three in k variable
+      \item Space of Homogeneous polynomial of degree Four in k variable
+     \item Space of Homogeneous polynomial of degree Five in k variable
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Space of Homogeneous polynomial of Degree two in k variables}
+\begin{block}{\pmb{Homogeneous polynomial of Degree two in k variables}}
+\begin{itemize}
+
+\item Space of Homogeneous polynomial of Degree two in 2 variables\\
+\newcommand\fontsizex{\fontsize{10pt}{10pt}\selectfont}
+{\fontsizex$V=\begin{Bmatrix}
+F(x):F(x)=a_{0}x_{1}^{2}+ a_{1}x_{0}^{2}+a_{2}x_{0}x_{1} ~~a_i \in \mathbb{R}~~\forall_{i\geq 0}
+\end{Bmatrix}$}
+
+$A~Basis ~is~\begin{Bmatrix} x_{1}^{2}& x_{0}^{2}& x_{0}x_{1} \end{Bmatrix}$\\
+Dimension= 3 
+\item Space of Homogeneous polynomial of Degree two in 3 variables\\
+\newcommand\fontsizeix{\fontsize{8pt}{9pt}\selectfont}
+
+{\fontsizeix $V=\begin{Bmatrix}
+F(x):F(x)=a_{0}x_{2}^{2}+a_{1}x_{1}^{2}+a_{2}x_{0}^{2}+a_{3}x_{1}x_{2}+a_{4}x_{0}x_{2}+a_{5}x_{0}x_{1} \\a_i \in \mathbb{R}~~\forall_{i\geq 0}
+\end{Bmatrix}$}
+
+$A~ Basis ~is~\begin{Bmatrix} x_{2}^{2}& x_{1}^{2}& x_{0}^{2}& x_{1}x_{2}& x_{0}x_{2}& x_{0}x_{1} \end{Bmatrix}$\\
+Dimension= 6 
+\item Space of Homogeneous polynomial of Degree two in 4 variables\\
+
+\begin{changemargin}{0pt}{0pt}
+$V=\begin{Bmatrix}
+g(x):g(x)=a_{0}x_{3}^{2}+a_{1}x_{2}^{2}+a_{2}x_{1}^{2}+a_{3}x_{0}^{2}+a_{4}x_{2}x_{3}+\\a_{5}x_{1}x_{3}+a_{6}x_{1}x_{2}+a_{7}x_{0}x_{3}+a_{8}x_{0}x_{2}+a_{9}x_{0}x_{1} 
+\end{Bmatrix}$
+\end{changemargin}
+
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Space of Homogeneous polynomial of Degree two in k variables}
+\begin{block}{\pmb{contd.}}
+$A~Basis~is~\begin{Bmatrix} x_{3}^{2}& x_{2}^{2}& x_{1}^{2}& x_{0}^{2}& x_{2}x_{3}& x_{1}x_{3}& x_{1}x_{2}& x_{0}x_{3}& x_{0}x_{2}& x_{0}x_{1} \end{Bmatrix}$\\
+Dimension= 10 
+\begin{itemize} 
+\item Space of Homogeneous polynomial of Degree two in 5 variables\\
+\newcommand\fontsizeix{\fontsize{9pt}{9pt}\selectfont}
+\begin{changemargin}{-24pt}{0pt}
+{\fontsizeix$V=\begin{Bmatrix}
+g(x):g(x)=a_{0}x_{4}^{2}+a_{1}x_{3}^{2}+a_{2}x_{2}^{2}+a_{3}x_{1}^{2}+a_{4}x_{0}^{2}+a_{5}x_{3}x_{4}+a_{6}x_{2}x_{4}...+a_{14}x_{0}x_{1} 
+\end{Bmatrix}$}
+\newline 
+\end{changemargin}
+$A~Basis~is{\fontsizeix\begin{Bmatrix} x_{4}^{2}& x_{3}^{2}& x_{2}^{2}& x_{1}^{2}& x_{0}^{2}& x_{3}x_{4}& x_{2}x_{4}& x_{2}x_{3}& x_{1}x_{4}& x_{1}x_{3}& x_{1}x_{2}& x_{0}x_{4}& x_{0}x_{3}& x_{0}x_{2}& x_{0}x_{1}
+\end{Bmatrix}}$
+Dimension= 15 
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Space of Homogeneous polynomial of Degree two in k variables} \begin{block}{\pmb{contd.}}
+\pmb{Discovery}\\
+If we study the sequence the dimension of the vector space above we will see that it follows the sequence of the third diagonal of a pascal triangle.\\
+So, we can say that the third diagonal of a Pascal triangle generate the dimension of Space of Homogeneous polynomial of Degree two in k variables.
+
+Each dimension here can be generated using the formula $k+1 \choose 2$ where k is the number of variables\\
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Space of Homogeneous Polynomial of degree three in k variables}
+\begin{block}
+    {Space of Homogeneous Polynomial of degree three in k variables}
+\begin{itemize}
+\item Homogeneous Polynomial of Degree three in 2 variables\\
+$a_{0}x_{1}^{3}+a_{1}x_{0}^{3}+a_{2}x_{0}x_{1}^{2}+a_{3}x_{0}^{2}x_{1}$\\
+A Basis is\\
+$\begin{Bmatrix}x_{1}^{3}&x_{0}^{3}&x_{0}x_{1}^{2}&x_{0}^{2}x_{1}\end{Bmatrix}$
+\\
+Dimension= 4\\\\
+\item Homogeneous Polynomial of Degree three in 3 variables\\
+\begin{changemargin}{-4pt}{0pt}
+{\fontsizeix$V=\begin{Bmatrix}
+g(x):g(x)=a_{0}x_{2}^{3}+a_{1}x_{1}^{3}+a_{2}x_{0}^{3}+...+a_{8}x_{0}^{2}x_{1}+a_{9}x_{0}x_{1}x_{2}\end{Bmatrix}$}
+\end{changemargin}\\
+
+$A~Basis~ is~\begin{Bmatrix}x_{2}^{3}&x_{1}^{3}&x_{0}^{3}&x_{1}x_{2}^{2}&x_{1}^{2}x_{2}&x_{0}x_{2}^{2}&\\x_{0}x_{1}^{2}&x_{0}^{2}x_{2}&x_{0}^{2}x_{1}&x_{0}x_{1}x_{2}\end{Bmatrix}$
+\\
+Dimension= 10
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homogeneous Polynomial of Degree three in k variable}
+\begin{block}{\pmb{Contd.}}
+\begin{itemize}
+    \item Homogeneous Polynomial of Degree three in 4 variables\\
+\begin{changemargin}{-4pt}{0pt}
+{\fontsizeix$V=\begin{Bmatrix}
+g(x):g(x)=a_{0}x_{3}^{3}+a_{1}x_{2}^{3}+a_{2}x_{1}^{3}+a_{3}x_{0}^{3}+...+a_{19}x_{0}x_{1}x_{2}
+\end{Bmatrix}$}
+\end{changemargin}
+
+
+$A~Basis~ is~\begin{Bmatrix}
+x_{3}^{3}&x_{2}^{3}&x_{1}^{3}&x_{0}^{3}&x_{2}x_{3}^{2}&x_{2}^{2}x_{3}\\x_{1}x_{3}^{2}&x_{1}x_{2}^{2}x_{1}^{2}x_{3}&x_{1}^{2}x_{2}& x_{0}x_{3}^{2}x_{0}x_{2}^{2}&x_{0}x_{1}^{2}&x_{0}^{2}x_{3}\\x_{0}^{2}x_{2}&x_{0}^{2}x_{1}&x_{1}x_{2}x_{3}&x_{0}x_{2}x_{3}&x_{0}x_{1}x_{3}&x_{0}x_{1}x_{2}
+\end{Bmatrix}$
+\\
+Dimension= 20\\\\
+\item Homogeneous Polynomial of Degree three in 5 variables\\
+
+\begin{changemargin}{-24pt}{0pt}
+$A~Basis ~is~\begin{Bmatrix}x_{4}^{3}&x_{3}^{3}&x_{2}^{3}&x_{1}^{3}&x_{0}^{3}&x_{3}x_{4}^{2}&x_{3}^{2}x_{4}\\x_{2}x_{4}^{2}&x_{2}x_{3}^{2}&
+x_{2}^{2}x_{4}&x_{2}^{2}x_{3}&x_{1}x_{4}^{2}&x_{1}x_{3}^{2}&x_{1}x_{2}^{2}\\x_{1}^{2}x_{4}&x_{1}^{2}x_{3}&x_{1}^{2}x_{2}&x_{0}x_{4}^{2}&
+x_{0}x_{3}^{2}&x_{0}x_{2}^{2}&x_{0}x_{1}^{2}\\x_{0}^{2}x_{4}&x_{0}^{2}x_{3}&x_{0}^{2}x_{2}&x_{0}^{2}x_{1}&x_{2}x_{3}x_{4}&x_{1}x_{3}x_{4}&x_{1}x_{2}x_{4}\\x_{1}x_{2}x_{3}&x_{0}x_{3}x_{4}&x_{0}x_{2}x_{4}&x_{0}x_{2}x_{3}&x_{0}x_{1}x_{4}&x_{0}x_{1}x_{3}&x_{0}x_{1}x_{2}\end{Bmatrix}$
+\end{changemargin}
+Dimension= 35
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Homogeneous Polynomial of Degree four in k variables}
+\begin{block}{\pmb{Homogeneous Polynomial of Degree four in k variables}}
+\begin{itemize}
+    \item Homogeneous Polynomial of Degree four in 2 variables
+\begin{changemargin}{-4pt}{0pt}
+{\fontsizeix$V=\begin{Bmatrix}
+g(x):g(x)=a_{0}x_{1}^{4}+a_{1}x_{0}^{4}+a_{2}x_{0}x_{1}^{3}+a_{3}x_{0}^{3}x_{1}+a_{4}x_{0}^{2}x_{1}^{2}
+\end{Bmatrix}$}
+\end{changemargin}
+$A~Basis~is~\begin{Bmatrix} x_{1}^{4}& x_{0}^{4}& x_{0}x_{1}^{3}& x_{0}^{3}x_{1}& x_{0}^{2}x_{1}^{2} \end{Bmatrix}$\\
+Dimension= 5
+\item Homogeneous Polynomial of Degree four in 3 variables\\
+\begin{changemargin}{-4pt}{0pt}
+{\fontsizeix$V=\begin{Bmatrix}
+g(x):g(x)=a_{0}x_{2}^{4}+a_{1}x_{1}^{4}+a_{2}x_{0}^{4}+a_{3}x_{1}x_{2}^{3}+...+a_{14}x_{0}^{2}x_{1}x_{2}
+\end{Bmatrix}$}
+\end{changemargin}
+\begin{changemargin}{-14pt}{0pt}
+$A~Basis~is~\begin{Bmatrix} x_{2}^{4}& x_{1}^{4}& x_{0}^{4}& x_{1}x_{2}^{3}& x_{1}^{3}x_{2}& x_{0}x_{2}^{3}& x_{0}x_{1}^{3}& x_{0}^{3}x_{2}\\x_{0}^{3}x_{1}& x_{1}^{2}x_{2}^{2}& x_{0}^{2}x_{2}^{2}& x_{0}^{2}x_{1}^{2}& x_{0}x_{1}x_{2}^{2}& x_{0}x_{1}^{2}x_{2}& x_{0}^{2}x_{1}x_{2} \end{Bmatrix}$
+\end{changemargin}
+Dimension= 15
+
+\end{itemize}
+\end{block} 
+\end{frame}
+
+\begin{frame}  
+\frametitle{Homogeneous Polynomial of Degree four in k variables}
+\begin{block}{contd.}
+\begin{itemize}
+    \item Homogeneous Polynomial of Degree four in 4 variables\\
+\begin{changemargin}{-4pt}{0pt}
+{\fontsizeix$V=\begin{Bmatrix}
+g(x):g(x)=a_{0}x_{3}^{4}+a_{1}x_{2}^{4}+a_{2}x_{1}^{4}+a_{3}x_{0}^{4}+...+a_{34}x_{0}x_{1}x_{2}x_{3}
+\end{Bmatrix}$}
+\end{changemargin}
+
+\begin{changemargin}{-24pt}{0pt}
+$A~Basis~is~\begin{Bmatrix} x_{3}^{4}& x_{2}^{4}& x_{1}^{4}& x_{0}^{4}& x_{2}x_{3}^{3}& x_{2}^{3}x_{3}& x_{1}x_{3}^{3}\\
+x_{1}x_{2}^{3}& x_{1}^{3}x_{3}& x_{1}^{3}x_{2}& x_{0}x_{3}^{3}& x_{0}x_{2}^{3}& x_{0}x_{1}^{3}& x_{0}^{3}x_{3}\\
+x_{0}^{3}x_{2}& x_{0}^{3}x_{1}& x_{2}^{2}x_{3}^{2}& x_{1}^{2}x_{3}^{2}& x_{1}^{2}x_{2}^{2}& x_{0}^{2}x_{3}^{2}& x_{0}^{2}x_{2}^{2}\\
+x_{0}^{2}x_{1}^{2}& x_{1}x_{2}x_{3}^{2}& x_{1}x_{2}^{2}x_{3}& x_{1}^{2}x_{2}x_{3}& x_{0}x_{2}x_{3}^{2}& x_{0}x_{2}^{2}x_{3}& x_{0}x_{1}x_{3}^{2}\\
+x_{0}x_{1}x_{2}^{2}& x_{0}x_{1}^{2}x_{3}& x_{0}x_{1}^{2}x_{2}& x_{0}^{2}x_{2}x_{3}& x_{0}^{2}x_{1}x_{3}& x_{0}^{2}x_{1}x_{2}& x_{0}x_{1}x_{2}x_{3} \end{Bmatrix}$
+\end{changemargin}
+Dimension= 35
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Symmetric Tensor of order}
+\begin{block}{\pmb{Symmetric Tensor of order 3 defined on $\mathbb{R}^n$  $ [S^3(\mathbb{R}^n)]$}}
+\begin{itemize}
+\item Symmetric Tensor of order 3 defined on $\mathbb{R}^2$ written as $ S^3(\mathbb{R}^2)$
+$V=\begin{Bmatrix}  
+  A: A=
+ \begin{bmatrix}
+  \begin{pmatrix} a_0&a_1\\ a_1&a_2\\
+  \end{pmatrix}
+  \begin{pmatrix}
+  a_1&a_2\\
+  a_2& a_3 \\
+\end{pmatrix}
+  \end{bmatrix}
+  a_i \in \mathbb{R}
+\end{Bmatrix}\\\\
+$
+e.g,   
+ $\begin{bmatrix}
+  \begin{pmatrix} 2&4\\ 4&1\\
+  \end{pmatrix}
+  \begin{pmatrix}
+  4&1\\
+  1& 7 \\
+\end{pmatrix}
+  \end{bmatrix}
+ \in V$\\
+\newcommand\fontsizeXii{\fontsize{10pt}{8pt}\selectfont}
+\pmb{A~Basis~ is~ below}\\ 
+{\fontsizeXii $\begin{Bmatrix}
+
+    \begin{bmatrix}
+    \begin{pmatrix}
+    1&0\\
+    0&0\\
+  \end{pmatrix}
+    \begin{pmatrix}
+    0&0\\
+    0&0 \\
+  \end{pmatrix}
+\end{bmatrix},
+
+\begin{bmatrix}
+  \begin{pmatrix}
+  0&1\\
+  1&0\\
+\end{pmatrix}
+  \begin{pmatrix}
+  1&0\\
+  0&0 \\
+\end{pmatrix}
+\end{bmatrix},
+
+\begin{bmatrix}
+  \begin{pmatrix}
+  0&0\\
+  0&1\\
+\end{pmatrix}
+  \begin{pmatrix}
+  0&1\\
+  1&0 \\
+\end{pmatrix}
+\end{bmatrix},
+\begin{bmatrix}
+  \begin{pmatrix}
+  0&0\\
+  0&0\\
+\end{pmatrix}
+  \begin{pmatrix}
+  0&0\\
+  0&1 \\
+\end{pmatrix}
+\end{bmatrix}
+\end{Bmatrix}$}\\
+Dimension= 4
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cubic Matrix or Symmetric Tensor of order three}
+\begin{block}{\pmb{contd.}}
+\begin{itemize}
+\item Symmetric Tensor of order 3 defined on $\mathbb{R}^3$ written as $S^3(\mathbb{R}^3)$\\
+
+\newcommand\fontsizeXi{\fontsize{11pt}{9pt}\selectfont}
+{\fontsizeXi
+V=$\begin{Bmatrix} 
+  A: A=
+\begin{bmatrix}
+\begin{pmatrix}a_0& a_1& a_2\\
+a_1& a_3& a_4\\
+a_2& a_4& a_5\\
+\end{pmatrix},
+
+\begin{pmatrix}
+a_1& a_3& a_4\\
+a_3& a_6& a_7\\
+a_4& a_7& a_8\\
+\end{pmatrix},
+
+\begin{pmatrix}
+a_2& a_4& a_5\\
+a_4& a_7& a_8\\
+a_5& a_8& a_9
+\end{pmatrix}
+\end{bmatrix} a_i \in \mathbb{R}
+\end{Bmatrix}$}\\
+
+e.g {\fontsizeXi$\begin{bmatrix}
+\begin{pmatrix}0& 2& 41\\
+2& 3& 17\\
+41& 17& 33\\
+\end{pmatrix},
+
+\begin{pmatrix}
+2& 3& 17\\
+3& 7& 11\\
+17& 11& 12\\
+\end{pmatrix},
+
+\begin{pmatrix}
+41& 17& 33\\
+17& 11& 12\\
+33& 12& 28
+\end{pmatrix}
+\end{bmatrix}
+\in V$}
+Dimension is 10
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Cubic Matrix or Symmetric Tensor of order three} \begin{block}{\pmb{contd.}}
+\begin{itemize}
+    \item Symmetric Tensor of order 3 defined on $\mathbb{R}^4$ written as $S^3(\mathbb{R}^4)$
+
+\begin{changemargin}{-27pt}{0pt}
+\newcommand\fontsizeX{\fontsize{4.3pt}{10pt}}
+{\fontsizeX V=$\begin{Bmatrix} A: A=\begin{bmatrix}
+  \begin{pmatrix}a_0&a_1&a_2&a_3&\\
+  a_1&a_4&a_5&a_6&\\
+  a_2&a_5&a_7&a_8&\\
+  a_3&a_6&a_8&a_9&
+\end{pmatrix},
+
+ \begin{pmatrix}a_1&a_4&a_5&a_6&\\
+  a_4&a_{10}&a_1&a_{12}&\\
+  a_5&a_1&a_{13}&a_{14}&\\
+  a_6&a_{12}&a_{14}&a_{15}&
+\end{pmatrix},
+
+ \begin{pmatrix}a_2&a_5&a_7&a_8&\\
+  a_5&a_1&a_{13}&a_{14}&\\
+  a_7&a_{13}&a_{16}&a_{17}&\\
+  a_8&a_{14}&a_{17}&a_{18}&
+\end{pmatrix},
+
+ \begin{pmatrix}a_3&a_6&a_8&a_9&\\
+  a_6&a_{12}&a_{14}&a_{15}&\\
+  a_8&a_{14}&a_{17}&a_{18}&\\
+  a_9&a_{15}&a_{18}&a_{19}&
+\end{pmatrix}
+\end{bmatrix}\\
+where~~a_i \in \mathbb{R}
+\end{Bmatrix}$}
+\end{changemargin}
+Dimension is 20
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Generate Different vector space and their dimensions using python}
+
+\begin{block}{Programming} 
+Implementing Python codes to deal with the vector space listed above as many as possible. As we know computer can go far than we can in a short time. So,You can see the raw codes 
+\href{https://raw.githubusercontent.com/maxwizardth/Algebra/main/new.py}{here}.
+
+Copy the codes once the link is open and make use of it in \alert{Python} or \alert{Sage}.
+
+\pmb{Usage of Homogeneous Polynomial}\\
+create a homogeneous polynomial using Homogeneous function with two parameters.e.g 
+\alert{ Homogeneous(2,4)} where the first number is the degree and the second is the variables.
+After creating a vector space then you can check for the following properties.
+\begin{enumerate}
+    \item \pmb{Function:} this generate the general function of the polynomial.
+    \item \pmb{Basis:} this get you the basis of the vector space defined
+    \item \pmb{Dimension:} generate the dimension of the vector space.
+\end{enumerate}
+\pmb{Usage of Symmetric Tensor}\\
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Generate Different vector space and their dimensions using python}
+
+\begin{block}{Programming} 
+\pmb{Usage of Polynomial}\\
+create a polynomial of degree n or less in k variable using Polynomial function with two parameters.e.g 
+\alert{Polynomials(2,4)} where the first number is the degree and the second is the variables.
+After creating a vector space then you can check for the following properties.
+\begin{enumerate}
+    \item \pmb{Function:} this generate the general function of the polynomial.
+    \item \pmb{Basis:} this get you the basis of the vector space defined
+    \item \pmb{Dimension:} generate the dimension of the vector space.
+\end{enumerate}
+you can also use my
+\href{https://maxwizardth.github.io/youngScientist/Pages/chisquare/Space.html}{calculator}
+it is going to generate everything yu need without any codes.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Generate Different vector space and their dimensions using python}
+
+\begin{block}{Programming} 
+\pmb{Usage of Symmetric tensor or cubic Matrices}\\
+create the space the same way as previous and make use of the following attributes
+\begin{enumerate}
+    \item \pmb{Tensor:} this generate the matrices
+    \item \pmb{Dimension:} generate the dimension of the vector space.
+\end{enumerate}.
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Question and Answers}
+  \begin{minipage}[t][.8\textheight]{\textwidth}
+    \begin{center}
+     \Huge{Questions And Answers}
+     
+    \end{center}
+    
+    \vfill
+    \begin{center}
+           \small \copyright 2023 All rights reserved by Maxwizard
+    \end{center}
+
+  \end{minipage}
+\end{frame}
+\end{document}
