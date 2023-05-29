@@ -1,0 +1,88 @@
+\documentclass[45pt]{article}
+\usepackage{blindtext}
+\usepackage[english]{babel}
+\usepackage[letterpaper,total={6in,8in},top=2cm, bottom=2cm, left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{mathptmx}
+\usepackage[10pt]{moresize}
+% Useful packages
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{amsfonts}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage[utf8]{inputenc}
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+  
+\title{GROUP 1}
+\author{Project 1}
+\begin{document}
+
+\Huge{Name: Olukanni Elizabeth Omolola}\\
+
+\Huge{Matric number: 222690}\\
+
+\LARGE{}
+The symbol stands for difference and Pr(.) for probability of (.) with T as the total number of trading days in the given period of time.  
+The firm is said to be a limited liability venture because P(t.B(t)) =0 is a natural absorbing boundary. The symbols (.) stands for average. \\\\
+\pmb{Note:} for one trading day (m) becomes 
+$$\alpha_1=\frac{1}{\Delta P}.Pr \begin{pmatrix}
+\frac{\Delta P}{\Delta t} 
+\end{pmatrix} $$
+
+Now let w(p) be as in 
+
+$$w(p)=\frac{p}{r-\alpha} + Kp^{\lambda_1}$$
+Then  w(p) is an Ito process.
+
+Therefore 
+    $$\begin{matrix} 
+    dw=\begin{bmatrix}
+    \frac{dw}{dt}+\alpha p\frac{dw}{dt}+\frac{1}{2} \beta^2p^2\frac{d^2w}{dp^2}
+    \end{bmatrix} dt + 
+    \beta p \frac{dw}{dp} dB
+    \end{matrix}$$
+
+The diffusion term is given by\\
+$$\beta p \frac{dw}{dp}dB=\beta p \frac{dw/dp}{w}.wdB$$
+
+with diffusion coefficient defined by \\
+$$\beta^2. \frac{ }{(\Delta P)^2}=E\begin{bmatrix}
+    (\Delta P_i)^2
+\end{bmatrix} - \begin{bmatrix}
+    E(\Delta P_i)
+\end{bmatrix}^2$$
+i.e variance or 
+$$\beta^2= \frac{1}{(\Delta P)^2} \begin{Bmatrix}E\begin{bmatrix}
+    (\Delta P_i)^2
+\end{bmatrix} - \begin{bmatrix}
+    E(\Delta P_i)
+\end{bmatrix}^2
+\end{Bmatrix}$$\\
+By $w(p)= \frac{p}{r-\alpha}+kp^{\lambda_1}$ we have\\
+$$w'=m~~[from ~(a)]$$
+\vspace{1cm}
+
+putting (h) into (b) with p= $\Bar{p}$ gives 
+$$\alpha \Bar{p}w' - r\Bar{p}w' =-\Bar{p}$$
+$$\implies w'(\alpha \Bar{p} - r\Bar{p}) =-\Bar{p}$$
+$$w'=\frac{-\Bar{p}}{(a-r)\Bar{p}}$$
+$$w'=\frac{1}{a-r}$$
+
+This equation is called the market growth rate of the stock shares or the market declining rate, depending on whether the value is positive or negative. 
+
+
+
+\end{document}
+
