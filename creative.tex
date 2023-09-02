@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\usepackage[usenames,x11names,dvipsnames,svgnames]{xcolor}
+\usepackage{graphicx,amsmath,latexsym,amssymb,amsthm,geometry}
+\usepackage{pagecolor}% http://ctan.org/pkg/{pagecolor,lipsum}
+\usetikzlibrary{decorations, decorations.text,backgrounds}
+% tight page
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\begin{document}
+\newcommand{\drawReguarPoygon}[6]{
+\begin{tikzpicture}[background rectangle/.style={fill=red!45}, show background rectangle]
+\foreach \k in {-10,-9,...,10}
+\foreach \m in {-10,-9,...,10}
+\node (p) [draw,color=white,rotate=#3,top color=white,minimum size=#2cm,regular polygon, regular polygon sides={#1}] at (#6*\m,#5*\k) {};
+
+\foreach \k in {-10,-9,...,10}
+\foreach \m in {-10,-9,...,10}\node (p) [draw,color=white,rotate=#4,top color=white, bottom color=white,minimum size=#2cm,regular polygon, regular polygon sides={#1}] at (#6*\m,#5*\k) {};
+
+%\foreach \n [count=\nu from 1, remember=\n as \lastn, evaluate={\nu+\lastn}] in {1,2,...,{#1}}
+%\node[anchor=\n*(360/9)]at(p.corner \n){$V_{\nu}$};
+\end{tikzpicture}
+}
+
+\drawReguarPoygon{6}{0.7}{30}{90}{0.7}{0.7}
+\drawReguarPoygon{6}{0.7}{60}{90}{0.7}{0.7}
+\drawReguarPoygon{6}{0.7}{0}{0}{0.7}{0.7}
+\drawReguarPoygon{5}{0.7}{180}{360}{0.7}{0.7}
+\drawReguarPoygon{8}{0.7}{180}{360}{0.7}{0.7}
+\drawReguarPoygon{3}{0.7}{180}{360}{0.7}{0.7}
+\end{document}
