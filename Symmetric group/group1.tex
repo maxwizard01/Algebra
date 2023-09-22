@@ -1036,4 +1036,60 @@ Five-cube& 	5& 	80& 32 & 40\\
      \includegraphics[width=7cm]{pictures/dimensionv.jpg}
      \caption{Tesseract and Five-cube}
 \end{figure}
+\vspace{9cm}
+\section{PROJECT 4}
+\pmb{Questions}\\
+It holds true that any straight line passing through the origin within $\mathcal{R}^2$ forms a group in $\mathcal{R}^2$ with respect to addition. Can we extend this property to:
+\begin{enumerate}
+    \item Quadratic curves
+    \item Cubic curves?
+\end{enumerate}
+
+Based on the information previously presented, which types of curves exhibit a group structure?\\\
+\pmb{Solution}
+\begin{enumerate}
+    \item Quadratic Curves
+Let A denotes the set of all quadratic curves passing through the origin defined by\\
+$\mathcal{U}:=\{(x,y):y=ax^2+bx,$ $a,b,x,y \in \mathcal{R}, a \neq 0 \}$  \\
+We shall show that $\mathcal{U}$ is not a group because it is not closed under addition.\\\\
+
+\pmb{Proof}\\
+Let $(x_1,y_1)$, $(x_2,y_2)$ such that $y_1=ax_1^2+bx_1$ and $y_2=ax_2^2+bx_2$ be two elements in $\mathcal{U}$ 
+then,\\
+
+$y_1+y_2=ax_1^2+bx_1+ax_2^2+bx_2=a(x_1^2+x_2^2)+b(x_1+x_2)$ ....(eqI)\\\\
+Now let us add the two elements in $\mathcal{U}$ to see if it is closed or not\\
+$(x_1,y_1)+(x_2,y_2) =(x_1+x_2,y_1+y_2)$
+Assume $\mathcal{U}$ is closed then, 
+$(x_1+x_2,y_1+y_2)$ will be an element in $\mathcal{U}$\\
+that is, $(y_1+y_2)=a(x_1+x_2)^2+b(x_1+x_2)$ \\
+But we aready see in eq I that $ y_1+y_2=a(x_1^2+x_2^2)+b(x_1+x_2)$\\
+Since $a(x_1^2+x_2^2)+b(x_1+x_2) \neq a(x_1+x_2)^2+b(x_1+x_2)$ Therefore there is contradiction. \pmb{Hence, It is not closed}.
+
+   \item Cubic Curves
+Let $\mathcal{C}$ denotes the set of all quadratic curves passing through the origin defined by\\
+$\mathcal{C}:=\{(x,y):y=ax^3+bx^2+cx,$ $a,b,c,x,y \in \mathcal{R}, a \neq 0 \}$  \\
+We shall show that $\mathcal{C}$ is not a group because it is not closed under addition.\\\\
+
+\pmb{Proof}\\
+Let $(x_1,y_1)$, $(x_2,y_2)$ such that $y_1=ax_1^3+bx_1^2+cx_1$ and $y_2=ax_2^3+bx_2^2+cx_2$ be two elements in $\mathcal{C}$ 
+then,\\
+$y_1+y_2=ax_1^3+bx_1^3+cx_1+ax_2^3+bx_2^2+cx_2=a(x_1^3+x_2^3)+b(x_1+x_2^2)+c(x_1+x_2)$ ....(eqI)\\\\
+Now let us add the two elements in $\mathcal{C}$ to see if it is closed or not\\
+$(x_1,y_1)+(x_2,y_2) =(x_1+x_2,y_1+y_2)$\\
+Assume $\mathcal{C}$ is closed then, 
+$(x_1+x_2,y_1+y_2)$ will be an element in $\mathcal{C}$\\
+that is, $(y_1+y_2)=a(x_1+x_2)^3+b(x_1+x_2)^2+c(x_1+x_2)$ \\
+But we already see in eq I that $ (y_1+y_2)=a(x_1^3+x_2^2)+b(x_1+x_2)^2+c(x_1+x_2)$\\
+Since $a(x_1^3+x_2^3)+b(x_1^2+x_2^2)+c(x_1+x_2) \neq a(x_1+x_2)^3+b(x_1+x_2)^2+c(x_1+x_2)$\\
+Therefore there is contradiction. \pmb{Hence, It is not closed.}
+
+
+
+
+
+
+\end{enumerate} 
+
+
 \end{document}
