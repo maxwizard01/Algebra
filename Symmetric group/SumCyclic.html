@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		div{padding:20px;width: 240px;height: 310px;background: #aaa}
+		p,input,button{background: black; color:white;
+			           width: 210px;height: 50px;
+			           font-size: 20px;}
+	    button{border-radius: 20px;background:#fff;color: #000}
+
+		
+	</style>
+</head>
+<body>
+	<h1>Permution Group</h1>
+<div>
+	<h3>Input</h3>
+	<input type="number" id="value" min="2" placeholder="Input your value n ">
+	<h3>Result</h3>
+	<p id="result"></p><br>
+	<button onclick="SumOfCyclic()">Generate</button>
+</div>
+
+
+<script type="text/javascript">
+var factorial=(n)=>n<2?1:n*factorial(n-1)
+function  SumOfCyclic(){
+	n=document.getElementById('value').value
+    total=0;
+    for (var k =n; k >=2; k--) {
+        total+=factorial(n)/(k*factorial(n-k))}
+    document.getElementById("result").innerHTML= total}
+
+</script>
+</body>
+</html>
