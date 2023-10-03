@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyclic and Acyclic in S<sub>n</sub></title>
 	<style type="text/css">
-		div{padding:20px;width: 240px;height: 310px;background: #aaa}
-		p,input,button{background: black; color:white;
-			           width: 210px;height: 50px;
-			           font-size: 20px;}
-	    button{border-radius: 20px;background:#fff;color: #000}
+		div{padding:20px;width: 90vw;
+			height: 100vh;
+			padding-left: 7vw;
+			background: #aaa}
+		input{background: black; color:white;
+		      width: 49vw;height: 8vh;
+		      font-size: 23px;}
+		p{background: black; color:white;
+			           width: 49vw;height: 17vh;
+			           font-size: 20px;
+			           word-wrap: break-word;}
+
+	    button{
+	    	   font-size: 23px;
+	    	  border-radius: 20px;width: 39px; 
+	    	  height: 10vh;
+	    	  width: 49vw;
+	    	   background:#fff;color: #000}
 
 		
 	</style>
@@ -16,21 +33,27 @@
 <div>
 	<h3>Input</h3>
 	<input type="number" id="value" min="2" placeholder="Input your value n ">
-	<h3>Result</h3>
-	<p id="result"></p><br>
-	<button onclick="SumOfCyclic()">Generate</button>
+	<h3>Cyclic</h3>
+	<p id="Cyclic"></p><br>
+	<h3>Non-Cyclic.</h3>
+	<p id="NonCyclic"></p><br>
+	<button onclick="ShowCyclic()">Calculate</button>
 </div>
 
 
 <script type="text/javascript">
 var factorial=(n)=>n<2?1:n*factorial(n-1)
 function  SumOfCyclic(){
-	n=document.getElementById('value').value
-    total=0;
-    for (var k =n; k >=2; k--) {
-        total+=factorial(n)/(k*factorial(n-k))}
-    document.getElementById("result").innerHTML= total}
+   n=document.getElementById('value').value
+   total=0;
+   for (var k =n; k >=2; k--) {
+   total+=factorial(n)/(k*factorial(n-k))}
+      return total}
 
+    ShowCyclic=()=>{document.getElementById("Cyclic").innerHTML=SumOfCyclic()
+   n=document.getElementById('value').value;
+   document.getElementById("NonCyclic").innerHTML=factorial(n)-SumOfCyclic()
+   }
 </script>
 </body>
 </html>
