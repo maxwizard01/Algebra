@@ -1,0 +1,436 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage[a4paper, total={7in, 10in},left=10mm,]{geometry}
+\usepackage{tikz}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath,amssymb}
+\usepackage{mathptmx}
+\usetikzlibrary{shapes.geometric}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\definecolor{B}{HTML}{2E79B2}
+\definecolor{W}{HTML}{FF0000}
+\usepackage{enumerate}
+\usepackage{parcolumns}
+\setcounter{section}{-1}
+
+\title{GROUP 1}
+\author{Project 1}
+
+\begin{document}
+
+\section{PROJECT 1}
+\subsection{Tutorial III}
+\large{}
+1. Let $\xi \in \mathbb{R}^{n}$ and $\|\cdot\|_{0},\|\cdot\|_{1}$ and $\|\cdot\|_{n}$ be norms on $\mathbb{R}^{n}$ defined by
+
+$$
+\|\xi\|_{0}=\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}}, \quad\|\xi\|_{1}=\sum_{i=1}^{n}\left|x_{i}\right|, \quad\|\xi\|_{n}=\max _{1 \leq i \leq n}\left|x_{i}\right|
+$$
+
+where $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$, with $x_{i} \in \mathbb{R}, i=1,2, \ldots, n$.
+\begin{itemize}
+    \item Prove that
+$$
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{n} \leq\|\xi\|_{1}, \quad \forall_{\xi} \in \mathbb{R}^{n}
+$$
+\item Hence, deduce that the function
+
+$$
+f:\left(\mathbb{R}^{n},\|\cdot\|_{1}\right) \longrightarrow\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)~~~~~~~~is ~continuous~ on ~~\mathbb{R}^{n}
+$$
+\end{itemize}
+
+\textbf{Solution}\\
+
+let $x_k$ be any entries in $\xi$ such that $1 \leq k \leq n$, it is obvious that
+
+$$
+x_{k}^{2} \leq\left(\left|x_{1}\right|+\left|x_{2}\right|+\cdots+\left|x_{n}\right|\right)^{2} .
+$$
+which can be rewrite in summation notation as :
+
+$$\begin{equation}
+x_{k}^{2} \leq \left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2}
+\end{equation}$$
+
+Now Summing both sides of the equation(1) from $k=1$ to $n$, we have
+
+$$\begin{equation}
+\sum_{k=1}^{n} x_{k}^{2} \leq \sum_{k=1}^{n}\left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2}
+\end{equation}$$
+
+Since $k$ is a dummy variable on the left side of equation(2), we can change it to $i$ and have
+
+$$
+\sum_{i=1}^{n} x_{i}^{2} \leq \sum_{k=1}^{n}\left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2}
+$$
+
+Shifting the first summation to the start we have
+$$
+\begin{gathered}
+\sum_{i=1}^{n} x_{i}^{2} \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2} \sum_{k=1}^{n} 1 \implies
+\sum_{i=1}^{n} x_{i}^{2} \leq n\left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2}  
+\end{gathered}~ ~~\left(since ~\sum_{k=1}^{n} 1=n\right)
+$$
+
+Now taking the square root of both side, we have
+$$
+\begin{aligned}
+& \left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \sqrt{n} \sum_{i=1}^{n}\left|x_{i}\right|
+\end{aligned}
+$$
+
+Divide both side by $\sqrt{n}$ we have
+$$ \frac{1}{\sqrt{n}}\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \sum_{i=1}^{n}\left|x_{i}\right|
+$$
+
+Recall that, $$\|\xi\|_{0}=\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} ~and ~\quad\|\xi\|_{1}=\sum_{i=1}^{n}\left|x_{i}\right|$$
+
+Therefore,
+
+$$\frac{1}{\sqrt{n}}\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \sum_{i=1}^{n}\left|x_{i}\right| .
+\implies
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{1}
+$$\\
+
+Firsty let us  show that
+
+$$
+\|\xi\|_{n} \leq\|\xi\|_{1}
+$$
+
+It is Obvious that
+
+$$
+\left|x_{1}\right|+\left|x_{2}\right|+\cdots+\left|x_{n}\right| \geq \max _{1 \leq i \leq n}\left|x_{i}\right| .
+$$
+
+the above equation can be rewrite in summation form as:
+
+$$
+\sum_{i=1}^{n}\left|x_{i}\right| \geq \max _{1 \leq i \leq n}\left|x_{i}\right|
+$$
+
+this shows that
+$$
+\|\xi\|_{n} \leq\|\xi\|_{1} \text {. }
+$$
+
+Now we need to show that.
+$$
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{n}
+$$
+we know that
+
+$$
+x_{i}^{2} \leq \max _{1 \leq i \leq n}\left|x_{i}\right|^{2}
+$$
+
+$$ \text{But} \max _{1 \leq i \leq n}\left|x_{i}\right|^{2}=\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}$$
+So, $$
+x_{i}^{2} \leq \max _{1 \leq i \leq n}\left|x_{i}\right|^{2} \iff x_{i}^{2} \leq\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}
+$$
+
+Take summation of both sides of from $i=1$ to $n$, we have
+
+$$
+\sum_{i=1}^{n} x_{i}^{2} \leq \sum_{i=1}^{n}\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}
+$$
+
+Since the maximum function on the right side  is not depending on $i$, then we can shift it.
+
+$$
+\sum_{i=1}^{n} x_{i}^{2} \leq\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2} \sum_{i=1}^{n} 1
+$$
+$$\text{Since } ~~\sum_{i=1}^{n} 1 =n ~~\text{ then we have,} $$ 
+
+$$
+\sum_{i=1}^{n} x_{i}^{2} \leq n\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}
+$$
+
+Since both sides are positive, we can take square root and obtain the following:
+
+$$
+\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \sqrt{n} \max _{1 \leq i \leq n}\left|x_{i}\right|, $$
+divide both side by $\sqrt{n}$ we have:
+$$\quad \frac{1}{\sqrt{n}}\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \max _{1 \leq i \leq n}\left|x_{i}\right|
+$$
+
+Showing that
+
+$$
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{n}
+$$
+
+From the workings above we show that the following are true:
+
+$$
+\|\xi\|_{n} \leq\|\xi\|_{1}, \quad \frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{n}, \quad \frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{1}
+$$
+
+implies that
+$$\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{n} \leq\|\xi\|_{1}, \quad \forall \xi \in \mathbb{R}^{n}$$
+
+\section{Tutorial Solution}
+\section{Proof of Holder's inequality}
+\large
+\textbf{Lemma 1:} (Young's inequality). Let $f$ be a real-valued, continuous, and strictly increasing function on $[0, c]$ with $c>0$. If $f(0)=0, a \in[0, c]$, and $b \in[0, f(c)]$, then
+
+$$
+\int_{0}^{a} f(x) \mathrm{d} x+\int_{0}^{b} f^{-1}(x) \mathrm{d} x \geq a b \iff b=f(a)
+$$
+where $f^{-1}$ is the inverse function of $f$.\\
+
+We shall use Lemma 1 to prove the following Theorem.
+
+Theorem 1 (Hölder's inequality). Let $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$ and $\eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right)$ be arbitrary elements in $\mathbb{R}^{n}$. Then, for $1<p<\infty$,
+
+$$
+\sum_{i=1}^{n}\left|x_{i} y_{i}\right| \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}
+$$
+
+where
+
+$$
+\frac{1}{p}+\frac{1}{q}=1
+$$
+
+Proof of Theorem 1. We shall show firstly that
+
+$$
+a b \leq \frac{a^{p}}{p}+\frac{b^{q}}{q}, \quad \text { where } \frac{1}{p}+\frac{1}{q}=1
+$$
+
+To do this, let $f(x)=x^{p-1}$, for $p \in(1, \infty)$, in (1.1). Then $f^{-1}(x)=x^{\frac{1}{p-1}}$, and
+
+$$
+\begin{aligned}
+\int_{0}^{a} x^{p-1} \mathrm{~d} x+\int_{0}^{b} x^{\frac{1}{p-1}} \mathrm{~d} x & =\left.\frac{x^{p}}{p}\right|_{0} ^{a}+\left.\frac{(p-1) \cdot x^{\frac{p}{p-1}}}{p}\right|_{0} ^{b} \\
+& =\frac{a^{p}}{p}+\frac{(p-1) \cdot b^{\frac{p}{p-1}}}{p}
+\end{aligned}
+$$
+
+If we let $q=\frac{p}{p-1}$, we have that $\frac{1}{p}+\frac{1}{q}=1$. Therefore,
+
+$$
+\int_{0}^{a} x^{p-1} \mathrm{~d} x+\int_{0}^{b} x^{\frac{1}{p-1}} \mathrm{~d} x=\frac{a^{p}}{p}+\frac{b^{q}}{q} \geq a b
+$$
+and thus (1.3) holds true. To prove (1.2), let $\alpha_{k}$ and $\lambda_{k}$ be two sequences such that
+
+$$
+\alpha_{k}:=\frac{x_{k}}{\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}} \text {, and } \lambda_{k}:=\frac{y_{k}}{\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}}
+$$
+
+It follows from (1.3) that
+
+$$
+\left|\alpha_{k}\right|\left|\lambda_{k}\right| \leq \frac{\left|\alpha_{k}\right|^{p}}{p}+\frac{\left|\lambda_{k}\right|^{q}}{q} \text {, which implies that }\left|\alpha_{k} \lambda_{k}\right| \leq \frac{\left|\alpha_{k}\right|^{p}}{p}+\frac{\left|\lambda_{k}\right|^{q}}{q} \text {. }
+$$
+
+Summing both sides of the inequality (1.4) from $k=1$ to $n$, we have
+
+$$
+\sum_{k=1}^{n}\left|\alpha_{k} \lambda_{k}\right| \leq \sum_{k=1}^{n}\left(\frac{\left|\alpha_{k}\right|^{p}}{p}+\frac{\left|\lambda_{k}\right|^{q}}{q}\right)=\sum_{k=1}^{n} \frac{\left|\alpha_{k}\right|^{p}}{p}+\sum_{k=1}^{n} \frac{\left|\lambda_{k}\right|^{q}}{q}
+$$
+
+Evaluating the first part of the sum in (1.5), we obtain
+
+$$
+\begin{aligned}
+\sum_{k=1}^{n} \frac{\left|\alpha_{k}\right|^{p}}{p} & =\sum_{k=1}^{n} \frac{1}{p}\left(\left|\frac{x_{k}}{\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}}\right|^{p}\right)=\frac{1}{p} \sum_{k=1}^{n} \frac{\left|x_{k}\right|^{p}}{\left(\left.\left|\sum_{i=1}^{n}\right| x_{i}\right|^{p} \mid\right)} \\
+& =\frac{1}{p} \frac{\sum_{k=1}^{n}\left|x_{k}\right|^{p}}{\sum_{i=1}^{n}\left|x_{i}\right|^{p}}=\frac{1}{p} .
+\end{aligned}
+$$
+
+Similarly, for the second part of the sum in (1.5), we derive
+
+$$
+\begin{aligned}
+\sum_{k=1}^{n} \frac{\left|\lambda_{k}\right|^{q}}{q} & =\sum_{k=1}^{n} \frac{1}{q}\left(\left|\frac{y_{k}}{\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}}\right|^{q}\right)=\frac{1}{q} \sum_{k=1}^{n} \frac{\left|y_{k}\right|^{q}}{\left(\left.\left|\sum_{i=1}^{n}\right| y_{i}\right|^{q} \mid\right)} \\
+& =\frac{1}{q} \frac{\sum_{k=1}^{n}\left|y_{k}\right|^{q}}{\sum_{i=1}^{n}\left|y_{i}\right|^{q}}=\frac{1}{q} .
+\end{aligned}
+$$
+
+Taking account of (1.6) and (1.7), (1.5) becomes
+
+$$
+\sum_{k=1}^{n}\left|\alpha_{k} \lambda_{k}\right| \leq \frac{1}{p}+\frac{1}{q}=1
+$$
+
+Therefore,
+
+$$
+\sum_{k=1}^{n}\left|\frac{x_{k}}{\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}} \cdot \frac{y_{k}}{\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}}\right|=\frac{\sum_{k=1}^{n}\left|x_{k} y_{k}\right|}{\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}} \leq 1
+$$
+
+Multiplying both sides of (1.8) by $\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}$, we obtain
+
+$$
+\sum_{k=1}^{n}\left|x_{k} y_{k}\right| \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}
+$$
+
+Since an index of summation is a dummy variable and is immaterial, we can change the index of summation on the left side of (1.9) from $k$ to $i$ and have that
+
+$$
+\sum_{i=1}^{n}\left|x_{i} y_{i}\right| \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}
+$$
+
+Equality holds in (1.10) for $\xi, \eta=\underbrace{(0,0, \cdots, 0)}_{n \text { tuples }}:=\overline{0}$. This concludes the proof of Theorem 1.
+
+
+\newpage
+\subsection{Tutorial II}
+\large{}
+1. Verify that $
+\langle\xi, \eta\rangle=\sum_{i=1}^{n} x_{i} y_{i}$
+satisfies the properties of inner product.\\\\
+\Large{Solution}\\
+We need to show that $\forall_{\xi,\eta,\zeta}\in \mathbb{R}^n$ the following properties are satisfied.
+\begin{enumerate}
+  \item $\langle\xi, \xi\rangle \geq 0$ and $\langle\xi, \xi\rangle= 0 \iff \xi= \Bar{0}$
+  \item $\langle\eta, \xi\rangle=\langle\xi, \eta\rangle$
+  \item $\langle\xi+\eta, \zeta\rangle =\langle\xi, \zeta\rangle+\langle\eta, \zeta\rangle$ and $\langle\xi, \eta+\zeta\rangle=\langle\xi, \eta\rangle +\langle\xi,\zeta\rangle$
+   \item $\langle\lambda \xi, \eta\rangle=\langle\xi, \lambda \eta\rangle $
+  
+\end{enumerate}
+ \textbf{Proof}\\
+
+$$Let~~\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right), \eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right), \zeta=\left(z_{1}, z_{2}, \ldots, z_{n}\right)$$ be arbitrary elements in $\mathbb{R}^{n}$ and $\lambda \in \mathbb{R}$. Then
+$$
+\langle\xi, \xi\rangle=\sum_{i=1}^{n} x_{i} x_{i}=\sum_{i=1}^{n} x_{i}^{2}
+$$
+
+it is obvious $x_{i}^{2} \geq 0$, for all $i=1, 2, 3...n$,\\
+
+ $$Therefore,~~\sum_{i=1}^{n} x_{i}^{2} \geq 0 \implies \langle\xi, \xi\rangle \geq 0$$
+
+$$
+\begin{aligned}
+\langle\xi, \xi\rangle=0 \iff \sum_{i=1}^{n} x_{i} x_{i}=0 \iff \sum_{i=1}^{n} x_{i}^{2}=0 \iff x_{i}^{2}=0\\
+x_{i}^{2}=0~~~ \forall_{i \in \{1,2,3...n\}} \iff x_i=0~~ \forall_{i \in \{1,2,3...n\}} \iff \xi=\Bar{0}\\
+So,~ \langle\xi, \xi\rangle=0 \iff \xi=\Bar{0} 
+\end{aligned}
+$$
+\textbf{Hence property(1) hold good}.
+
+$$
+\langle\xi, \eta\rangle=\sum_{i=1}^{n} x_{i} y_{i}=\sum_{i=1}^{n} y_{i} x_{i}=\langle\eta, \xi\rangle \implies \langle\xi, \eta\rangle=\langle\eta, \xi\rangle$$
+\textbf{Hence property(2) hold good}.\\
+\newpage
+Considering $\langle\xi, \eta+\zeta\rangle$, we have
+
+$$
+\begin{aligned}
+\langle\xi, \eta+\zeta\rangle & =\sum_{i=1}^{n} x_{i}\left(y_{i}+z_{i}\right)=\sum_{i=1}^{n} x_{i} y_{i}+\sum_{i=1}^{n} x_{i} z_{i} =\langle\xi, \eta\rangle+\langle\xi, \zeta\rangle .
+\end{aligned}
+$$
+Considering $\langle\xi+\eta, \zeta\rangle$, we have
+$$
+\begin{aligned}
+\langle\xi+\eta, \zeta\rangle & =\sum_{i=1}^{n}\left(x_{i}+y_{i}\right) z_{i}=\sum_{i=1}^{n} x_{i} z_{i}+\sum_{i=1}^{n} y_{i} z_{i}  =\langle\xi, \zeta\rangle+\langle\eta, \zeta\rangle .
+\end{aligned}
+$$
+\textbf{Hence property(3) hold good}.\\
+
+Considering $\langle\lambda \xi, \eta\rangle$, we have
+
+$$
+\begin{align}
+\langle\lambda \xi, \eta\rangle=\sum_{i=1}^{n} \lambda x_{i} y_{i}=\sum_{i=1}^{n} x_{i}\left(\lambda y_{i}\right)=\langle\xi, \lambda \eta\rangle\\
+\implies \langle\lambda \xi, \eta\rangle=\langle\xi, \lambda \eta\rangle ~(Property ~ 4~satisfied)
+\end{align}
+$$\\
+
+\textbf{Hence, $\langle\xi, \eta\rangle=\sum_{i=1}^{n} x_{i} y_{i}$ satisfies the properties of inner product.}\\
+
+\subsection{Tutorial II}
+
+Using the inequality
+
+$$
+\langle\xi, \eta\rangle \leq\|\xi\|_{0} \cdot\|\eta\|_{0}
+$$
+
+show that
+
+$$
+\|\xi+\eta\|_{0} \leq\|\xi\|_{0}+\|\eta\|_{0}, \forall \xi, \eta \in \mathbb{R}^{n}
+$$
+
+Proof. Let $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$ and $\eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right)$ be arbitrary elements in $\mathbb{R}^{n}$. Then
+
+$$
+\begin{aligned}
+\|\xi+\eta\|_{0}^{2} & =\sum_{i=1}^{n}\left(x_{i}+y_{i}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}+2 x_{i} y_{i}\right) \\
+& =\sum_{i=1}^{n} x_{i}^{2}+\sum_{i=1}^{n} y_{i}^{2}+2 \sum_{i=1}^{n} x_{i} y_{i}=\|\xi\|_{0}+\|\eta\|_{0}+2\langle\xi, \eta\rangle \\
+& \leq\|\xi\|_{0}+\|\eta\|_{0}+2\|\xi\|_{0}\|\eta\|_{0}=\left(\|\xi\|_{0}+\|\eta\|_{0}\right)^{2}
+\end{aligned}
+$$
+
+Since $\|\xi\|_{0} \geq 0$, we can take square root and obtain
+
+$$
+\|\xi+\eta\|_{0} \leq\|\xi\|_{0}+\|\eta\|_{0}
+$$
+
+Thus, completing the proof.
+
+
+2. If $\xi=\eta$, then we have
+
+$$
+\|\xi\|_{0}=\langle\xi, \xi\rangle^{\frac{1}{2}}=\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}}=\|\xi\|_{2}
+$$
+
+Proof. Replacing $\eta$ with $\xi$, we derive
+
+$$
+\langle\xi, \xi\rangle=\sum_{i=1}^{n} x_{i} \cdot x_{i}=\sum_{i=1}^{n} x_{i}^{2}
+$$
+
+Comparing with the Euclidean norm, we have
+
+$$
+\|\xi\|_{0}=\langle\xi, \xi\rangle^{\frac{1}{2}}=\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}}=\|\xi\|_{2}
+$$
+
+Thus, completing the proof.
+
+\subsection{Tutorial II}
+
+Using the inequality
+
+$$
+\langle\xi, \eta\rangle \leq\|\xi\|_{0} \cdot\|\eta\|_{0}
+$$
+
+show that
+
+$$
+\|\xi+\eta\|_{0} \leq\|\xi\|_{0}+\|\eta\|_{0}, \forall \xi, \eta \in \mathbb{R}^{n}
+$$
+
+Proof. Let $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$ and $\eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right)$ be arbitrary elements in $\mathbb{R}^{n}$. Then
+
+$$
+\begin{aligned}
+\|\xi+\eta\|_{0}^{2} & =\sum_{i=1}^{n}\left(x_{i}+y_{i}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}+2 x_{i} y_{i}\right) \\
+& =\sum_{i=1}^{n} x_{i}^{2}+\sum_{i=1}^{n} y_{i}^{2}+2 \sum_{i=1}^{n} x_{i} y_{i}=\|\xi\|_{0}+\|\eta\|_{0}+2\langle\xi, \eta\rangle \\
+& \leq\|\xi\|_{0}+\|\eta\|_{0}+2\|\xi\|_{0}\|\eta\|_{0}=\left(\|\xi\|_{0}+\|\eta\|_{0}\right)^{2}
+\end{aligned}
+$$
+
+Since $\|\xi\|_{0} \geq 0$, we can take square root and obtain
+
+$$
+\|\xi+\eta\|_{0} \leq\|\xi\|_{0}+\|\eta\|_{0}
+$$
+
+Thus, completing the proof.
+
+
+\end{document}
