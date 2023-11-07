@@ -1,0 +1,115 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{parcolumns,lipsum}
+\usepackage[margin=1cm]{geometry}
+\begin{document}
+\pmb{TUTORIAL TEST ON MATHEMATICAL EXPECTATION}\\
+\paragraph{1. Let random variable X with pdf f(x) = x/6, x = 1,2,3. Find;}
+\begin{itemize}
+
+\item P[X = 1 or 2]
+\item $P[X \geq 2]$
+\end{itemize}
+
+\paragraph{
+2. A particular game is played where the contestant spins a wheel that can land on the numbers 1, 5, or 30 with probabilities of 0.50, 0.45, and 0.05, respectively. The
+contestant pays $\$5$ to play the game and is awarded the amount of money indicated by the number where the spinner lands. Is this a fair game?}
+
+\paragraph{3.If the probability density of X is given by:
+$$f(x)= \frac{1}{x(ln3)}~for~ 1<x<3.$$}
+\begin{itemize}
+    \item find E(x), $E(x^2)$, and $E(x^3)$.
+\item Use the results to determine $E(x^3+2x^2-3x+1)$
+\end{itemize}
+
+\paragraph{
+4.If the probability density of X is given by:\\
+\hspace{2cm}
+\begin{tabular}{c c}
+    &$x/2~ for~ 0 < x \leq 1$\\
+ f(x)=& $1/2~ for~ 1 < x \leq 2$\\
+   &$(3-x)/2~ for~ 2<x \leq 3$\\
+    & 0 ~~~~~ elsewhere \\
+\end{tabular} \\
+\vspace{0.3cm}
+Find the expected value of g(X) = $x^2-5x+3$}
+
+\section{Solution}
+\begin{enumerate}
+    \item \begin{itemize}
+    \item P[x=1 or 2] = $P(x=1)+P(x=2) = \frac{1}{6}+\frac{2}{6} = \frac{1}{2}$
+    \item $P[x\geq2] = P(x=2)+P(x=3) = \frac{2}{6}+\frac{3}{6} = \frac{5}{6}$
+\end{itemize}
+
+    \item the probability of each can  can be represented using the table below.\\
+    
+\begin{tabular}{|c|c|c|c|}
+\hline
+X & 1 & 5 & 30\\
+\hline
+P(x)&.50 & 0.45 & 0.05\\
+\hline
+\end{tabular}
+
+Since the contestant is paying in Each game, He might make profit or loss.\\
+when he gets \$1 in return he loss \$4 i.e we write -\$4 \\
+when he gets \$5 in return he makes \$0 profit. we write \$0\\
+when he gets \$30 in return he makes \$25 profit we write \$25\\
+
+Now the new table look like the following:\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+X & -4 & 0 & 25\\
+\hline
+P(x)&.50 & 0.45 & 0.05\\
+\hline
+\end{tabular}
+
+So, the expected value E(x) is calculated as following:\\
+E(x) = -4*.50 + 0*0.45  25*0.05 = \$-0.75\\
+This implies that the contestant is loosing \$0.75. Hence it is not a fair game.
+
+\item \begin{itemize}
+    \item $E(x) = \int_a^bxf(x)dx = x\frac{1}{x(ln3)} dx= \int_1^3\frac{1}{ln3}dx$\\\\
+    $E(x) =\{\frac{x}{ln3}\}_1^3 = \frac{3}{ln3}-\frac{1}{ln3} = \frac{2} {ln3}$
+    \vspace{0.7cm}
+    \item $E(x^2) = \int_a^bx^2f(x)dx =\int_1^3 x^2\frac{1}{x(ln3)} dx= \int_1^3\frac{x}{ln3}dx$\\\\
+      $E(x) =\{\frac{x^2}{2ln3}\}_1^3 = \frac{9}{2ln3}-\frac{1}{2ln3} = \frac{8} {2ln3} =\frac{4} {ln3} $
+      \vspace{0.7cm}
+    \item $E(x^3) = \int_a^bx^3f(x)dx =\int_1^3 x^3\frac{1}{x(ln3)} dx= \int_1^3\frac{x^2}{ln3}dx$\\\\
+      $E(x) =\{\frac{x^3}{3ln3}\}_1^3 = \frac{27}{3ln3}-\frac{1}{3ln3} = \frac{26} {3ln3} =\frac{26}{3ln3}$
+      \vspace{0.7cm}
+      \item $E(x^3+2x^2-3x+1)$= $E(x^3)+E(2x^2)-E(3x)+E(1)$ \\\\
+      =$E(x^3)+2E(x^2)-3E(x)+E(1)$ =$\frac{26}{3ln3}+2*\frac{4} {ln3}-3*\frac{2} {ln3}+1$\\
+      =$\frac{26}{3ln3}+\frac{8} {ln3}-\frac{6} {ln3}+1$= $\frac{32+3ln3} {3ln3}$
+      
+    \end{itemize}
+    \item 
+    \begin{itemize}
+        \item $E(x)=\int_0^3xf(x)=\int_0^1 x\frac{x}{2}dx + \int_1^2 x\frac{1}{2}dx +\int_2^3 x\frac{3-x}{2}dx \\\\
+    E(x)=\int_0^1 \frac{x^2}{2}dx + \int_1^2 \frac{x}{2}dx +\int_2^3 \frac{3x-x^2}{2}dx$\\\\
+    $E(x)=\{\frac{x^3}{6}\}_0^1 + \{\frac{x^2}{4}\}_1^2 + \{\frac{3x^2}{4}-\frac{x^3}{6}\}_2^3\\\\
+    E(x)=\frac{1}{6} +\frac{4}{4} -\frac{1}{4} + \frac{27}{4}-\frac{27}{6}- \frac{12}{4}+\frac{8}{6}
+=\frac{1}{2} $
+\vspace{0.7cm}
+\item $E(x^2)=\int_0^1 x^2\frac{x}{2}dx + \int_1^2 x^2\frac{1}{2}dx +\int_2^3 x^2\frac{3-x}{2}dx \\\\
+E(x^2)=\int_0^1 \frac{x^3}{2}dx + \int_1^2 \frac{x^2}{2}dx +\int_2^3 \frac{3x^2-x^3}{2}dx$\\\\
+$E(x^2)=\{\frac{x^4}{8}\}_0^1 + \{\frac{x^3}{6}\}_1^2 + \{\frac{x^3}{2}-\frac{x^4}{8}\}_2^3\\\\
+E(x^2)=\frac{1}{8} + \frac{8}{6}-\frac{1}{6} + \{\frac{27}{2}-\frac{81}{8}\}-\{\frac{8}{2}-\frac{16}{8}\}
+=\frac{4}{6} \\\\
+E(x^2)=\frac{1}{8} + \frac{7}{6}+ \frac{27}{8}-2= \frac{16}{6}$\\\\
+$E(x^2)=2\frac{2}{3}$
+\vspace{0.9cm}
+\item E(g(x)) =$E(x^2-5x+3)$= $E(x^2)-E(5x)+E(3)$\\
+E(g(x)) = $E(x^2)-5E(x)+3$ = $\frac{16}{6}-5*\frac{1}{2}+3$\\
+E(g(x)) =$3\frac{1}{6}$
+\end{itemize}
+\paragraph{ I have tried to make sure that this solution is error free. But Please if you have any question or found any error concerning this side don't hesitate to message me on whats-app (09153036869). Feel free to drop your opinion I will really appreciate it.}
+
+\begin{center}
+   \Large{Abdullahi (Maxwizard) wish you Good luck!} \\
+   \HUGE{THANK YOU!!}
+\end{center}
+
+\end{enumerate}
+ 
+\end{document}
