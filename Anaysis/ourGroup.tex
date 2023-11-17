@@ -1,0 +1,1294 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage[a4paper, total={7in, 10in},left=10mm,]{geometry}
+\usepackage{tikz}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath,amssymb}
+\usepackage{mathptmx}
+\usetikzlibrary{shapes.geometric}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\definecolor{B}{HTML}{2E79B2}
+\definecolor{W}{HTML}{FF0000}
+\usepackage{enumerate}
+\usepackage{parcolumns}
+%\setcounter{section}{0}
+
+\title{GROUP 1}
+\author{Project 1}
+\tableofcontents
+\begin{document}
+
+\section{PROJECT 1}
+\subsection{Tutorial I}
+\large{}
+1. Let $\xi \in \mathbb{R}^{n}$ and $\|\cdot\|_{0},\|\cdot\|_{1}$ and $\|\cdot\|_{u}$ be norms on $\mathbb{R}^{n}$ defined by
+
+$$
+\|\xi\|_{0}=\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}}, \quad\|\xi\|_{1}=\sum_{i=1}^{n}\left|x_{i}\right|, \quad\|\xi\|_{u}=\max _{1 \leq i \leq n}\left|x_{i}\right|
+$$
+
+where $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$, with $x_{i} \in \mathbb{R}, i=1,2, \ldots, n$.
+\begin{itemize}
+    \item Prove that
+$$
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u} \leq\|\xi\|_{1}, \quad \forall_{\xi} \in \mathbb{R}^{n}
+$$
+\item Hence, deduce that the function
+
+$$
+f:\left(\mathbb{R}^{n},\|\cdot\|_{1}\right) \longrightarrow\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)~~~~~~~~is ~continuous~ on ~~\mathbb{R}^{n}
+$$
+\end{itemize}
+
+\textbf{Solution}\\
+
+let $x_k$ be any entries in $\xi$ such that $1 \leq k \leq n$, it is obvious that
+
+$$
+x_{k}^{2} \leq\left(\left|x_{1}\right|+\left|x_{2}\right|+\cdots+\left|x_{n}\right|\right)^{2} .
+$$
+which can be rewrite in summation notation as :
+
+\begin{equation}
+x_{k}^{2} \leq \left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2}
+\end{equation}
+
+Now Summing both sides of the equation(1) from $k=1$ to $n$, we have
+
+\begin{equation}
+\sum_{k=1}^{n} x_{k}^{2} \leq \sum_{k=1}^{n}\left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2}
+\end{equation}$$
+
+Since $k$ is a dummy variable on the left side of equation(2), we can change it to $i$ and have
+
+$$
+\sum_{i=1}^{n} x_{i}^{2} \leq \sum_{k=1}^{n}\left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2}
+$$
+
+Shifting the first summation to the start we have
+$$
+\begin{gathered}
+\sum_{i=1}^{n} x_{i}^{2} \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2} \sum_{k=1}^{n} 1 \implies
+\sum_{i=1}^{n} x_{i}^{2} \leq n\left(\sum_{i=1}^{n}\left|x_{i}\right|\right)^{2}  
+\end{gathered}~ ~~\left(since ~\sum_{k=1}^{n} 1=n\right)
+$$
+
+Now taking the square root of both side, we have
+$$
+\begin{aligned}
+& \left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \sqrt{n} \sum_{i=1}^{n}\left|x_{i}\right|
+\end{aligned}
+$$
+
+Divide both side by $\sqrt{n}$ we have
+$$ \frac{1}{\sqrt{n}}\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \sum_{i=1}^{n}\left|x_{i}\right|
+$$
+
+Recall that, $$\|\xi\|_{0}=\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} ~and ~\quad\|\xi\|_{1}=\sum_{i=1}^{n}\left|x_{i}\right|$$
+
+Therefore,
+
+$$\frac{1}{\sqrt{n}}\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \sum_{i=1}^{n}\left|x_{i}\right| .
+\implies
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{1}
+$$\\
+
+let us  show that
+
+$$
+\|\xi\|_{u} \leq\|\xi\|_{1}
+$$
+
+It is Obvious that
+
+$$
+\left|x_{1}\right|+\left|x_{2}\right|+\cdots+\left|x_{n}\right| \geq \max _{1 \leq i \leq n}\left|x_{i}\right| .
+$$
+
+the above equation can be rewrite in summation form as:
+
+$$
+\sum_{i=1}^{n}\left|x_{i}\right| \geq \max _{1 \leq i \leq n}\left|x_{i}\right|
+$$
+
+this shows that
+$$
+\|\xi\|_{u} \leq\|\xi\|_{1} \text {. }
+$$
+
+Now we need to show that.
+$$
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u}
+$$
+we know that
+
+$$
+x_{i}^{2} \leq \max _{1 \leq i \leq n}\left|x_{i}\right|^{2}
+$$
+
+$$ \text{But} \max _{1 \leq i \leq n}\left|x_{i}\right|^{2}=\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}$$
+So, $$
+x_{i}^{2} \leq \max _{1 \leq i \leq n}\left|x_{i}\right|^{2} \iff x_{i}^{2} \leq\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}
+$$
+
+Take summation of both sides of from $i=1$ to $n$, we have
+
+$$
+\sum_{i=1}^{n} x_{i}^{2} \leq \sum_{i=1}^{n}\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}
+$$
+
+Since the maximum function on the right side  is not depending on $i$, then we can shift it.
+
+$$
+\sum_{i=1}^{n} x_{i}^{2} \leq\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2} \sum_{i=1}^{n} 1
+$$
+$$\text{Since } ~~\sum_{i=1}^{n} 1 =n ~~\text{ then we have,} $$ 
+
+$$
+\sum_{i=1}^{n} x_{i}^{2} \leq n\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}
+$$
+
+Since both sides are positive, we can take square root and obtain the following:
+
+$$
+\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \sqrt{n} \max _{1 \leq i \leq n}\left|x_{i}\right|, $$
+divide both side by $\sqrt{n}$ we have:
+$$\quad \frac{1}{\sqrt{n}}\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq \max _{1 \leq i \leq n}\left|x_{i}\right|
+$$
+
+Showing that
+
+$$
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u}
+$$
+
+From the workings above we showed that the following are true:
+
+$$
+\|\xi\|_{u} \leq\|\xi\|_{1}, \quad \frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u}, \quad \frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{1}
+$$
+
+Then we can deduce from those three fact that:
+$$\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u} \leq\|\xi\|_{1}, \quad \forall \xi \in \mathbb{R}^{n}$$
+And this completed the proof.
+
+
+
+\textbf{For Second Part now}\\
+
+Before we do the prove the following Lemma is needed.
+
+\textbf{Lemma :}  Let $\xi, \eta \in \mathbb{R}^{n}$, where $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$ and $\eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right)$, with $x_{i}, y_{i} \in \mathbb{R}$, for $i=1$ to $n$. Then
+
+$$
+||\left|\xi\left\|_{0}-\right\| \eta\left\|_{0} \mid \leq\right\| \xi-\eta \|_{0}, \quad \xi, \eta \in \mathbb{R}^{n}\right.
+$$\\
+Proof:\\
+
+Consider $\mathbb{R}^{n}$ and let $\xi, \eta \in \mathbb{R}^{n}$. Define the function
+
+$$
+\rho: \mathbb{R}^{n} \times \mathbb{R}^{n} \longrightarrow \mathbb{R}^{+}
+$$
+by
+$$
+\rho(\xi, \eta)=\left(\sum_{i=1}^{n}\left(x_{i}-y_{i}\right)^{2}\right)^{\frac{1}{2}}
+$$
+
+Let $\zeta=\left(z_{1}, z_{2}, \ldots, z_{n}\right) \in \mathbb{R}^{n}$. Then
+
+$$
+\begin{aligned}
+{[\rho(\xi, \zeta)]^{2} } & =\sum_{i=1}^{n}\left(x_{i}-z_{i}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}-y_{i}+y_{i}-z_{i}\right)^{2} \\
+& =\sum_{i=1}^{n}\left[\left(x_{i}-y_{i}\right)^{2}+\left(y_{i}-z_{i}\right)^{2}+2\left|x_{i}-y_{i}\right|\left|y_{i}-z_{i}\right|\right] \\
+& =\sum_{i=1}^{n}\left(x_{i}-y_{i}\right)^{2}+\sum_{i=1}^{n}\left(y_{i}-z_{i}\right)^{2}+2 \sum_{i=1}^{n}\left|x_{i}-y_{i}\right|\left|y_{i}-z_{i}\right|
+\end{aligned}
+$$
+\newpage
+But, According to Cauchy Inequity:
+$$
+\sum_{i=1}^{n}\left|x_{i}\right|\left|y_{i}\right| \leq\left(\sum_{i=1}^{n}x_{i}^{2}\right)^{\frac{1}{2}}\left(\sum_{i=1}^{n}y_{i}^{2}\right)^{\frac{1}{2}} .
+$$
+which means that the following is also true:.
+$$
+\sum_{i=1}^{n}\left|x_{i}-y_{i}\right|\left|y_{i}-z_{i}\right| \leq\left(\sum_{i=1}^{n}\left(x_{i}-y_{i}\right)^{2}\right)^{\frac{1}{2}}\left(\sum_{i=1}^{n}\left(y_{i}-z_{i}\right)^{2}\right)^{\frac{1}{2}} .
+$$
+
+SO,
+$$
+\begin{aligned}
+{[\rho(\xi, \zeta)]^{2} } \leq \sum_{i=1}^{n}\left(x_{i}-y_{i}\right)^{2}+\sum_{i=1}^{n}\left(y_{i}-z_{i}\right)^{2}+2\left(\sum_{i=1}^{n}\left(x_{i}-y_{i}\right)^{2}\right)^{\frac{1}{2}}\left(\sum_{i=1}^{n}\left(y_{i}-z_{i}\right)^{2}\right)^{\frac{1}{2}}
+\end{aligned}
+$$
+
+Therefore
+
+$$
+\begin{aligned}
+{[\rho(\xi, \zeta)]^{2} } & \leq[\rho(\xi, \eta)]^{2}+[\rho(\eta, \zeta)]^{2}+2 \rho(\xi, \eta) \rho(\eta, \zeta) \\
+& \leq[\rho(\xi, \eta)+\rho(\eta, \zeta)]^{2}
+\end{aligned}
+$$
+
+Since bothsides are greater than 0, we can take the square root on both sides and obtain
+
+
+\begin{equation}
+\rho(\xi, \zeta) \leq \rho(\xi, \eta)+\rho(\eta, \zeta)
+\end{equation}
+
+Setting $\zeta=\overline{0}$ in inequality (3), we have
+
+$$
+\rho(\xi, \overline{0}) \leq \rho(\xi, \eta)+\rho(\eta, \overline{0})
+$$
+
+Showing that
+
+$$
+\left(\sum_{i=1}^{n} x_{i}^{2}\right)^{\frac{1}{2}} \leq\left(\sum_{i=1}^{n}\left(x_{i}-y_{i}\right)^{2}\right)^{\frac{1}{2}}+\left(\sum_{i=1}^{n} y_{i}^{2}\right)^{\frac{1}{2}}
+$$
+
+which can also be written as 
+
+$$
+\|\xi\|_{0} \leq\|\xi-\eta\|_{0}+\|\eta\|_{0}
+$$
+Take $\|\eta\|_{0}$ to Left side we have
+
+$$
+\|\xi\|_{0}-\|\eta\|_{0} \leq\|\xi-\eta\|_{0}
+$$
+
+Replacing $\xi$ with $\eta$ in (2.12), we obtain
+
+$$
+\|\eta\|_{0}-\|\xi\|_{0}=-\left(\|\xi\|_{0}-\|\eta\|_{0}\right) \leq\|\eta-\xi\|_{0}=\|-(\xi-\eta)\|_{0}=\|\xi-\eta\|_{0}
+$$
+
+Now, we have that
+
+$$
+-\left(\|\xi\|_{0}-\|\eta\|_{0}\right) \leq\|\xi-\eta\|_{0} \text { and }\|\xi\|_{0}-\|\eta\|_{0} \leq\|\xi-\eta\|_{0}
+$$
+
+Both inequalities imply
+
+$$
+-\left(\|\xi\|_{0}-\|\eta\|_{0}\right) \leq\|\xi\|_{0}-\|\eta\|_{0} \leq\|\xi-\eta\|_{0}
+$$
+
+Hence,
+
+$$
+\left| \|\xi\|_{0}-\|\eta\|_0 \left|\leq\right\| \xi-\eta \|_{0}\right.
+$$
+
+
+
+\large{\textbf{Now Let us prove for the continuous}}\\
+
+(b) Let $\xi, \eta \in \mathbb{R}^{n}$, such that \\
+$$\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right),
+\text{ and } \eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right), \text{ with } x_i,y_{i} \in \mathbb{R},\text{ for i=1,2, }\ldots, n$$. 
+
+To show that the function $f$ defined by $f:\left(\mathbb{R}^{n},\|\cdot\|_{1}\right) \longrightarrow\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)$ is continuous on $\mathbb{R}^{n}$,
+
+given $\epsilon>0$, we have to find a $\delta>0$, such that 
+$$\left|\|\xi\|_{1}-\|\eta\|_{1}\right|<\delta \implies \left|f\left(\|\xi\|_{1}\right)-f\left(\| \eta||_1\right)\right|= ||\left|\xi\left\|_{0}-\right\| \eta \|_{0}\right|<\epsilon$$.
+
+Now,
+
+$$
+\left|f\left(\|\xi\|_{1}\right)-f\left(\left\|\eta_{1}\right\|\right)\right|=\left|\|\xi\|_{0}-\|\eta\|_{0}\right|
+$$
+
+Using the inequality  (Lemma 2)
+
+$$
+\left|\|\xi\|_{0}-\|\eta\|_{0}\right| \leq\|\xi-\eta\|_{0}, \quad \xi, \eta \in \mathbb{R}^{n}
+$$
+
+So, 
+
+$$
+\left|f\left(\|\xi\|_{1}\right)-f\left(\| \eta_{1}||\right)\right|=\left|\|\xi\|_{0}-\|\eta\|_{0}\right| \leq\|\xi-\eta\|_{0}
+$$
+Which can be deduce to;
+
+$$
+\left|f\left(\|\xi\|_{1}\right)-f\left(\left\|\eta_{1}\right\|\right)\right|\leq\|\xi-\eta\|_{0} .
+$$
+
+But recall that we Proved it earlier that :
+
+$$\|\xi\|_{0} \leq \sqrt{n}\|\xi\|_{1} \implies  \|\xi-\eta\|_{0} \leq \sqrt{n}\|\xi-\eta\|_{1} $$
+
+Applying that fact then we have;
+$$
+\left|f\left(\|\xi\|_{1}\right)-f\left(\left\|\eta_{1}\right\|\right)\right| \leq\|\xi-\eta\|_{0} \leq \sqrt{n}\|\xi-\eta\|_{1} .
+$$
+
+$$|\| \xi\left\|_{1}-\right\| \eta \|_{1} \mid<\delta$$, we derive
+
+$$
+\left|\|\xi\|_{1}-\|\eta\|_{1}\right| \leq\|\xi-\eta\|_{1}<\delta
+$$
+
+So, we have that
+
+$$
+\left\|\left|\xi\left\|_{1}-\right\| \eta\left\|_{1} \mid<\delta \Longrightarrow\right\| \xi-\eta \|_{1}<\delta\right.\right. \text {. }
+$$
+
+Choosing $\delta(\epsilon)=\frac{\epsilon}{\sqrt{n}}$, it follows that
+
+$$
+\left|f\left(\|\xi\|_{1}\right)-f\left(\left\|\eta_{1}\right\|\right)\right|<\epsilon .
+$$
+
+Showing that the function $f$ defined by $f:\left(\mathbb{R}^{n},\|\cdot\|_{1}\right) \longrightarrow\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)$ is continuous on $\mathbb{R}^{n}$.
+
+\subsection{Tutorial II}
+\large{}
+If $\xi,\eta \in \mathbb{R}^n,$
+prove that the Euclidean norm $\|\cdot\|_{0}$ satisfies the parallelogram identity
+
+$$
+\|\xi+\eta\|_{0}^{2}+\|\xi-\eta\|_{0}^{2}=2\left(\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}\right)
+$$
+
+Show also that
+
+$$
+\|\xi+\eta\|_{0}^{2}=\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}
+$$
+
+holds if and only if $\langle\xi, \eta\rangle=0$. In this case, we say that $\xi$ and $\eta$ are orthogonal.\\\\
+
+\textbf{SOLUTION}\\
+
+\textbf{Proof}.\\
+
+Let $\xi, \eta \in \mathbb{R}^{n}$, such that $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$ and $\eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right)$ with $x_{i},y_i \in \mathbb{R}, i=1,2, \ldots, n$
+
+$$
+\|\xi+\eta\|_{0}^{2}=\left\|\left(x_{1}+y_{1}, x_{2}+y_{2}, \ldots, x_{n}+y_{n}\right)\right\|_{0}^{2}=\sum_{i=1}^{n}\left(x_{i}+y_{i}\right)^{2} .
+$$
+
+$$
+\|\xi-\eta\|_{0}^{2}=\left\|\left(x_{1}-y_{1}, x_{2}-y_{2}, \ldots, x_{n}-y_{n}\right)\right\|_{0}^{2}=\sum_{i=1}^{n}\left(x_{i}-y_{i}\right)^{2}
+$$
+Combining both we can say,
+
+$$
+\begin{aligned}
+\|\xi+\eta\|_{0}^{2}+\|\xi-\eta\|_{0}^{2} & =\sum_{i=1}^{n}\left(x_{i}+y_{i}\right)^{2}+\sum_{i=1}^{n}\left(x_{i}-y_{i}\right)^{2} \\
+& =\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}+2 x_{i} y_{i}\right)+\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}-2 x_{i} y_{i}\right) \\
+& =\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}+2 x_{i} y_{i}+x_{i}^{2}+y_{i}^{2}-2 x_{i} y_{i}\right) \\
+& =\sum_{i=1}^{n}\left(2 x_{i}^{2}+2 y_{i}^{2}\right)=2 \sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}\right) \\
+& =2\left(\sum_{i=1}^{n} x_{i}^{2}+\sum_{i=1}^{n} y_{i}^{2}\right) \\
+& =2\left(\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}\right) .
+\end{aligned}
+$$
+
+Hence, the Euclidean norm $\|\cdot\|_{0}$ satisfies the parallelogram identity
+
+$$
+\|\xi+\eta\|_{0}^{2}+\|\xi-\eta\|_{0}^{2}=2\left(\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}\right)
+$$
+\newpage
+\textbf{For second part now}\\
+We want to show that  $$\langle\xi, \eta\rangle=0 \iff \|\xi+\eta\|_{0}^{2}=\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}$$.
+
+
+Assume that $\langle\xi, \eta\rangle=0$
+
+$$\begin{align}
+\|\xi+\eta\|_{0}^{2}&=\sum_{i=1}^{n}\left(x_{i}+y_{i}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}+2 x_{i} y_{i}\right)\\
+&=\sum_{i=1}^{n} x_{i}^{2}+\sum_{i=1}^{n} y_{i}^{2}+2\sum_{i=1}^{n} x_iy_{i}\\
+&=\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}
++2\langle \xi,\eta \rangle\\
+&=\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2} \text{ ( since }\langle \xi,\eta \rangle=0)
+\end{align}$$
+
+
+Hence, if $\langle\xi, \eta\rangle=0$, then $\|\xi+\eta\|_{0}^{2}=\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}$.\\
+
+\textbf{Conversely, }\\
+
+assume that $\|\xi+\eta\|_{0}^{2}=\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}$. Then,
+$$
+\begin{aligned}
+\sum_{i=1}^{n}\left(x_{i}+y_{i}\right)^{2} & =\sum_{i=1}^{n} x_{i}^{2}+\sum_{i=1}^{n} y_{i}^{2} \\
+\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}+2 x_{i} y_{i}\right) & =\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}\right) \\
+\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}\right)+2 \sum_{i=1}^{n} x_{i} y_{i} & =\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}\right) \\
+2 \sum_{i=1}^{n} x_{i} y_{i} & =\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}\right)-\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}\right)=0 .
+\end{aligned}
+$$
+
+So,
+
+$$
+\sum_{i=1}^{n} x_{i} y_{i}=0
+$$
+
+Since $\langle\xi, \eta\rangle=\sum_{i=1}^{n} x_{i} y_{i}$, Then we can say $\langle\xi, \eta\rangle=0$.\\
+
+Thus, if $\|\xi+\eta\|_{0}^{2}=\|\xi\|_{0}^{2}+\|\eta\|_{0}^{2}$, then $\langle\xi, \eta\rangle=0$.\\
+
+In this case, $\xi$ and $\eta$ are orthogonal.
+
+
+
+\newpage
+\subsection{Tutorial III}
+Prove the Holder's inequality
+
+$$
+\sum_{i=1}^{n}\left|x_{i} y_{i}\right| \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}
+$$
+
+$$\text{where } \frac{1}{p}+\frac{1}{q}=1$$
+
+\textbf{SOLUTION}\\
+
+\large
+Before we proceed to the proof the following lemma is needed\\
+
+\textbf{Lemma }:\\
+Let $f$ be a real-valued, continuous, and strictly increasing function on $[0, c]$ with $c>0$. If $f(0)=0, a \in[0, c]$, and $b \in[0, f(c)]$, then
+\begin{equation}\tag{1.1}
+\int_{0}^{a} f(x) \mathrm{d} x+\int_{0}^{b} f^{-1}(x) \mathrm{d} x \geq a b \iff b=f(a)
+\end{equation}
+
+where $f^{-1}$ is the inverse function of $f$.\\
+
+We shall use Lemma 1 to prove the following Theorem.
+
+Theorem 1 (Holder's inequality). Let $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$ and $\eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right)$ be arbitrary elements in $\mathbb{R}^{n}$. Then, for $1<p<\infty$,
+
+\begin{equation}\tag{1.2}
+\sum_{i=1}^{n}\left|x_{i} y_{i}\right| \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}
+\end{equation}
+
+where
+
+$$
+\frac{1}{p}+\frac{1}{q}=1
+$$
+
+Proof of Theorem 1. We shall show firstly that
+
+\begin{equation}\tag{1.3}
+a b \leq \frac{a^{p}}{p}+\frac{b^{q}}{q}, \quad \text { where } \frac{1}{p}+\frac{1}{q}=1
+\end{equation}
+
+To do this, let $f(x)=x^{p-1}$, for $p \in(1, \infty)$, in (1.1). Then $f^{-1}(x)=x^{\frac{1}{p-1}}$, and
+
+$$
+\begin{aligned}
+\int_{0}^{a} x^{p-1} \mathrm{~d} x+\int_{0}^{b} x^{\frac{1}{p-1}} \mathrm{~d} x & =\left.\frac{x^{p}}{p}\right|_{0} ^{a}+\left.\frac{(p-1) \cdot x^{\frac{p}{p-1}}}{p}\right|_{0} ^{b} \\
+& =\frac{a^{p}}{p}+\frac{(p-1) \cdot b^{\frac{p}{p-1}}}{p}
+\end{aligned}
+$$
+
+If we let $q=\frac{p}{p-1}$, we have that $\frac{1}{p}+\frac{1}{q}=1$. Therefore,
+
+$$
+\int_{0}^{a} x^{p-1} \mathrm{~d} x+\int_{0}^{b} x^{\frac{1}{p-1}} \mathrm{~d} x=\frac{a^{p}}{p}+\frac{b^{q}}{q} \geq a b
+$$
+and thus (1.3) holds true. To prove (1.2), let $\alpha_{k}$ and $\lambda_{k}$ be two sequences such that
+
+$$
+\alpha_{k}:=\frac{x_{k}}{\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}} \text {, and } \lambda_{k}:=\frac{y_{k}}{\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}}
+$$
+
+It follows from (1.3) that
+
+\begin{equation}\tag{1.4}
+\left|\alpha_{k}\right|\left|\lambda_{k}\right| \leq \frac{\left|\alpha_{k}\right|^{p}}{p}+\frac{\left|\lambda_{k}\right|^{q}}{q} \text {, which implies that }\left|\alpha_{k} \lambda_{k}\right| \leq \frac{\left|\alpha_{k}\right|^{p}}{p}+\frac{\left|\lambda_{k}\right|^{q}}{q} \text {. }
+\end{equation}
+
+Summing both sides of the inequality (1.4) from $k=1$ to $n$, we have
+
+\begin{equation}\tag{1.5}
+\sum_{k=1}^{n}\left|\alpha_{k} \lambda_{k}\right| \leq \sum_{k=1}^{n}\left(\frac{\left|\alpha_{k}\right|^{p}}{p}+\frac{\left|\lambda_{k}\right|^{q}}{q}\right)=\sum_{k=1}^{n} \frac{\left|\alpha_{k}\right|^{p}}{p}+\sum_{k=1}^{n} \frac{\left|\lambda_{k}\right|^{q}}{q}
+\end{equation}
+
+Evaluating the first part of the sum in (1.5), we obtain
+
+\begin{equation}\tag{1.6}
+\begin{aligned}
+\sum_{k=1}^{n} \frac{\left|\alpha_{k}\right|^{p}}{p} & =\sum_{k=1}^{n} \frac{1}{p}\left(\left|\frac{x_{k}}{\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}}\right|^{p}\right)=\frac{1}{p} \sum_{k=1}^{n} \frac{\left|x_{k}\right|^{p}}{\left(\left.\left|\sum_{i=1}^{n}\right| x_{i}\right|^{p} \mid\right)} \\
+& =\frac{1}{p} \frac{\sum_{k=1}^{n}\left|x_{k}\right|^{p}}{\sum_{i=1}^{n}\left|x_{i}\right|^{p}}=\frac{1}{p} .
+\end{aligned}
+\end{equation}
+
+Similarly, for the second part of the sum in (1.5), we derive
+
+\begin{equation}\tag{1.7}
+\begin{aligned}
+\sum_{k=1}^{n} \frac{\left|\lambda_{k}\right|^{q}}{q} & =\sum_{k=1}^{n} \frac{1}{q}\left(\left|\frac{y_{k}}{\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}}\right|^{q}\right)=\frac{1}{q} \sum_{k=1}^{n} \frac{\left|y_{k}\right|^{q}}{\left(\left.\left|\sum_{i=1}^{n}\right| y_{i}\right|^{q} \mid\right)} \\
+& =\frac{1}{q} \frac{\sum_{k=1}^{n}\left|y_{k}\right|^{q}}{\sum_{i=1}^{n}\left|y_{i}\right|^{q}}=\frac{1}{q} .
+\end{aligned}
+\end{equation}
+
+Taking account of (1.6) and (1.7), (1.5) becomes
+
+$$
+\sum_{k=1}^{n}\left|\alpha_{k} \lambda_{k}\right| \leq \frac{1}{p}+\frac{1}{q}=1
+$$
+
+Therefore,
+
+\begin{equation}\tag{1.8}
+\sum_{k=1}^{n}\left|\frac{x_{k}}{\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}} \cdot \frac{y_{k}}{\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}}\right|=\frac{\sum_{k=1}^{n}\left|x_{k} y_{k}\right|}{\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}} \leq 1
+\end{equation}
+
+Multiplying both sides of (1.8) by $\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}$, we obtain
+
+\begin{equation}\tag{1.9}
+\sum_{k=1}^{n}\left|x_{k} y_{k}\right| \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}
+\end{equation}
+
+Since an index of summation is a dummy variable and is immaterial, we can change the index of summation on the left side of (1.9) from $k$ to $i$ and have that
+
+\begin{equation}\tag{1.10}
+\sum_{i=1}^{n}\left|x_{i} y_{i}\right| \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{i=1}^{n}\left|y_{i}\right|^{q}\right)^{\frac{1}{q}}
+\end{equation}
+
+Equality holds in (1.10) for $\xi, \eta=\underbrace{(0,0, \cdots, 0)}_{n \text { tuples }}:=\overline{0}$. This concludes the proof of Theorem 1. \newpage
+\subsection{Tutorial IV}
+\large{}
+1. Verify that $
+\langle\xi, \eta\rangle=\sum_{i=1}^{n} x_{i} y_{i}$
+satisfies the properties of inner product.\\\\
+\Large{Solution}\\
+We need to show that $\forall_{\xi,\eta,\zeta}\in \mathbb{R}^n$ the following properties are satisfied.
+\begin{enumerate}
+  \item $\langle\xi, \xi\rangle \geq 0$ and $\langle\xi, \xi\rangle= 0 \iff \xi= \Bar{0}$
+  \item $\langle\eta, \xi\rangle=\langle\xi, \eta\rangle$
+  \item $\langle\xi+\eta, \zeta\rangle =\langle\xi, \zeta\rangle+\langle\eta, \zeta\rangle$ and $\langle\xi, \eta+\zeta\rangle=\langle\xi, \eta\rangle +\langle\xi,\zeta\rangle$
+   \item $\langle\lambda \xi, \eta\rangle=\langle\xi, \lambda \eta\rangle $
+  
+\end{enumerate}
+ \textbf{Proof}
+$$Let~~\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right), \eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right), \zeta=\left(z_{1}, z_{2}, \ldots, z_{n}\right)$$ be arbitrary elements in $\mathbb{R}^{n}$ and $\lambda \in \mathbb{R}$. Then
+$$
+\langle\xi, \xi\rangle=\sum_{i=1}^{n} x_{i} x_{i}=\sum_{i=1}^{n} x_{i}^{2}
+$$
+
+it is obvious $x_{i}^{2} \geq 0$, for all $i=1, 2, 3...n$,\\
+
+ $$Therefore,~~\sum_{i=1}^{n} x_{i}^{2} \geq 0 \implies \langle\xi, \xi\rangle \geq 0$$
+
+$$
+\begin{aligned}
+\langle\xi, \xi\rangle=0 \iff \sum_{i=1}^{n} x_{i} x_{i}=0 \iff \sum_{i=1}^{n} x_{i}^{2}=0 \iff x_{i}^{2}=0\\
+x_{i}^{2}=0~~~ \forall_{i \in \{1,2,3...n\}} \iff x_i=0~~ \forall_{i \in \{1,2,3...n\}} \iff \xi=\Bar{0}\\
+So,~ \langle\xi, \xi\rangle=0 \iff \xi=\Bar{0} 
+\end{aligned}
+$$
+\textbf{Hence property(1) hold good}.
+
+$$
+\langle\xi, \eta\rangle=\sum_{i=1}^{n} x_{i} y_{i}=\sum_{i=1}^{n} y_{i} x_{i}=\langle\eta, \xi\rangle \implies \langle\xi, \eta\rangle=\langle\eta, \xi\rangle$$
+\textbf{Hence property(2) hold good}.\\
+\newpage
+Considering $\langle\xi, \eta+\zeta\rangle$, we have
+
+$$
+\begin{aligned}
+\langle\xi, \eta+\zeta\rangle & =\sum_{i=1}^{n} x_{i}\left(y_{i}+z_{i}\right)=\sum_{i=1}^{n} x_{i} y_{i}+\sum_{i=1}^{n} x_{i} z_{i} =\langle\xi, \eta\rangle+\langle\xi, \zeta\rangle .
+\end{aligned}
+$$
+Considering $\langle\xi+\eta, \zeta\rangle$, we have
+$$
+\begin{aligned}
+\langle\xi+\eta, \zeta\rangle & =\sum_{i=1}^{n}\left(x_{i}+y_{i}\right) z_{i}=\sum_{i=1}^{n} x_{i} z_{i}+\sum_{i=1}^{n} y_{i} z_{i}  =\langle\xi, \zeta\rangle+\langle\eta, \zeta\rangle .
+\end{aligned}
+$$
+\textbf{Hence property(3) hold good}.\\
+
+Considering $\langle\lambda \xi, \eta\rangle$, we have
+
+$$
+\begin{align}
+\langle\lambda \xi, \eta\rangle=\sum_{i=1}^{n} \lambda x_{i} y_{i}=\sum_{i=1}^{n} x_{i}\left(\lambda y_{i}\right)=\langle\xi, \lambda \eta\rangle\\
+\implies \langle\lambda \xi, \eta\rangle=\langle\xi, \lambda \eta\rangle 
+\end{align}
+$$\\
+
+\textbf{Hence, $\langle\xi, \eta\rangle=\sum_{i=1}^{n} x_{i} y_{i}$ satisfies the properties of inner product.}\\
+
+\subsection{Tutorial V}
+
+Using the inequality  $
+\langle\xi, \eta\rangle \leq\|\xi\|_{0} \cdot\|\eta\|_{0}
+$
+
+\begin{center}
+show that   $\|\xi+\eta\|_{0} \leq\|\xi\|_{0}+\|\eta\|_{0}, \forall \xi, \eta \in \mathbb{R}^{n}$
+\end{center}
+
+\textbf{SOLUTION}\\
+\textbf{Proof.} \\
+Let $\xi=\left(x_{1}, x_{2}, \ldots, x_{n}\right)$ and $\eta=\left(y_{1}, y_{2}, \ldots, y_{n}\right)$ be arbitrary elements in $\mathbb{R}^{n}$. Then
+
+
+$$
+\begin{aligned}
+\|\xi+\eta\|_{0}^{2} & =\sum_{i=1}^{n}\left(x_{i}+y_{i}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}^{2}+y_{i}^{2}+2 x_{i} y_{i}\right) \\
+& =\sum_{i=1}^{n} x_{i}^{2}+\sum_{i=1}^{n} y_{i}^{2}+2 \sum_{i=1}^{n} x_{i} y_{i}=\|\xi\|_{0}^2+\|\eta\|_{0}^2+2\langle\xi, \eta\rangle \\
+& \leq\|\xi\|_{0}^2+\|\eta\|_{0}^2+2\|\xi\|_{0}\|\eta\|_{0}\text{(Factorize it)}\\
+&
+\leq \left(\|\xi\|_{0}+\|\eta\|_{0}\right)^{2}
+\end{aligned}
+$$
+
+Since $\|\xi\|_{0} \geq 0$, we can take square root and we will have
+
+$$
+\|\xi+\eta\|_{0} \leq\|\xi\|_{0}+\|\eta\|_{0}
+$$
+Thus, completing the proof.
+\section{PROJECT 2}
+\subsection{Tutorial I}
+Prove that a subset of $\mathbb{R}^{n}$ is open if and only if it is the union of a countable collection of open sets.
+
+$$
+\mathbb{R}^{n}=\bigcup_{m=1}^{\infty} \stackrel{\circ}{B}_{m}
+$$
+
+
+
+\textbf{Solution}
+
+Let $A \subseteq \mathbb{R}^{n}$ such that $A$ is open. That is for each $\xi_{i} \in A$, there exists an open ball ${\stackrel{\circ}{B_{r}}}_{r_{i}}\left(\xi_{i}\right)$ with $r_{i}>0$ such that $\xi_{i} \in \stackrel{\circ}{B}_{r_{i}}\left(\xi_{i}\right) \subset A$.\\
+
+We claim;
+$$
+A=\bigcup_{\xi_{i} \in A} \stackrel{\circ}{B}_{r_{i}}\left(\xi_{i}\right)
+$$
+
+Let $\xi \in A$, then there exists $r_{i}>0$ for some $i$ such that $\xi \in \stackrel{\circ}{B}_{r_{i}}(\xi) \subset A$. But
+
+$$
+\stackrel{\circ}{B}_{r_{i}}(\xi) \subset \bigcup_{\xi_{i} \in A} \stackrel{\circ}{B}_{r_{i}}\left(\xi_{i}\right) \Longrightarrow \xi \in \bigcup_{\xi_{i} \in A}{\stackrel{\circ}{B_{r}}}_{r_{i}}\left(\xi_{i}\right)
+$$
+
+It follows immediately that,
+
+\begin{equation}
+A \subseteq \bigcup_{\xi_{i} \in A} \stackrel{\circ}{B}_{r_{i}}\left(\xi_{i}\right)
+\end{equation}
+
+Now let $\xi \in \bigcup_{\xi_{i} \in A} \stackrel{\circ}{B}_{r_{i}}\left(\xi_{i}\right)$, this implies $\xi \in \stackrel{\circ}{B}_{r_{i}}\left(\xi_{i}\right)$ for some $r_{i}>0$, but notice that;
+
+$$
+\stackrel{\circ}{B}_{r_{i}}(\xi) \subset A \quad \forall \xi_{i} \in A
+$$
+
+So we have, $\xi \in \stackrel{\circ}{B}_{r_{i}}(\xi) \subset A$, which implies $\xi \in A$ for some $r_{i}>0$. This shows
+
+\begin{equation}
+\bigcup_{\xi_{i} \in A} \stackrel{\circ}{B}_{r_{i}}\left(\xi_{i}\right) \subseteq A\tag{2}
+\end{equation}
+
+From [1] and [2] we conclude that;
+
+$$
+A=\bigcup_{\xi_{i} \in A} \stackrel{\circ}{B}_{r_{i}}\left(\xi_{i}\right)
+$$
+\newpage
+
+\textbf{Conversely},\\
+
+suppose A is the union of countable collection of open sets then it follows directly that $\mathrm{A}$ is open.
+
+To Show
+
+$$
+\mathbb{R}^{n}=\bigcup_{m=1}^{\infty} \stackrel{\circ}{B}_{m}
+$$
+
+We shall show this using the technique of the previous proof. Let $\xi_{m} \in \mathbb{R}^{n}$, since $\mathbb{R}^{n}$ is open then there exists an open ball $\stackrel{\circ}{B}_{m}:=\stackrel{\circ}{B}_{r_{m}}\left(\xi_{m}\right)$ with radius $r_{m}$ along side $r_{m}>0$ such that;
+
+$$
+\xi_{m} \in \stackrel{\circ}{B}_{m}:={\stackrel{\circ}{B_{m}}}_{r_{m}}\left(\xi_{m}\right) \subset \mathbb{R}^{n}
+$$
+
+But, $\stackrel{\circ}{B}_{m}:=\stackrel{\circ}{B}_{r_{m}}\left(\xi_{m}\right) \subset \bigcup_{m=1}^{\infty} \stackrel{\circ}{B}_{m}$ which implies $\xi_{m} \in \bigcup_{m=1}^{\infty} \stackrel{\circ}{B}_{m}$, and so we have that $\mathbb{R}^{n} \subseteq \bigcup_{m=1}^{\infty} \stackrel{\circ}{B}_{m}$.
+
+Now let $\xi_{m} \in \bigcup_{m=1}^{\infty} \stackrel{\circ}{B}_{m}$, then there exists $r_{m}>0$ such that $\xi_{m} \in \stackrel{\circ}{B}_{m}:=\stackrel{\circ}{B}_{r_{m}}\left(\xi_{m}\right)$.
+
+But since $\mathbb{R}^{n}$ is open then $\stackrel{\circ}{B}_{m}:=\stackrel{\circ}{B}_{r_{m}}\left(\xi_{m}\right) \subset \mathbb{R}^{n}$ for all $\xi_{m} \in \mathbb{R}^{n}$ provided each $r_{m}>0$. So we can say $\xi_{m} \in \mathbb{R}^{n}$. Thus showing that $\bigcup_{m=1}^{\infty} \stackrel{\circ}{B}_{m} \subseteq \mathbb{R}^{n}$.
+
+Hence, we conclude that;
+
+$$
+\mathbb{R}^{n}=\bigcup_{m=1}^{\infty} \stackrel{\circ}{B}_{m}
+$$
+\newpage
+\subsection{Tutorial II}
+Show that for any $\xi \in \mathbb{R}^{n},\{\xi\}$ is closed in $\mathbb{R}^{n}$
+
+\textbf{Solution}
+
+To show $\{\xi\}$ is closed in $\mathbb{R}^{n}$. It suffices to show, $\mathbb{F}:=\mathbb{R}^{n} \backslash\{\xi\}$ is open, that is for any $\eta \in \mathbb{F}$ there exists $r>0$ such that $\stackrel{\circ}{B}_{r}(\eta) \subset \mathbb{F}$.
+
+Now let $r=\|\xi-\eta\|_{\mathbb{R}^{n}}=\rho(\xi, \eta)>0$, \\
+
+suppose $\zeta \in \stackrel{\circ}{B}_{r}(\eta)$ but notice that;
+
+$$
+\rho(\xi, \zeta) \geq \rho(\xi, \eta)-\rho(\zeta, \eta)
+$$
+
+which implies that $$\rho(\xi, \zeta) \geq r-\rho(\zeta, \eta), $$
+
+But since $\rho(\zeta, \eta)<r $  the we can say that :
+$$-\rho(\zeta, \eta)>-r$$. And then we have that;
+
+$$
+\rho(\xi, \zeta) \geq \rho(\xi, \eta)-\rho(\zeta, \eta) \geq r-\rho(\zeta, \eta)>r-r=0
+$$
+
+Since $\rho(\xi, \zeta)>0$ then  $\xi \neq \zeta$,\\
+
+which is sufficient enough to say $\zeta \in \mathbb{F}$. 
+
+Thus we have shown $\stackrel{\circ}{B}_{r}(\eta) \subset \mathbb{F}$, since $\eta$ was arbitrarily chosen then we can conclude $\mathbb{F}:=\mathbb{R}^{n} \backslash\{\xi\}$ is open in $\mathbb{R}^{n}$.\\
+
+Hence $\{\xi\}$ is closed in $\mathbb{R}^{n}$.
+\newpage
+\section{PROJECT 3}
+\subsection{Tutorial I}
+let $(\xi_k)_{k \in \mathbb{N}}$ be a sequence in $\mathbb{R}^3$ defined by
+$$\xi_k = (1 +\frac{1}{k+1}+\frac{1}{k})$$
+
+prove that $$\lim_{k \rightarrow \infty}(\xi_k)= (1,0,0) $$
+
+\textbf{Solution}\\
+It suffices to show  $\|S_k-(1,0,0)\|_{\mathbb{R}^3}=0$
+
+Now, $$\|S_k-(1,0,0)\|_{\mathbb{R}^3}= \|(1,\frac{1}{k+1},\frac{1}{k+1})-(1,0,0)\|_{\mathbb{R}^3} =\|(0,\frac{1}{k+1},\frac{1}{k})\|_{\mathbb{R}^3}$$
+
+But, 
+
+$$\begin{align}
+    \|(0,\frac{1}{k+1},\frac{1}{k})\|_{\mathbb{R}^3}^2=&0^2+(\frac{1}{k+1})^2+(\frac{1}{k})^2 = (\frac{1}{k+1})^2+(\frac{1}{k})^2\\\\&=\frac{k^2+k^2+2k+1}{k^2(k+1)} =\frac{2k^2+2k+1}{k^2(k+1)^2} = \frac{2k^2+2k+1}{k^4+2k^3+k^2} \\\\&=\frac{\frac{2k^2}{k^4}+\frac{2k}{k^4}+\frac{1}{k^4}}{\frac{k^4}{k^4}+\frac{2k^3}{k^4}+\frac{k^2}{k^4}}\\
+    & \implies \lim_{k\rightarrow \infty} \|\xi_k -(1,0,0)\|_{\mathbb{R}^3} = \lim_{k\rightarrow \infty}\frac{\frac{2}{k^2}+\frac{2}{k^3}+\frac{1}{k^4}}{1+\frac{2}{k}+\frac{k}{k^2}} = 0
+\end{align}
+    $$
+So, we have  $$\lim_{k\rightarrow \infty} \| \xi_k -(0,\frac{1}{k+1},\frac{1}{k})\|_{\mathbb{R}^3}=0$$
+Hence, $$\lim_{k \rightarrow \infty}(\xi_k)= (1,0,0) $$\\
+
+\newpage
+\subsection{Tutorial II }
+Every bounded infinite subset of $R^n$ has a limit point\\
+
+\textbf{Solution}\\
+
+Before we do the prove the following lemma is important.\\
+
+\textbf{lemma:} If E is an infinite subset of a compact set K, then E has a limit point in K.\\
+
+\textbf{Proof} \\
+We shall prove this By Contradiction, Here we go:
+
+Assume no point of K were a limit point of E, then each q $\in K$ would
+have a neighborhood $N_q$ which contains at most one point of E (namely,
+q, if q $\in$ E). It is clear that no finite sub-collection of ${N_q}$ can cover E;
+and the same is true of K, since $E \subset K$. This contradicts the compactness of K. 
+
+Hence, If E is an infinite subset of a compact set K, then E has a limit point in K.
+
+
+Now let us prove the original theorem.\\
+
+\textbf{Proof }\\
+let E be the set of any bounded infinite subset of $R^n$
+Then E is closed and Being bounded implies that E is compact.
+So, the set E satisfy the lemma above. Hence E has a limit point in E.
+
+
+\subsection{Tutorial III}
+
+ What is meant by
+ 
+(a) a subsequence of a sequence, 
+
+(b) a Cauchy sequence; and 
+
+(c) limit of convergent sequence in $\mathbb{R}^{n}$ ?\\
+
+\textbf{Solution}
+
+\begin{itemize}
+    \item  \textbf{Subsequence of a sequence in $\mathbb{R}^{n}$ }.\\ Let $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ be a sequence in $\mathbb{R}^{n}$. If $\left(k_{j}\right)_{j \in N}$ is a sequence of natural numbers such that $k_{j+1}>k_{j}$ for all $j \in \mathbb{N}$, then the sequence $\left(\xi_{k_{j}}\right)_{j \in \mathbb{N}}$ is said to be a subsequence of $\left(\xi_{k}\right)_{k \in \mathbb{N}}$.
+    \item \textbf{Cauchy sequence in $\mathbb{R}^{n}$:}\\
+    A sequence $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ in $\mathbb{R}^{n}$ is called a Cauchy sequence, if for every $\epsilon>0$, there exists $N \in \mathbb{N}$, such that $\left\|\xi_{k}-\xi_{l}\right\|<\epsilon$, whenever $k, l \geq N$.
+    \item \textbf{Limit of a convergent sequence in $\mathbb{R}^{n}$ :} \\
+    Let $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ be a sequence in $\mathbb{R}^{n}$. Then $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ is said to converge to a limit $\xi_{0}$ in $\mathbb{R}^{n}$, if for every open set $\mathbb{U}$ containing $\xi_{0}$, that is, for every neighbourhood of $\xi_{0}$, there is an $N$, depending on $\mathbb{U}$, such that $\xi_{k} \in \mathbb{U}$, whenever $k \geq N$. It follows from this definition that a sequence $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ is said to converge to a limit $\xi_{0}$ if and only if given $\epsilon>0$, there exists $N \in \mathbb{N}$, such that $k \geq N$ implies $\left\|\xi_{k}-\xi_{0}\right\|<\epsilon$.
+
+
+\end{itemize}
+
+
+\subsection{Tutorial IV}
+Prove the following
+\begin{itemize}
+    \item Every subsequence of a convergent sequence converges.
+    \item $\mathbb{R}^n$ is complete in its Euclidean norms
+\end{itemize}
+
+\textbf{Solution}\\
+\begin{itemize}
+    \item Before we do the proof the following Lemma is needed.\\
+
+\textbf{Lemma 1}:
+
+Let $\left(\chi_{j}\right)_{j \in \mathbb{N}}$ be a sequence of natural numbers such that $\chi_{j+1}> \chi_{j}$, for all $j \in \mathbb{N}$. Then
+
+$$
+\chi_{j} \geq j, \quad \forall_j \in \mathbb{N} .
+$$
+
+\textbf{Proof of Lemma 1:}\\
+
+We shall show that the lemma is true using mathematical induction. Here we go.
+
+Since $\chi_{1} \in \mathbb{N}$, it follows that $\chi_{1} \geq 1$. So, the statement is true for $j=1$.
+
+Now, suppose $\chi_{j} \geq j$, for some $j \in \mathbb{N}$. Then, by hypothesis
+
+$$
+\chi_{j+1}>\chi_{j}
+$$
+
+And by inductive hypothesis, $\chi_{j} \geq j$. Hence,
+
+$$
+\chi_{j+1}>\chi_{j} \geq j
+$$
+
+This implies $\chi_{j+1}>j$. Since $j \in \mathbb{N}$, it follows that $\chi_{j+1} \geq j+1$. This completes the induction and proof.\\
+
+
+Now, let $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ be a sequence in $\mathbb{R}^{n}$ that converges to $\xi_{0}$. \\
+Also let $\left(\xi_{k_{j}}\right)_{j \in \mathbb{N}}$ be an arbitrary subsequence of $\left(\xi_{k}\right)_{k \in \mathbb{N}}$. We shall prove that $\left(\xi_{k_{j}}\right)_{j \in \mathbb{N}}$ converges to $\xi_{0}$.\\
+
+From the definition of $\xi_{0}$, we have that for every $\epsilon>0,  \exists_N \in \mathbb{N}$, such that 
+$$\left\|\xi_{k}-\xi_{0}\right\|<\epsilon, \forall k \geq N.$$
+
+Thus, for any $j \geq N$, by Lemma $1, k_{j} \geq j \geq N$.
+
+By replacing $k$ with $k_{j}$, we obtain
+
+$$
+\left\|\xi_{k_{j}}-\xi_{0}\right\|<\epsilon, \quad \forall k_{j} \geq N
+$$
+
+Since $k_{j} \geq j \geq N$, we have that $j \geq N$, and
+
+$$
+\left\|\xi_{k_{j}}-\xi_{0}\right\|<\epsilon, \quad \forall j \geq N
+$$
+
+It follows  that $\xi_{k_{j}} \rightarrow \xi_{0}$ as $j \rightarrow \infty$. 
+
+Since $\left(\xi_{k_{j}}\right)_{j \in \mathbb{N}}$ was selected arbitrarily, we can conclude that every subsequence of a convergent sequence converges.
+
+\item  $\mathbb{R}^{n}$ is complete in its Euclidean norm.:
+
+Recall that a metric space $(X, \rho)$ is said to be complete if every Cauchy sequence in $X$ converges to a point in $\mathbb{R}^{n}$.
+
+So, it will be suffice if we can show that the following lemmas are true.
+
+i) Every Cauchy sequence in $\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)$ is bounded and 
+
+ii) Every bounded sequence in $\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)$ has a convergent subsequence
+\end{itemize}
+
+\textbf{Proof}\\
+
+\textbf{Lemma 2: Every Cauchy sequence in $\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)$ is bounded.}\\
+
+Let $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ be a Cauchy sequence in $\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)$ and let $\epsilon=1$. If $k=N \in \mathbb{N}$, and we let $l \geq N$, then we have
+
+$$
+\left\|\xi_{k}-\xi_{l}\right\|_{0}=\left\|\xi_{N}-\xi_{l}\right\|_{0}=\left\|\xi_{l}-\xi_{N}\right\|_{0}<1
+$$
+
+By the triangle inequality shown in Project 2, we have that
+
+$$
+\left\|\xi_{l}\right\|_{0}-\left\|\xi_{N}\right\|_{0} \leq\left\|\xi_{l}\right\|_{0}-\left\|\xi_{N}\right\|_{0} \mid \leq\left\|\xi_{l}-\xi_{N}\right\|_{0}<1
+$$
+
+Therefore,
+
+$$
+\left\|\xi_{l}\right\|_{0}<\left\|\xi_{N}\right\|_{0}+1, \quad \forall_l \geq N
+$$
+
+The remaining $N-1$ terms of the sequence $\left\|\xi_{1}\right\|_{0},\left\|\xi_{2}\right\|_{0},\left\|\xi_{3}\right\|_{0}, \ldots\left\|\xi_{N-1}\right\|_{0}$ have a largest number, say, $\beta$.
+
+If $M:=\max \left\{\beta,\left\|\xi_{N}\right\|_{0}+1\right\}$. Then we have
+
+$$
+\left\|\xi_{l}\right\|_{0}<M, \quad \forall l \geq 1
+$$
+
+Thus, a Cauchy sequence in $\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)$ is bounded.\\
+
+
+
+
+
+\textbf{Lemma 3: Every bounded sequence in $\left(\mathbb{R}^{n},\|\cdot\|_{0}\right)$ has a convergent subsequence}\\
+
+Let $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ in $\mathbb{R}^{n}$ be an arbitrary Cauchy sequence in $\mathbb{R}^{n}$. As $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ is Cauchy, it follows from Lemma 5 , that $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ is bounded. By Lemma $6,\left(\xi_{k}\right)_{k \in \mathbb{N}}$ has a convergent subsequence.
+
+Let $\left(\xi_{k_{j}}\right)_{j \in \mathbb{N}}$ be a subsequence of $\left(\xi_{k}\right)_{k \in \mathbb{N}}$, it follows from our previous argument that $\left(\xi_{k_{j}}\right)_{j \in \mathbb{N}}$ is convergent. Let $\left(\xi_{k_{j}}\right)_{j \in \mathbb{N}}$ be convergent to $\xi_{0} \in \mathbb{R}^{n}$. Then, for every $\epsilon>0$, there exists an $N \in \mathbb{N}$, such that
+
+$$
+\left\|\xi_{k_{j}}-\xi_{0}\right\|_{0}<\frac{\epsilon}{2}, \quad \forall j \geq N
+$$
+
+As $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ is Cauchy, given $\epsilon>0$, there exists $N \in \mathbb{N}$, such that
+
+$$
+\left\|\xi_{k}-\xi_{k_{j}}\right\|_{0}<\frac{\epsilon}{2}, \quad \forall k, k_{j} \geq N
+$$
+
+By properties of the Euclidean norm
+
+$$
+\begin{aligned}
+\left\|\xi_{k}-\xi_{0}\right\|_{0} & =\left\|\xi_{k}-\xi_{k_{j}}+\xi_{k_{j}}-\xi_{0}\right\|_{0} \\
+& \leq\left\|\xi_{k}-\xi_{k_{j}}\right\|_{0}+\left\|\xi_{k_{j}}-\xi_{0}\right\|_{0}
+\end{aligned}
+$$
+
+From Lemma $1, k_{j} \geq j$. This implies $k_{j} \geq j \geq N$, and so $j \geq N$. Therefore, for all $k, j \geq N$,
+
+$$
+\begin{aligned}
+\left\|\xi_{k}-\xi_{0}\right\|_{0} & \leq\left\|\xi_{k}-\xi_{k_{j}}\right\|_{0}+\left\|\xi_{k_{j}}-\xi_{0}\right\|_{0} \\
+& <\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+\end{aligned}
+$$
+
+Thus, given $\epsilon>0$, there exists $N \in \mathbb{N}$, such that
+
+$$
+\left\|\xi_{k}-\xi_{0}\right\|_{0}<\epsilon, \quad \forall k \geq N
+$$
+\begin{center}
+Showing that $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ is convergent. 
+\end{center}
+
+Since $\left(\xi_{k}\right)_{k \in \mathbb{N}}$ is chosen arbitrarily in $\mathbb{R}^{n}$ and convergent to a point $\xi_{0} \in \mathbb{R}^{n}$.
+it follows that $\mathbb{R}^{n}$ is complete in its Euclidean norm.
+
+\subsection{Tutorial II}
+
+1. let F be a uniform continuous mapping of $\mathbb{R}^n$ in to $\mathbb{R}^m$ If $(\xi_{\mathbb{R}})_{\mathbb{R}}\in \mathbb{N}$ is a Cauchy sequence in $\mathbb{R}^n$, prove that  $f(\xi_{\mathbb{R}})$ is a Cauchy sequence in $R^m$.\\\\
+
+\section{PROJECT 4}
+
+\subsection{Tutorial I}
+Show that the interval $\stackrel{\circ}{I}=(0,1)$ is not compact
+\subsection{Tutorial II}
+Prove that every closed cell in $R^n$ is compact.
+
+\textbf{Solution}\\
+\textbf{Proof:}
+
+Let $\bar{c}$ be a closed $n$-cell consisting of all points $x=\left(x_{1}, \ldots, x_{n}\right)$ such that $a_{i} \leq x_{i} \leq b_{i}$, for $1 \leq i \leq n$. Let
+
+$$
+\delta=\rho\left(b_{i}, a_{i}\right)=\left(\sum_{i=1}^{n}\left(b_{i}-a_{i}\right)^{2}\right)^{\frac{1}{2}}
+$$
+
+If $x, y \in \bar{c}$, we have for any $1 \leq i \leq n$, that
+
+$$
+a_{i} \leq x_{i} \leq b_{i} \text { and } a_{i} \leq y_{i} \leq b_{i} \text {. }
+$$
+
+Both inequalities imply
+
+$$
+\begin{gathered}
+a_{i} \leq x_{i} \leq b_{i}, \quad-b_{i} \leq-y_{i} \leq-a_{i} \\
+a_{i}-b_{i} \leq x_{i}-y_{i} \leq b_{i}-a_{i}, \quad-\left(b_{i}-a_{i}\right) \leq x_{i}-y_{i} \leq b_{i}-a_{i}, \\
+\left|x_{i}-y_{i}\right| \leq b_{i}-a_{i}
+\end{gathered}
+$$
+
+and so
+
+$$
+\|x-y\| \leq \delta
+$$
+
+Suppose there is an open cover $\left\{\mathrm{G}_{\alpha}\right\}$ which contains no finite subcover. 
+
+Let $c_{i}=\frac{a_{i}+b_{i}}{2}$. 
+
+The intervals $\left[a_{i}, c_{i}\right]$ and $\left[c_{i}, b_{i}\right]$ then determine $2^{n} n$-cells $Q_{i}$ whose union is $\bar{c}$. At least one of these sets $Q_{i}$, say $\bar{c}_{1}$, cannot be covered by any finite subcollection of $\left\{\mathrm{G}_{\alpha}\right\}$ (otherwise $\bar{c}$ would be covered). 
+
+We next subdivide $\bar{c}_{1}$ and continue the process. We obtain a sequence of $\left(\bar{c}_{n}\right)_{n \in \mathbb{N}}$ with the following properties
+
+(i) $\bar{c} \supset \bar{c}_{1} \supset \bar{c}_{2} \supset \bar{c}_{3} \supset \cdots$;
+
+(ii) $\bar{c}_{n}$ is not covered by any finite subcollection of $\left\{\mathrm{G}_{\alpha}\right\}$;
+
+(iii) if $x \in \bar{c}_{n}$ and $y \in \bar{c}_{n}$, since the lengths of the $2^{n} n$-subcells are equal, we have that
+
+$$
+\|x-y\| \leq \rho\left(\frac{b_{i}}{2^{n}}, \frac{a_{i}}{2^{n}}\right)=\frac{\rho\left(b_{i}, a_{i}\right)}{2^{n}}=\frac{\delta}{2^{n}}
+$$
+
+By the nested interval theorem, there is a point $\tau \in \bigcap_{n=1}^{\infty} \bar{c}_{n}$, for some $\alpha, \tau \in \mathrm{G}_{\alpha}$. Since $\mathrm{G}_{\alpha}$ is open, there is a neighbourhood $\mathcal{N}_{r}(\tau) \subset \mathrm{G}_{\alpha}$, where $\mathcal{N}_{r}(\tau)=\left\{\lambda \in \mathbb{R}^{n}:\|\tau-\lambda\|<r\right\}$. If $n$ is large enough that $\frac{\delta}{2^{n}}<r$, then given $p \in \bar{c}_{n}$,
+
+$$
+\|\tau-p\|<\frac{\delta}{2^{n}}<r
+$$
+
+This implies that $p \in \mathcal{N}_{r}(\tau)$, and so
+
+$$
+\bar{c}_{n} \subset \mathrm{G}_{\alpha}
+$$
+
+Thus, contradicting the fact that $\bar{c}_{n}$ cannot be covered by any finite subcollection of $\left\{\mathrm{G}_{\alpha}\right\}$. Hence, every closed cell in $\mathbb{R}^{n}$ is compact.
+
+\subsection{Tutorial III}
+
+Give a proof of sequential compactness of the interval [a,b]
+
+\textbf{Solution}\\
+
+Let $\left(x_{n}\right)_{n \in A}$ be a sequence in $[a, b]$. Since $[a, b]$ is bounded then $\left(x_{n}\right)_{n \in N}$ is bounded and by th bolzano weierstrass. theorem, there is a Convergent Subsequence call it $\left(x_{n_{k}}\right)_{k \in N}$. Next we need to show that $\lim _{k \rightarrow \infty} x_{n_{k}} \in[a, b]$.
+
+Nate that Since $x_{n k} \in[a, b]$ for all $n$, we have that
+
+$$
+a \leqslant x_{n_{k}} \leqslant b
+$$
+
+and this implies fut
+
+$$
+\lim _{k \rightarrow \infty} a \leq \lim _{k \rightarrow \infty} x_{n} \leq \lim _{k \rightarrow \infty} b
+$$
+
+which implies that $a \leq \lim _{k \rightarrow \infty} x_{n k} \leq b$
+
+Hence $\operatorname{Lim}_{k \rightarrow \infty} x_{n k} \in[a, b]$
+
+Throe we can Conclude that $[a, b]$ is Sequentially Compact.
+\section{PROJECT 5}
+ \subsection{Tutorial I}
+ Prove that a subset of $\mathbb{R}$ is connected iff is an interval. In particular, show that $\mathbb{R}$ is connected.
+by an interval in R, we mean any open or closed or half open, finite or infinite interval.
+
+\subsection{Tutorial II}
+Define 
+\begin{itemize}
+    \item the concept of arc-wise connectedness of a set in $\mathbb{R}^n$.
+    \item Show some examples of such sets in $\mathbb{R}^n$
+    \item Prove that any subset $W \subset \mathbb{R}^n$ which is arc-wise connected is connected.
+    \item  Discuss cantor set and show that it is compact.
+\end{itemize}\\
+
+
+\textbf{Solution}\\
+\begin{itemize}
+    \item Let $X \subseteq \mathbb{R}^{n}$, then $X$ is said to be arcwise connected if any two \# points in $X$ are joined by an arc that lies entirely in $X$.
+
+more specifically if $\xi, \eta \in X$. There exists a continuous function $\gamma:[a, b] \rightarrow X$ such that
+
+$$
+\gamma(a)=\xi \text { and } \gamma(b)=\eta
+$$
+\item i) Line Segment in $\mathbb{R}^{n}$:\\
+A line segment in $\mathbb{R}^{n}$ is indeed arcwise connected. You can Parameterize it with a linear function, creating a smooth curve connecting an two points.
+
+ii) Graph of a continuous Function:
+
+iii) The real line $\mathbb{R}$ is arc wise connected:
+
+Given any two points $x$ and y $\in \mathbb{R}$ we can connect the $m$ with the continuous curve
+
+$$
+\alpha_{0}(t)=(1-t) x+t y, \quad t \in[0,1]
+$$
+
+which is synonymous to equation of a straight line.
+
+\item \textbf{Proof}
+
+Let $W \subset \mathbb{R}^{n}$ be an arc-wise connected set in $\mathbb{R}^{n}$. We want to show that $W$ is not disconnected. Suppose for the sake of contradiction that there are two nonempty open sets $P$ and $Q$ Which are disjoint such that
+
+$$
+P \cup Q=W
+$$
+
+Since $P$ and $Q$ are not empty we can pick a point $p \in P$ and $q \in Q$. By arcwise connectedness, there is a continuous map $\mathbb{W}:[a, b] \rightarrow W$ such that
+
+$$
+\gamma(a)=p \text { and } \gamma(b)=q \text {. }
+$$
+
+Let $\sigma$ denote the supremum of $m \in[a, b]$ such that $\varphi(b) \in p$. Since $\gamma$ is continuous and definition of $\sigma$, then $(\sigma)$ is a limit point of both $P$ and $Q$. Since $W=P \cup Q$, and both $P$ and $Q$ are Open in $W$, and also both closed $W$, so $\gamma(\sigma)$ belongs to both P and Q and which is a contradiction.\\
+\textbf{Hence W is connected}
+\item Cantor set:\\
+
+The Cantor set has many definitions and many different constructions. Although Cantor originally provided a purely abstract definition, the most accessible is the Cantor "middle-thirds" or ternary set construction. Begin with the closed real interval $[0,1]$ and divide it into three equal open subintervals. Remove the central open interval $I_{1}=\left(\frac{1}{3}, \frac{2}{3}\right)$ such that
+
+$$
+[0,1]-I_{1}=\left[0, \frac{1}{3}\right] \bigcup\left[\frac{2}{3}, 1\right]
+$$
+
+Next, subdivide each of these two remaining intervals into three equal open subintervals and from each remove the central third. Let $I_{2}$ the removed set, then
+
+$$
+I_{2}=\left(\frac{1}{3^{2}}, \frac{2}{3^{2}}\right) \bigcup\left(\frac{7}{3^{2}}, \frac{8}{3^{2}}\right)
+$$
+
+and
+
+$$
+[0,1]-\left(I_{1} \bigcup I_{2}\right)=\left[0, \frac{1}{3^{2}}\right] \bigcup\left[\frac{2}{3^{2}}, \frac{3}{3^{2}}\right] \bigcup\left[\frac{6}{3^{2}}, \frac{7}{3^{2}}\right] \bigcup\left[\frac{8}{3^{2}}, 1\right]
+$$
+
+We can then subdivide each of the intervals that comprise $[0,1]-\left(I_{1} \cup I_{2}\right)$ into three subintervals, removing their middle thirds, and continue in the previous manner. The sequence of open sets $I_{n}$ is then disjoint, and we traditionally define the Cantor set $\mathcal{C}$ as the closed interval with the union of these $I_{n}^{\prime} s$ subtracted out. That is, $\mathcal{C}=[0,1]-\cup I_{n}$. The formal definition follows:
+
+Definition 1.1. The Cantor set $\mathcal{C}$ is defined as $\mathcal{C}=\bigcap_{n=1}^{\infty} I_{n}$, where $I_{n+1}$ is constructed, as above, by trisecting $I_{n}$ and removing the middle third, $I_{0}$ being the closed real interval $[0,1]$.
+
+Several interesting properties of the Cantor set are immediately apparent. Since it is defined as the set of points not excluded, the "size" of the set can be thought of as the proportion of the interval $[0,1]$ removed. If we add up the contribution
+from $\frac{2}{3}$ removed $n$ times we find that
+
+$$
+\sum_{n=0}^{\infty} \frac{2^{n}}{3^{n+1}}=\frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\ldots=\frac{1}{3}\left(\frac{1}{1-\frac{2}{3}}\right)=1
+$$
+
+Where the geometric sum has its well known solution. As a result, the proportion remaining "in" the Cantor set is $1-1=0$, and it can contain no intervals of nonzero length. For assume by contradiction that it does contain some interval $(a, b)$. Choose $n \in \mathbb{N}$ such that $\frac{1}{3^{n}}<b-a$. Since the Cantor set is contained in the finite intersection of closed intervals, all of length less than $(b-a)$, we have that this intersection and so $\mathcal{C}$ cannot contain $(a, b)$.
+
+Theorem : The Cantor set is closed and nowhere dense.
+
+Proof. We have already seen that $\mathcal{C}$ is the intersection of closed sets, which implies that $\mathcal{C}$ is itself closed. Furthermore, as previously discussed, the Cantor set contains no intervals of non-zero length, and so $\operatorname{int}(\mathcal{C})=\emptyset$.
+
+A related idea to that of being nowhere dense is for a metric space to be totally disconnected.
+\end{itemize}
+
+\section{PROJECT 6}
+
+\subsection{Tutorial I}
+show that the 
+$$\lim_{x \to(0,0)}F(x,y) = \lim_{x \to(0,0)} \frac{3xy}{2x^2+5y^2}=0$$
+
+\mathbf{Solution}\\
+
+\Large
+$$\lim_{x \to(0,0)}F(x,y) = \lim_{x \to(0,0)} \frac{3xy}{2x^2+5y^2}$$
+
+let us assume y=0
+$$F(x,0) = \frac{3(0)(x)}{2x^2+5(0)^2} =\frac{0}{2x^2}=0$$
+$$\therefore \lim_{x \to(0,0)} f(x,y) =0$$
+
+Also, when x=0
+
+$$F(0,y) = \frac{3(0)(x)}{2(0)^2+5y^2} =\frac{0}{5y^2}=0$$
+$$\therefore \lim_{x \to(0,0)} f(0,y) =0$$
+
+set y=mx
+$$F(x,y) = \frac{3(x)(mx)}{2x^2+5m^2x62} =\frac{3x^2m}{2x^2+5m^2x^2}=\frac{3m}{2+5m^2}$$
+$$\therefore \lim_{x \to(0,0)} f(x,y) =\frac{3m}{2+5m^2}$$
+
+Set m=1
+$$\therefore \lim_{x \to(0,0)} f(x,y) =\frac{3}{7}$$
+
+Since $0=0 \neq 1$
+We can conclude that the limit of the function doesn't exist at (0,0)
+
+\subsection{Tutorial II}
+
+A function $L: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$ is called linear if;
+$$
+\mathcal{L}\left(c_{1} \xi+c_{2} \eta\right)=c_{1} \mathcal{L}(\xi)+c_{2} \mathcal{L}(\eta) \quad \forall \xi, \eta \in \mathbb{R}^{n}
+$$
+
+Show that any linear function $\mathcal{L}: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$ is continuous\\
+
+
+\textbf{Proof}\\
+
+It should be noted that we can write $\xi, \pi \in \mathbb{R}^{n}$ as $\xi=\sum_{i=1}^{n} x_{i} e_{i}$ and $\eta=\sum_{i=1}^{n} y_{i} e_{i}$, where $e_{i}$ is a Standard basis of $\mathbb{R}^{n}$
+
+ Now Since $\mathcal{L}$ is linear then
+
+$$
+\left\|\mathbb{L}(\xi)\right\|_{\mathbb{R}^{m}}=\left\|\sum_{i=1}^{n} x_{i} \mathcal{L}\left(e_{i}\right)\right\|_{\mathbb{R}^{m}} \leq \sum_{i=1}^{n}\left\|x_{i} \mathcal{L}\left(e_{i}\right)\right\|_{\mathbb{R}^{m}}=\sum_{i=1}^{n} \mid x_{i}\mid\left\|\mathcal{L}\left(l_{i}\right)\right\|_{\mathbb{R}^{m}}
+$$
+
+We can apply cauchy schwartz
+
+$$
+\sum_{i=1}^{n}\mid x_{i}\mid \left \| \mathcal{L}\left(e_{i}\right)\right\|_{\mathbb{R}^{m}} \leq\left(\sum_{i=1}^{n}\left|x_{i}\right|^{2}\right)^{1 / 2}\left(\sum_{i=1}^{n}\left|\mathcal{L}\left(e_{i}\right)\right|^{2}\right)^{1 / 2}$$
+
+$$
+\text{let } \left(\sum_{i=1}^{n}\left|\mathcal{L}\left(e_{i}\right)\right|^{2}\right)^{1 / 2}=\mathbf{K}$$
+
+$$\sum_{i=1}^{n}\left|x_{i}\right|\left\| \mathcal{L}\left(e_{i}\right)\right\|_{\mathbb{R}^{m}} \leq \mathbb{K} \| \xi \|_{0}
+$$
+
+Next to show that $\mathcal{L}$ is continuous.
+
+$$
+\begin{aligned}
+& \left\|\mathcal{L}(\xi)-\mathcal{L}\left(\xi_{0}\right)\right\|_{\mathbb{R}^{m}}=\left\|\mathcal{L}\left(\xi-\xi_{0}\right)\right\|_{\mathbb{R}^{m}} \leq K\left\|\xi-\xi_{0}\right\|_{\mathbb{R}^{n}} \\
+\end{aligned}
+$$
+
+
+\subsection{Tutorial III}
+
+Let $f$ g $A \subset \mathbb{R}^{n}-\mathbb{R}^{m}$ be continuous function of $A$, show that
+
+$f=\{\xi \in A: f(5)=g(5)\}$ is closed\\
+
+\textbf{Solution}\\
+
+\textbf{Proof}\\
+To show that $F$ is closed, we need to show that every convergent Sequence $\left(\xi_{k}\right)$ in $F$ with $\left(\xi_{k}\right) \rightarrow \xi_{0}$, then $\xi_{0} \in f$.
+
+Let $\left(\xi_{K}\right)$ be a convergent sequence in $F$ then it follows that $f\left(\xi_{K}\right)=$ $g\left(\xi_{k}\right)$ for all $K \in \mathbb{N}$, since $f, g$ are continuous then by sequential Characterization of continuity we have $f\left(\xi_{k}\right) \rightarrow f\left(\xi_{0}\right)$ and $g\left(\xi_{k}\right) \rightarrow g\left(\xi_{0}\right) \Rightarrow f\left(\xi_{0}\right)=g\left(\xi_{0}\right) \Rightarrow \xi_{0} \in F$.
+
+Hence $f$ is  closed
+
+\subsection{Tutorial IV}
+Let $f$ be a Uniformly continuous mapping of $\mathbb{R}^{n}$ to $\mathbb{R}^{m}$. If $\left(\xi_{k}\right)$ is a cade Sequence in $\mathbb{R}^{n}$. Prove that $\left(f\left(\xi_{x}\right)\right.$ ) is a cauchy sequence in $\mathbb{R}^{m}$.
+
+\textbf{Solution}\\
+
+Proof:
+
+Suppose $f$ is a Uniformly continuous map then for any $\varepsilon>0$, 
+there exist $\delta(\varepsilon)>0$ such that $\|f(\xi)-f(\eta)\|_{\mathbb{R}^{m}}<\varepsilon$ whenever $\|\xi-\eta\|_{\mathbb{R}^{n}}<\delta \quad \forall_{\xi_{1} \eta} \in \mathbb{R}^{n}$. 
+
+Since $\xi_{k}$ is a cauchy sequence in $\mathbb{R}^{n}$ then given $\delta>0$ there is $N \in \mathbb{N}$ such that $\left\|\xi_{K}-\xi_{l}\right\|_{\mathbb{R}^{n}}<\delta$ Since $f$ is uniformly Continuous then $\left\|f\left(\xi_{k}\right)-f\left(\xi_{l}\right)\right\|_{\mathbb{R}^{m}}<\varepsilon$ Whenever $k, l \geq N$
+
+Which shows $\left(f\left(\xi_{K}\right)\right)$ is a cauchy sequence $n \mathbb{R}^{n}$
+
+\end{document}
