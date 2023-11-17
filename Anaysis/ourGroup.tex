@@ -20,6 +20,7 @@
 \title{GROUP 1}
 \author{Project 1}
 \tableofcontents
+\newpage
 \begin{document}
 
 \section{PROJECT 1}
@@ -1144,7 +1145,7 @@ $$
 P \cup Q=W
 $$
 
-Since $P$ and $Q$ are not empty we can pick a point $p \in P$ and $q \in Q$. By arcwise connectedness, there is a continuous map $\mathbb{W}:[a, b] \rightarrow W$ such that
+Since $P$ and $Q$ are not empty we can pick a point $p \in P$ and $q \in Q$. By arcwise connectedness, there is a continuous map $\gamma:[a, b] \rightarrow W$ such that
 
 $$
 \gamma(a)=p \text { and } \gamma(b)=q \text {. }
@@ -1261,9 +1262,12 @@ $$
 \end{aligned}
 $$
 
+Choose $\delta(\varepsilon)=\frac{\varepsilon}{L^{2}}$, It follows that 
+$$\left\|\xi-\xi_{0}\right\|_{\mathbb{R}^{n}}<\delta(\varepsilon) \implies \left\|\mathcal{L}(\xi)-\mathcal{L}\left(\xi_{0}\right)\right\|_{\mathbb{R}^{m}}<\varepsilon$$
 
+Hence $\mathcal{L}$ is continuous.
 
-\subsection{ sect6.3 }
+\subsection{ Tutorial III }
 Show using neighborhood definition of continuity at a point, that the function
 
 $f :  \left[ 0,1\right]  \rightarrow \mathbb{R}$ defined by $f(x)=x^2+1$ is continuous 
@@ -1278,27 +1282,29 @@ $ \Longrightarrow f(\left[0,1\right]) = \left[  0,2 \right] $
 Now let $\mathcal{N}_1$  be a neighborhood of the point $f(0) = 1$ in $\mathbb{R}$. We need to look for a neighborhood $\mathcal{N}_0$ of
 0 in $\left[ 0, 1 \right]$ such that $f(\mathcal{N}_0)\subset \mathcal{N}_1.$
 
-Since $\mathcal{N}_1.$ is a neighborhood of 1, then it contains the open interval $\mathrm{B}_\epsilon (1)$, that is, $\mathrm{B}_\epsilon (1) \subset \mathcal{N}_1,$ where
+Since $\mathcal{N}_1.$ is a neighborhood of 1, then it contains the open interval $\stackrel{\circ}{B}_\epsilon (1)$, that is, $\stackrel{\circ}{B}_\epsilon (1) \subset \mathcal{N}_1,$ where
 
-with $\epsilon > 0$ sufficiently small. We see $\mathrm{B}_\epsilon (1) = (1 − \epsilon, 1 + \epsilon).$ To find $\mathcal{N}_0$ we consider;
+$$\stackrel{\circ}{B}_\epsilon =\{ x\in \mathbb{R}: \left| x-1\right|\}$$
+with $\epsilon > 0$ sufficiently small. We see $\stackrel{\circ}{B}_\epsilon (1) = (1 - \epsilon, 1 + \epsilon).$ 
 
-$$ (\sqrt{\epsilon}/2 , \sqrt{\frac{\epsilon}{2}}).$$
-Thus,
+To find $\mathcal{N}_0$ we consider;
+
+$$ (-\sqrt{\epsilon/2} , \sqrt{\epsilon/2}).$$
+
+Let $\mathbf{H}=\left[0,\sqrt{\epsilon/2}\right).$ Then
+
+$$f\left( \mathbf{H}\right)=\left[1,1+\epsilon/2\right) \subset \stackrel{\circ}{B}_1$$
+
+Thus $\mathbf{H}=\mathcal{N}_0$
 
 This completes the proof. 
 
 
-
-
-
-
-
-
-\subsection{Tutorial III}
+\subsection{Tutorial IV}
 
 Let $f$ g $A \subset \mathbb{R}^{n}-\mathbb{R}^{m}$ be continuous function of $A$, show that
 
-$f=\{\xi \in A: f(5)=g(5)\}$ is closed\\
+$f=\{\xi \in A: f(\xi)=g(\xi)\}$ is closed\\
 
 \textbf{Solution}\\
 
@@ -1309,8 +1315,41 @@ Let $\left(\xi_{K}\right)$ be a convergent sequence in $F$ then it follows that 
 
 Hence $f$ is  closed
 
-\subsection{Tutorial IV}
-Let $f$ be a Uniformly continuous mapping of $\mathbb{R}^{n}$ to $\mathbb{R}^{m}$. If $\left(\xi_{k}\right)$ is a cade Sequence in $\mathbb{R}^{n}$. Prove that $\left(f\left(\xi_{x}\right)\right.$ ) is a cauchy sequence in $\mathbb{R}^{m}$.
+\subsection{Tutorial VI}
+
+The diameter of a non-empty set $M \subset \mathbf{R}^{n}$ is,
+
+$$
+\operatorname{diam} M:=\sup \left\{\|\xi-\eta\|_{\mathbf{R}^{n}}: \xi, \eta \in M\right\}
+$$
+
+Let $\left(F_{m}\right)_{m \in \mathbb{N}}$ be a sequence of closed sets in $\mathbf{R}^{n}$ such that $F_{1} \supset F_{2} \supset \cdots$ 
+
+and $\lim _{m \rightarrow \infty} \operatorname{diam}\left(F_{m}\right)=0$. Prove that;
+
+$$\bigcap_{m=1}^\infty F_m$$
+contains a single point.\\
+
+
+\textbf{Solution}\\
+
+Proof. 
+
+Let $\left(\xi_{m}\right) \in F_{m}$ for all $m$ then $\xi_{1} \in F_{1}, \xi_{2} \in F_{2}, \ldots$ Thus, $\left(\xi_{m}\right)$ is a sequence in $\mathbf{R}^{n}$.
+
+We will show that $\left(\xi_{m}\right)$ is a cauchy sequence in $\mathbf{R}^{n}$. Since $\left(F_{m}\right)$ is decreasing, then $\forall \xi_{k} \in F_{m}$ with $k \geq m$ it follows
+$$\rho\left(\xi_{k}, \xi_{m}\right) \leq \operatorname{diam}\left(F_{m}\right) \longrightarrow 0 \implies \rho\left(\xi_{k}, \xi_{m}\right) \longrightarrow 0~as~ m \longrightarrow \infty.$$
+
+Now for given $\varepsilon>0$ there exists $N \in \mathbf{N}$ such that $\rho\left(\xi_{k}, \xi_{m}\right)<\varepsilon$ for all $m \geq N$. Hence we have $\rho\left(\xi_{k}, \xi_{m}\right)<\varepsilon$ for all $k, m \geq N$. Which shows $\left(\xi_{m}\right)$ is a cauchy sequence in $\mathbf{R}^{n}$.
+
+Since $\mathbf{R}^{n}$ is complete, then $\left(\xi_{m}\right)$ converges to a point $\xi_{0}$ in $\mathbf{R}^{n}$. Now we shall show that $\xi_{0} \in \cap_{m=1}^{\infty} F_{m}$. If $\left(\xi_{m}\right)$ has only finitely many distinct points then $\xi_{0}$ is that point infinitely repeated and is surely in $\cap_{m=1}^{\infty} F_{m}$.
+
+If $\left(\xi_{k}\right)$ has infinitely many distinct points then $\varepsilon_{0}$ is the limit point of the set of points of the sequence $\left(\xi_{m}\right)$, which implies $\xi_{0}$ is the limit point of a subsequence of $\left(\xi_{m}\right)$. Thus $\xi_{0}$ is the limit point of $\cap_{m=1}^{\infty} F_{m}$. Since $F_{m}$ is closed then $\xi_{0} \in F_{m}$.
+
+Hence, $\bigcap_{m=1}^{\infty} F_{m}$ contains a single point.
+
+\subsection{Tutorial V}
+Let $f$ be a Uniformly continuous mapping of $\mathbb{R}^{n}$ to $\mathbb{R}^{m}$. If $\left(\xi_{k}\right)$ is a cade Sequence in $\mathbb{R}^{n}$. Prove that $\left(f\left(\xi_{k}\right)\right.$ ) is a cauchy sequence in $\mathbb{R}^{m}$.\\
 
 \textbf{Solution}\\
 
@@ -1321,6 +1360,8 @@ there exist $\delta(\varepsilon)>0$ such that $\|f(\xi)-f(\eta)\|_{\mathbb{R}^{m
 
 Since $\xi_{k}$ is a cauchy sequence in $\mathbb{R}^{n}$ then given $\delta>0$ there is $N \in \mathbb{N}$ such that $\left\|\xi_{K}-\xi_{l}\right\|_{\mathbb{R}^{n}}<\delta$ Since $f$ is uniformly Continuous then $\left\|f\left(\xi_{k}\right)-f\left(\xi_{l}\right)\right\|_{\mathbb{R}^{m}}<\varepsilon$ Whenever $k, l \geq N$
 
-Which shows $\left(f\left(\xi_{K}\right)\right)$ is a cauchy sequence $n \mathbb{R}^{n}$
+Which shows $\left(f\left(\xi_{K}\right)\right)$ is a cauchy sequence $ \mathbb{R}^{n}$
+
+
 
 \end{document}
