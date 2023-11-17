@@ -1219,7 +1219,7 @@ $$\therefore \lim_{x \to(0,0)} f(x,y) =\frac{3m}{2+5m^2}$$
 Set m=1
 $$\therefore \lim_{x \to(0,0)} f(x,y) =\frac{3}{7}$$
 
-Since $0=0 \neq 1$
+Since $0=0 \neq \frac{3}{7}$
 We can conclude that the limit of the function doesn't exist at (0,0)
 
 \subsection{Tutorial II}
@@ -1260,6 +1260,38 @@ $$
 & \left\|\mathcal{L}(\xi)-\mathcal{L}\left(\xi_{0}\right)\right\|_{\mathbb{R}^{m}}=\left\|\mathcal{L}\left(\xi-\xi_{0}\right)\right\|_{\mathbb{R}^{m}} \leq K\left\|\xi-\xi_{0}\right\|_{\mathbb{R}^{n}} \\
 \end{aligned}
 $$
+
+
+
+\subsection{ sect6.3 }
+Show using neighborhood definition of continuity at a point, that the function
+
+$f :  \left[ 0,1\right]  \rightarrow \mathbb{R}$ defined by $f(x)=x^2+1$ is continuous 
+
+\textbf{Solution}\\
+
+We know that 
+$$f(0)=0^2+1 =1 \text{ and } f(1)=1^2+1 =2$$
+$ \Longrightarrow f(\left[0,1\right]) = \left[  0,2 \right] $
+
+
+Now let $\mathcal{N}_1$  be a neighborhood of the point $f(0) = 1$ in $\mathbb{R}$. We need to look for a neighborhood $\mathcal{N}_0$ of
+0 in $\left[ 0, 1 \right]$ such that $f(\mathcal{N}_0)\subset \mathcal{N}_1.$
+
+Since $\mathcal{N}_1.$ is a neighborhood of 1, then it contains the open interval $\mathrm{B}_\epsilon (1)$, that is, $\mathrm{B}_\epsilon (1) \subset \mathcal{N}_1,$ where
+
+with $\epsilon > 0$ sufficiently small. We see $\mathrm{B}_\epsilon (1) = (1 − \epsilon, 1 + \epsilon).$ To find $\mathcal{N}_0$ we consider;
+
+$$ (\sqrt{\epsilon}/2 , \sqrt{\frac{\epsilon}{2}}).$$
+Thus,
+
+This completes the proof. 
+
+
+
+
+
+
 
 
 \subsection{Tutorial III}
