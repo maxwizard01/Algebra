@@ -1362,6 +1362,75 @@ Since $\xi_{k}$ is a cauchy sequence in $\mathbb{R}^{n}$ then given $\delta>0$ t
 
 Which shows $\left(f\left(\xi_{K}\right)\right)$ is a cauchy sequence $ \mathbb{R}^{n}$
 
+\subsection{Tutorial VII}
+Consider the following two norms on $\mathbf{R}^{n}$ :
+
+$$
+\|\xi\|_{u}=\max _{1 \leq i \leq n}\left|x_{i}\right|, \quad\|\xi\|_{1}=\sum_{i=1}^{n}\left|x_{i}\right|
+$$
+
+If $\|\xi\|_{0}$ denotes the Euclidean Norm on $\mathbf{R}^{n}$, prove that the inequalities;
+
+$$
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u} \leq\|\xi\|_{1}
+$$
+
+holds good for all $\xi \in \mathbf{R}^{n}$, Deduce that the identity mapping
+
+$$
+I d_{\mathbf{R}^{n}}:=\xi \mapsto \xi:\left(\mathbf{R}^{n},\|.\|_{1}\right) \longrightarrow\left(\mathbf{R}^{n},\|\cdot\|_{0}\right)
+$$
+
+is a homeomorphism.
+
+\textbf{Soution}\\
+
+Proof. Firstly we shall show $\|\xi\|_{u} \leq\|\xi\|_{1}$ for all $\xi \in \mathbf{R}^{n}$. Notice that,
+
+$$
+\left|x_{1}\right|+\left|x_{2}\right|+\left|x_{3}\right|+\cdots+\left|x_{n}\right| \geq \max _{1 \leq i \leq n}\left|x_{i}\right|
+$$
+
+follows that $I d_{\mathbf{R}^{n}}\left(I d_{\mathbf{R}^{n}}^{-1}\left(\left\|\xi_{1}\right\|_{0}\right)\right)=\left\|\xi_{1}\right\|_{0}$. Which shows $I d_{\mathbf{R}^{n}}$ is surjective. Thus, we have that $I d_{\mathbf{R}^{n}}$ is bijective.
+
+Next we shall show $I d_{\mathbf{R}^{n}}:=\xi \mapsto \xi:\left(\mathbf{R}^{n},\|.\|_{1}\right) \longrightarrow\left(\mathbf{R}^{n},\|\cdot\|_{0}\right)$ is continuous. To show $I d_{\mathbb{R}^{n}}$ is continuous on $\mathbf{R}^{n}$, We shall find a $\delta(\varepsilon)>0$, given any $\varepsilon>0$, whenever $\left\|\left|\xi\left\|_{1}-\right\| \xi_{0} \|_{1}\right|<\delta(\varepsilon)\right.$ it implies $\left|I d_{\mathbf{R}^{n}}\left(\|\xi\|_{1}\right)-I d_{\mathbf{R}^{n}}\left(\left\|\xi_{0}\right\|_{1}\right)\right|<\varepsilon$ for all $\xi_{0} \in \mathbf{R}^{n}$. Now, $\left|I d_{\mathbf{R}^{n}}\left(\|\xi\|_{1}\right)-I d_{\mathbf{R}^{n}}\left(\left\|\xi_{0}\right\|_{1}\right)\right|=\left|\|\xi\|_{0}-\left\|\xi_{0}\right\|_{0}\right| \leq\left\|\xi-\xi_{0}\right\|_{0}$, but $\left\|\xi-\xi_{0}\right\|_{0} \leq \sqrt{n}\left\|\xi-\xi_{0}\right\|_{1}$
+Then we have that;
+
+$$
+\left|I d_{\mathbf{R}^{n}}\left(\|\xi\|_{1}\right)-I d_{\mathbf{R}^{n}}\left(\left\|\xi_{0}\right\|_{1}\right)\right| \leq\left\|\xi-\xi_{0}\right\|_{0} \leq \sqrt{n}\left\|\xi-\xi_{0}\right\|_{1}
+$$
+
+Notice, $\left\|\left|\xi\left\|_{1}-\right\| \xi_{0}\left\|_{1} \mid \leq\right\| \xi-\xi_{0} \|_{1}<\delta(\varepsilon)\right.\right.$ which implies $\left\|\left|\xi\left\|_{1}-\right\| \xi_{0} \|_{1}\right|<\delta(\varepsilon)\right.$ and also it follows immediately that $\left\|\xi-\xi_{0}\right\|_{1}<\delta(\varepsilon)$. Now choose $\delta(\varepsilon)=\frac{\varepsilon}{\sqrt{n}}$, then whenever we have $\left|\|\xi\|_{1}-\left\|\xi_{0}\right\|_{1}\right|<\delta(\varepsilon)$ this implies;
+
+$$
+\left|I d_{\mathbf{R}^{n}}\left(\|\xi\|_{1}\right)-I d_{\mathbf{R}^{n}}\left(\left\|\xi_{0}\right\|_{1}\right)\right| \leq \sqrt{n}\left\|\xi-\xi_{0}\right\|_{1}<\sqrt{n}\left(\frac{\varepsilon}{\sqrt{n}}\right)=\varepsilon
+$$
+
+Which shows $I d_{\mathbf{R}^{n}}$ is continuous on $\mathbf{R}^{n}$. Likewise, $I d_{\mathbf{R}^{n}}^{-1}:=\xi \mapsto \xi:\left(\mathbf{R}^{n},\|\cdot \cdot\|_{0}\right) \rightarrow\left(\mathbf{R}^{n},\|\cdot\|_{1}\right)$ is continuous. Thus, $I d_{\mathbf{R}^{n}}$ is bijective and bi-continuous. We can write $\left(\mathbf{R}^{n},\|\cdot\|_{1}\right) \cong\left(\mathbf{R}^{n},\|\cdot\|_{0}\right) \quad \square$
+which implies $\sum_{i=1}^{n}\left|x_{i}\right| \geq \max _{1 \leq i \leq n}\left|x_{i}\right|$, and so we have $\|\xi\|_{1} \geq\|\xi\|_{u}$ thus $\|\xi\|_{u} \leq\|\xi\|_{1}$.
+
+Next we shall show $\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u}$ for all $\xi \in \mathbf{R}^{n}$. Now observe that, $x_{i}^{2} \leq \max _{1 \leq i \leq n}\left|x_{i}\right|^{2}$ for all $1 \leq i \leq n$, so from this we can infer that
+
+$$
+\|\xi\|_{0}^{2}=\sum_{i=1}^{n} x_{i}^{2} \leq \sum_{i=1}^{n} \max _{1 \leq i \leq n}\left|x_{i}\right|^{2}=\sum_{i=1}^{n}\left(\max _{1 \leq i \leq n}\left|x_{i}\right|\right)^{2}=n\|\xi\|_{i}^{2}
+$$
+
+So we have $\|\xi\|_{0} \leq \sqrt{n}\|\xi\|_{u}$ which shows that, $\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u}$ for all $\xi \in \mathbf{R}^{n}$. So we conclude that;
+
+$$
+\frac{1}{\sqrt{n}}\|\xi\|_{0} \leq\|\xi\|_{u} \leq\|\xi\|_{1}, \quad \forall \xi \in \mathbf{R}^{n}
+$$
+
+Now we move on to show,
+
+$$
+I d_{\mathbf{R}^{n}}:=\xi \mapsto \xi:\left(\mathbf{R}^{n},\|\cdot\|_{1}\right) \longrightarrow\left(\mathbf{R}^{n},\|\cdot\|_{0}\right)
+$$
+
+is a homeomorphism. To show $I d_{\mathbf{R}^{n}}$ is a homeomorphism all we need to show is that $I d_{\mathbf{R}^{n}}$ is bijective and bi-continuous. Now we begin by showing $I d_{\mathbf{R}^{n}}$ is an injective mapping. Suppose $I d_{\mathbf{R}^{n}}\left(\left\|\xi_{1}\right\|_{1}\right)=I d_{\mathbf{R}^{n}}\left(\left\|\xi_{2}\right\|_{1}\right)$ it follows from definition that $\left\|\xi_{1}\right\|_{1}=\left\|\xi_{2}\right\|_{1}$ for $\left\|\xi_{1}\right\|_{1},\left\|\xi_{2}\right\|_{1} \in\left(\mathbf{R}^{n},\|.\|_{1}\right)$ which shows injectivity.
+
+Now to show $I d_{\mathbf{R}^{n}}$ is surjective, it suffices to show for any $\left\|\xi_{1}\right\|_{0} \in\left(\mathbf{R}^{n}\right.$. $\|$. $\left.\|_{0}\right)$ there exists $\left\|\xi_{1}\right\|_{1} \in\left(\mathbf{R}^{n} .\|\|_{1}\right)$ such that $I d_{\mathbf{R}^{n}}\left(\left\|\xi_{1}\right\|_{1}\right)=\left\|\xi_{1}\right\|_{0}$. Now choose $\left\|\xi_{1}\right\|_{1}=I d_{\mathbf{R}^{1}}^{-1}\left(\left\|\xi_{1}\right\|_{0}\right)$, then it follows that $I d_{\mathbf{R}^{j}}\left(I d_{\mathbf{R}^{n}}^{-1}\left(\left\|\xi_{1}\right\|_{0}\right)\right)=\left\|\xi_{1}\right\|_{0}$. Which shows $I d_{\mathbf{R}^{n}}$ is surjective. Thus, we have that $I d_{\mathbf{R}^{n}}$ is bijective.
+
 
 
 \end{document}
