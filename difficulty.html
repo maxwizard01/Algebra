@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
 
 	<title>difficulty inx</title>
 	<style type="text/css">
+	body{width: 100vw;
+	     height: 100vh}
 		tr,td{text-align: center;
 		     border-collapse: all;}
-	
+	}
+	table{width: 100%}
   #workings,#workings2{width: 90vw;}
 	.colums{display: inline-block;
-	        width: 20%}
+	        width: 200px}
 button{padding:12px;
        font-size:19px;
        border-radius: 12px;
        text-align: center;
        margin:11px;}
-.input{width: 4vw;
+.input{width: 14vw;
        height: 4vh;
        text-align: center;}
+
 
 	</style>
 
 </head>
 <body>
 <h2>ITEM ANALYSIS CALCULATOR</h2>
-No of Students: <input type="number" id="row" onchange="rows()" value="10"  class='input'>
+No of Students: <input type="number" id="row" onchange="rows()" value="10"  class='input'><br><br>
 Upper Archiever Least Score: <input type="number" id="class" value="11"  class='input'><br><br>
 
 <div id="parts">
