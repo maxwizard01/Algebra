@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>difficulty inx</title>
+	<style type="text/css">
+		tr,td{text-align: center;
+		     border-collapse: all;}
+	
+  #workings,#workings2{width: 90vw;}
+	.colums{display: inline-block;
+	        width: 20%}
+button{padding:12px;
+       font-size:19px;
+       border-radius: 12px;
+       text-align: center;
+       margin:11px;}
+.input{width: 4vw;
+       height: 4vh;
+       text-align: center;}
+
+	</style>
+
+</head>
+<body>
+<h2>ITEM ANALYSIS CALCULATOR</h2>
+No of Students: <input type="number" id="row" onchange="rows()" value="10"  class='input'>
+Upper Archiever Least Score: <input type="number" id="class" value="11"  class='input'><br><br>
+
+<div id="parts">
+	<table border="2">
+		<thead>
+			<tr>
+				<td>Items/Ppt</td><td>1</td><td>2</td><td>3</td><td>4</td>
+				<td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+				<td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+				<td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+				<td>20</td><td>Total</td>
+
+			</tr>
+		</thead>
+		<tbody id="tab"></tbody>
+	</table>
+<button onclick="ItemsDiff()">Difficulty</button>
+<button onclick="ItemsDiscrim()">Discrimination</button>
+
+</div>
+<h4>Itms difficulty</h4>
+<div id="workings">
+</div>
+
+<h4>Itms discrimination</h4>
+<div id="workings2">
+</div>
+<script type="text/javascript">
+summary=[]
+twoDArray=(row,col)=> Array.from({length:row},()=>Array(col).fill(0));
+
+var columnTotal=[]
+var matrix=[]
+var rowTotal=[]
+
+
+sum=(arr)=>arr.reduce((accumulator,currentValue)=>
+	accumulator+currentValue,0)
+
+Transpose=(arr)=> {
+	newarr=twoDArray(arr[0].length,arr.length)
+	for (var i = 0; i < newarr.length; i++) {
+		for(var j=0;j<newarr[0].length;j++){
+			newarr[i][j]=arr[j][i]
+		}
+	}
+	return newarr
+}
+
+
+columnSum=(arr)=>Transpose(arr).map((row)=>sum(row))
+rowSum=(arr)=>arr.map((row)=>sum(row))
+
+function rows() {
+	val= document.getElementById('row').value
+	matrix=twoDArray(val,20)
+	document.getElementById('tab').innerHTML=``
+	for (var i =1; i <= val; i++) {
+	document.getElementById('tab').innerHTML+=`<tr>
+			<td>Participant ${i}</td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},0"></td>
+			<td> <input type="checkbox" class='checkbox' id= "${i-1},1" ></td>
+			<td> <input type="checkbox" id="${i-1},2" class='checkbox'></td>
+			<td> <input type="checkbox" id="${i-1},3" class='checkbox'></td>
+			<td> <input type="checkbox" id="${i-1},4" class='checkbox'></td>
+			<td> <input type="checkbox" id="${i-1},5" class='checkbox'></td>
+			<td> <input type="checkbox" id="${i-1},6" class='checkbox'></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},7"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},8"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},9"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},10"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},11"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},12"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},13"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},14"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},15"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},16"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},17"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},18"></td>
+			<td> <input type="checkbox" class='checkbox' id="${i-1},19"></td>
+			
+			<td>00</td>
+		</tr>`}
+
+document.getElementById('tab').innerHTML+=`<tr id='sum'>
+<td>Total</td>
+<td>00</td><td>00</td><td>00</td><td>00</td><td>00</td>
+<td>00</td><td>00</td><td>00</td><td>00</td><td>00</td>
+<td>00</td><td>00</td><td>00</td><td>00</td><td>00</td>
+<td>00</td><td>00</td><td>00</td><td>00</td><td>00</td>
+<td>00</td>
+</tr>`
+
+allCheckBox=document.getElementsByClassName('checkbox')
+for (var i = allCheckBox.length - 1; i >= 0; i--) {
+ allCheckBox[i].addEventListener('change',e=>{
+ 	score=e.target.checked?1:0
+ 	index=e.target.id.split(',')
+ 	matrix[index[0]][index[1]]=score
+ 	Total=sum(matrix[index[0]])
+ 	e.target.parentElement.parentElement.lastElementChild.innerHTML=Total
+ 	console.log(matrix)
+allTd=document.getElementById('sum').children
+rowTotal=columnSum(Transpose(matrix))
+columnTotal=columnSum(matrix)
+console.log('matrix')
+console.log(columnTotal)
+
+for (var i =1;i<=allTd.length-2;i++){
+	allTd[i].innerHTML=columnTotal[i-1]
+}
+allTd[allTd.length-1].innerHTML=sum(columnTotal)
+})
+
+}
+	}
+
+	rows()
+
+
+function ItemsDiff(){
+	document.getElementById('workings').innerHTML=''
+	for (var i = 0; i <columnTotal.length; i++) {
+		N=columnTotal[i]
+		T= document.getElementById('row').value
+		p=N/T
+document.getElementById('workings').innerHTML+=
+	`<p class='colums'><b>Items ${i+1}</b><br>
+		N=${N}, T=${T}<br>
+		p=${N}/${T} =${p}<br>
+		p=${p}<br>
+	</p>`
+}
+}
+
+function Upper(ItemIndex,scoreClass) {
+	scoresDetails=Transpose(matrix)[ItemIndex]
+	upperArchiever=rowTotal.map((score,i)=>Number(score>=scoreClass && scoresDetails[i]>0))
+	return sum(upperArchiever)
+}
+
+
+function Lower(ItemIndex,scoreClass) {
+	scoresDetails=Transpose(matrix)[ItemIndex]
+	upperArchiever=rowTotal.map((score,i)=>Number(score<scoreClass && scoresDetails[i]>0))
+	return sum(upperArchiever)
+}
+
+function ItemsDiscrim(){
+	Class=document.getElementById('class').value
+	document.getElementById('workings2').innerHTML=''
+	for (var i = 0; i <columnTotal.length; i++) {
+		U=Upper(i,Class)
+		L=Lower(i,Class)
+		T= document.getElementById('row').value
+document.getElementById('workings2').innerHTML+=
+	`<p class='colums'><b>Items ${i+1}</b><br>
+		P<sub>u</sub> =${U}, P<sub>L</sub> =${U}, T=${T}<br>
+		D=(P<sub>u</sub> - P<sub>L</sub>)/(1/2 * T)<br>
+		D=(${U} - ${L})/(1/2 * ${T})<br>
+		D=(${U-L})/( ${1/2 *T})<br>
+		D=${(U-L)/(1/2 *T)}
+	</p>`
+}
+}
+</script>
+</body>
+</html>
